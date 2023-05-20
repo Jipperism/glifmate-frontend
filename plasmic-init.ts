@@ -1,10 +1,12 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { ConnectWalletButton } from "@/components/connect-wallet-button";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
       id: "rLycm7fJPyjpC5eVgPhFFv",
-      token: "bUdpfIVtp3vjoYBjjdT81thyjqS2DhqWbXXiGJmLcSS84ltNkzqxECePWiDjI9v30OZNi30ybk4P7d4n4mBw",
+      token:
+        "bUdpfIVtp3vjoYBjjdT81thyjqS2DhqWbXXiGJmLcSS84ltNkzqxECePWiDjI9v30OZNi30ybk4P7d4n4mBw",
     },
   ],
 
@@ -22,4 +24,9 @@ export const PLASMIC = initPlasmicLoader({
 // http://localhost:3000/plasmic-host).  See
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
-// PLASMIC.registerComponent(...);
+// Code component registrations
+
+PLASMIC.registerComponent(ConnectWalletButton, {
+  name: "ConnectWalletButton",
+  props: {},
+});

@@ -7,9 +7,12 @@ import {
 } from "@plasmicapp/loader-nextjs";
 import type { GetStaticPaths, GetStaticProps } from "next";
 
+import "@rainbow-me/rainbowkit/styles.css";
+
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
+import { WalletProvider } from "@/providers/WalletProvider";
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
@@ -29,14 +32,21 @@ export default function PlasmicLoaderPage(props: {
       pageParams={pageMeta.params}
       pageQuery={router.query}
     >
-      <PlasmicComponent component={pageMeta.displayName} />
+      <WalletProvider>
+        <PlasmicComponent component={pageMeta.displayName} />
+      </WalletProvider>
     </PlasmicRootProvider>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { catchall } = context.params ?? {};
-  const plasmicPath = typeof catchall === 'string' ? catchall : Array.isArray(catchall) ? `/${catchall.join('/')}` : '/';
+  const plasmicPath =
+    typeof catchall === "string"
+      ? catchall
+      : Array.isArray(catchall)
+      ? `/${catchall.join("/")}`
+      : "/";
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
   if (!plasmicData) {
     // non-Plasmic catch-all
@@ -55,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
   // Use revalidate if you want incremental static regeneration
   return { props: { plasmicData, queryCache }, revalidate: 60 };
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
@@ -67,4 +77,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     })),
     fallback: "blocking",
   };
-}
+};
