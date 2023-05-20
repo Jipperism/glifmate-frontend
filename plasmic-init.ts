@@ -1,7 +1,11 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import { ConnectWalletButton } from "@/components/connect-wallet-button";
-import { DepositForm } from "@/components/forms/deposit-form";
 
+import dynamic from "next/dynamic";
+import { ConnectWalletButton } from "@/components/connect-wallet-button";
+import { DepositModalButton } from "@/components/deposit-modal-button";
+const DepositForm = dynamic(() => import("@/components/forms/deposit-form"), {
+  ssr: false,
+});
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
@@ -35,5 +39,10 @@ PLASMIC.registerComponent(ConnectWalletButton, {
 
 PLASMIC.registerComponent(DepositForm, {
   name: "DepositForm",
+  props: {},
+});
+
+PLASMIC.registerComponent(DepositModalButton, {
+  name: "DepositModalButton",
   props: {},
 });

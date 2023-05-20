@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import { useAccount, useContractWrite } from "wagmi";
 import { PublicGoodsDonator__factory } from "@/contract-types";
-import { toBigInt } from "ethers";
+import { parseUnits, toBigInt } from "ethers";
+import { toast } from "react-toastify";
 
 export const DepositForm = () => {
   const {
@@ -16,10 +17,10 @@ export const DepositForm = () => {
     functionName: "deposit",
   });
 
-  const { address } = useAccount();
+  const { address, isConnecting } = useAccount();
 
-  const [depositAmount, setDepositAmount] = useState(0);
-  const [receiveAmount, setReceiveAmount] = useState(0);
+  const [depositAmount, setDepositAmount] = useState(1);
+  const [receiveAmount, setReceiveAmount] = useState(1);
 
   function onClear() {
     setDepositAmount(0);
@@ -27,7 +28,9 @@ export const DepositForm = () => {
   }
 
   const donationPercentage =
-    100 - Math.round((receiveAmount / depositAmount) * 100);
+    isNaN(receiveAmount) || isNaN(depositAmount) || depositAmount === 0
+      ? 0
+      : 100 - Math.round((receiveAmount / depositAmount) * 100);
 
   const donationPercentageClamped = Math.max(
     0,
@@ -38,16 +41,27 @@ export const DepositForm = () => {
     if (!address) {
       return;
     }
-    await deposit({
-      args: [
-        address,
-        toBigInt(depositAmount),
-        toBigInt(donationPercentageClamped),
-      ],
-    });
+    const depositAmountInWei = parseUnits(depositAmount.toString());
+    console.log(depositAmountInWei);
+    try {
+      await deposit({
+        args: [
+          address,
+          depositAmountInWei,
+          toBigInt(donationPercentageClamped),
+        ],
+      });
+    } catch (e) {
+      toast("Error depositing", {
+        type: "error",
+      });
+      console.error(e);
+    }
   }
 
-  const disabled = !address || isLoading;
+  const disabled = useMemo(() => {
+    return !address || isLoading || isConnecting;
+  }, [address, isLoading, isConnecting]);
 
   return (
     <form>
@@ -56,13 +70,8 @@ export const DepositForm = () => {
         <input
           disabled={disabled}
           type="number"
-          min={0}
           name="depositAmount"
-          value={depositAmount}
           onChange={(e) => {
-            if (e.target.value === "") {
-              return;
-            }
             setDepositAmount(e.target.valueAsNumber);
           }}
         />
@@ -74,7 +83,6 @@ export const DepositForm = () => {
           type="number"
           name="receiveAmount"
           max={depositAmount}
-          value={receiveAmount}
           onChange={(e) => setReceiveAmount(e.target.valueAsNumber)}
         />
       </label>
@@ -88,3 +96,5 @@ export const DepositForm = () => {
     </form>
   );
 };
+
+export default DepositForm;
