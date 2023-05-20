@@ -7,33 +7,12 @@ import {
 } from "@plasmicapp/loader-nextjs";
 import type { GetStaticPaths, GetStaticProps } from "next";
 
+import "@rainbow-me/rainbowkit/styles.css";
+
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
-
-import "@rainbow-me/rainbowkit/styles.css";
-
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
-
-const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
-  [publicProvider()]
-);
-
-const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
-  projectId: "YOUR_PROJECT_ID",
-  chains,
-});
-
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-});
+import { WalletProvider } from "@/providers/WalletProvider";
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
@@ -46,19 +25,17 @@ export default function PlasmicLoaderPage(props: {
   }
   const pageMeta = plasmicData.entryCompMetas[0];
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
-        <PlasmicRootProvider
-          loader={PLASMIC}
-          prefetchedData={plasmicData}
-          prefetchedQueryData={queryCache}
-          pageParams={pageMeta.params}
-          pageQuery={router.query}
-        >
-          <PlasmicComponent component={pageMeta.displayName} />
-        </PlasmicRootProvider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <PlasmicRootProvider
+      loader={PLASMIC}
+      prefetchedData={plasmicData}
+      prefetchedQueryData={queryCache}
+      pageParams={pageMeta.params}
+      pageQuery={router.query}
+    >
+      <WalletProvider>
+        <PlasmicComponent component={pageMeta.displayName} />
+      </WalletProvider>
+    </PlasmicRootProvider>
   );
 }
 
