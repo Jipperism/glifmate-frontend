@@ -11,7 +11,11 @@ export function DepositModalButton({ className }: ModalButtonProps) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <button className={className} onClick={() => setShowModal(true)}>
+      <button
+        style={{ cursor: "pointer" }}
+        className={className}
+        onClick={() => setShowModal(true)}
+      >
         Deposit
       </button>
       <ReactModal

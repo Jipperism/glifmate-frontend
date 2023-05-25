@@ -4,6 +4,7 @@ import { useAccount, useContractWrite } from "wagmi";
 import { PublicGoodsDonator__factory } from "@/contract-types";
 import { parseUnits, toBigInt } from "ethers";
 import { toast } from "react-toastify";
+import { PUBLIC_POOLTOKEN_ADDRESS } from "@/constants";
 
 export const DepositForm = () => {
   const {
@@ -12,7 +13,7 @@ export const DepositForm = () => {
     isSuccess,
     writeAsync: deposit,
   } = useContractWrite({
-    address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    address: PUBLIC_POOLTOKEN_ADDRESS,
     abi: PublicGoodsDonator__factory.abi,
     functionName: "deposit",
   });
