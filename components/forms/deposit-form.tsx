@@ -4,17 +4,15 @@ import { useAccount, useContractWrite } from "wagmi";
 import { PublicGoodsDonator__factory } from "@/contract-types";
 import { parseUnits, toBigInt } from "ethers";
 import { toast } from "react-toastify";
-import { PUBLIC_POOLTOKEN_ADDRESS } from "@/constants";
+
 import Button from "@/components/Button";
+import { usePrestakeAddress } from "@/hooks/getPrestakeAddress";
 
 export const DepositForm = () => {
-  const {
-    data,
-    isLoading,
-    isSuccess,
-    writeAsync: deposit,
-  } = useContractWrite({
-    address: PUBLIC_POOLTOKEN_ADDRESS,
+  const prestakeAddress = usePrestakeAddress();
+
+  const { isLoading, writeAsync: deposit } = useContractWrite({
+    address: prestakeAddress,
     abi: PublicGoodsDonator__factory.abi,
     functionName: "deposit",
   });
@@ -67,29 +65,33 @@ export const DepositForm = () => {
 
   return (
     <form>
-      <label>
-        Deposit
-        <input
-          disabled={disabled}
-          type="number"
-          value={depositAmount}
-          name="depositAmount"
-          onChange={(e) => {
-            setDepositAmount(e.target.valueAsNumber);
-          }}
-        />
-      </label>
-      <label>
-        Receive
-        <input
-          disabled={disabled}
-          type="number"
-          value={receiveAmount}
-          name="receiveAmount"
-          max={depositAmount}
-          onChange={(e) => setReceiveAmount(e.target.valueAsNumber)}
-        />
-      </label>
+      <div>
+        <label>
+          Deposit
+          <input
+            disabled={disabled}
+            type="number"
+            value={depositAmount}
+            name="depositAmount"
+            onChange={(e) => {
+              setDepositAmount(e.target.valueAsNumber);
+            }}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Receive
+          <input
+            disabled={disabled}
+            type="number"
+            value={receiveAmount}
+            name="receiveAmount"
+            max={depositAmount}
+            onChange={(e) => setReceiveAmount(e.target.valueAsNumber)}
+          />
+        </label>
+      </div>
       <h4>Donate: {donationPercentageClamped}%</h4>
 
       <div style={{ display: "flex" }}>

@@ -1,19 +1,11 @@
 import { useContractRead } from "wagmi";
-import { PUBLIC_GOODS_PRESTAKE_ADDRESS } from "@/constants";
 import { ethers } from "ethers";
+import { usePrestakeAddress } from "@/hooks/getPrestakeAddress";
 
 export const useTotalValueLocked = () => {
-  // TODO: use this hook to get the preStake address
-  // const { isLoading: isLoadingPrestakeAddress, data: prestakeAddress } =
-  //   useContractRead({
-  //     address: PUBLIC_GOODS_DONATOR_ADDRESS,
-  //     abi: PublicGoodsDonator__factory.abi,
-  //     functionName: "preStake",
-  //   });
-
-  // console.log(prestakeAddress);
+  const prestakeAddress = usePrestakeAddress();
   const { data } = useContractRead({
-    address: PUBLIC_GOODS_PRESTAKE_ADDRESS,
+    address: prestakeAddress,
     abi: [
       {
         inputs: [],
@@ -32,6 +24,5 @@ export const useTotalValueLocked = () => {
     functionName: "totalValueLocked",
     watch: true,
   });
-  const formatted = data ? data / ethers.WeiPerEther : undefined;
-  return formatted;
+  return data ? data / ethers.WeiPerEther : undefined;
 };
