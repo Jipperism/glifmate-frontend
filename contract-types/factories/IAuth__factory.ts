@@ -2,8 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
+import { Contract, Interface, type ContractRunner } from "ethers";
 import type { IAuth, IAuthInterface } from "../IAuth";
 
 const _abi = [
@@ -111,9 +110,9 @@ const _abi = [
 export class IAuth__factory {
   static readonly abi = _abi;
   static createInterface(): IAuthInterface {
-    return new utils.Interface(_abi) as IAuthInterface;
+    return new Interface(_abi) as IAuthInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): IAuth {
-    return new Contract(address, _abi, signerOrProvider) as IAuth;
+  static connect(address: string, runner?: ContractRunner | null): IAuth {
+    return new Contract(address, _abi, runner) as unknown as IAuth;
   }
 }
