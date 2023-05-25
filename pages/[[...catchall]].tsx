@@ -8,11 +8,16 @@ import {
 import type { GetStaticPaths, GetStaticProps } from "next";
 
 import "@rainbow-me/rainbowkit/styles.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
 import { WalletProvider } from "@/providers/WalletProvider";
+import { ToastContainer } from "react-toastify";
+import ReactModal from "react-modal";
+
+ReactModal.setAppElement("#__next");
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
@@ -34,6 +39,7 @@ export default function PlasmicLoaderPage(props: {
     >
       <WalletProvider>
         <PlasmicComponent component={pageMeta.displayName} />
+        <ToastContainer />
       </WalletProvider>
     </PlasmicRootProvider>
   );

@@ -1,11 +1,27 @@
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  localhost,
+  filecoinHyperspace,
+  filecoin,
+} from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import React from "react";
 
 const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
+  [
+    mainnet,
+    polygon,
+    optimism,
+    arbitrum,
+    localhost,
+    filecoin,
+    filecoinHyperspace,
+  ],
   [publicProvider()]
 );
 
