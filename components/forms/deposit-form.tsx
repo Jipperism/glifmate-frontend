@@ -6,15 +6,34 @@ import { toast } from "react-toastify";
 
 import Button from "@/components/Button";
 import { useContractAddresses } from "@/hooks/getAddresses";
-import DonationPoolABI from "@/abi/PublicGoodsABI";
 
 export const DepositForm = () => {
   const { PUBLIC_GOODS } = useContractAddresses();
   const { address, isConnecting } = useAccount();
 
+  //@ts-ignore
   const { isLoading, writeAsync: deposit } = useContractWrite({
     address: PUBLIC_GOODS as `0x${string}`,
-    abi: DonationPoolABI,
+    abi: [
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "recipient",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "donationPercent",
+            type: "uint256",
+          },
+        ],
+        name: "deposit",
+        outputs: [],
+        stateMutability: "payable",
+        type: "function",
+      },
+    ],
     functionName: "deposit",
   });
 
@@ -29,7 +48,7 @@ export const DepositForm = () => {
   const donationPercentage =
     isNaN(receiveAmount) || isNaN(depositAmount) || depositAmount === 0
       ? 0
-      : 100 - Math.round((receiveAmount / depositAmount) * 100);
+      : 1 - receiveAmount / depositAmount;
 
   const donationPercentageClamped = Math.max(
     0,
@@ -40,10 +59,17 @@ export const DepositForm = () => {
     if (!address) {
       return;
     }
+
     const depositAmountInWei = toBigInt(depositAmount) * ethers.WeiPerEther;
+
+    // Percentage should be (0 <= x <= 1) * ethers.WeiPerEther
+    const donationPercentageWei =
+      (toBigInt(donationPercentageClamped * 100) * ethers.WeiPerEther) /
+      toBigInt(100);
+
     try {
       await deposit({
-        args: [address, toBigInt(donationPercentageClamped)],
+        args: [address, donationPercentageWei],
         value: depositAmountInWei,
       });
     } catch (e) {
@@ -87,7 +113,7 @@ export const DepositForm = () => {
           />
         </label>
       </div>
-      <h4>Donate: {donationPercentageClamped}%</h4>
+      <h4>Donate: {donationPercentageClamped * 100}%</h4>
 
       <div style={{ display: "flex" }}>
         <Button onClick={onClear} isDisabled={disabled}>
