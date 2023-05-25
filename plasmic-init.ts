@@ -3,10 +3,25 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import dynamic from "next/dynamic";
 import { ConnectWalletButton } from "@/components/connect-wallet-button";
 import { DepositModalButton } from "@/components/deposit-modal-button";
-import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider";
 const DepositForm = dynamic(() => import("@/components/forms/deposit-form"), {
   ssr: false,
 });
+
+const TotalStakedValueProvider = dynamic(
+  () => import("@/components/data-providers/TotalStakedValueProvider"),
+  { ssr: false }
+);
+
+const WalletDataProvider = dynamic(
+  () => import("@/components/data-providers/WalletDataProvider"),
+  { ssr: false }
+);
+
+const HideIfWalletConnected = dynamic(
+  () => import("@/components/HideIfWalletConnected"),
+  { ssr: false }
+);
+
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
@@ -55,6 +70,27 @@ PLASMIC.registerComponent(TotalStakedValueProvider, {
   name: "TotalStakedValueProvider",
   importPath: "@/components/data-providers/TotalStakedValueProvider",
   providesData: true,
+  props: {
+    children: {
+      type: "slot",
+    },
+  },
+});
+
+PLASMIC.registerComponent(WalletDataProvider, {
+  name: "WalletDataProvider",
+  importPath: "@/components/data-providers/WalletDataProvider",
+  providesData: true,
+  props: {
+    children: {
+      type: "slot",
+    },
+  },
+});
+
+PLASMIC.registerComponent(HideIfWalletConnected, {
+  name: "HideIfWalletConnected",
+  importPath: "@/components/HideIfWalletConnected",
   props: {
     children: {
       type: "slot",
