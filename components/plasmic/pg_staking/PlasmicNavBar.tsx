@@ -126,11 +126,17 @@ function PlasmicNavBar__RenderFunc(props: {
             className={classNames(sty.img)}
             displayHeight={"auto" as const}
             displayMaxHeight={"none" as const}
-            displayMaxWidth={"100%" as const}
+            displayMaxWidth={"none" as const}
             displayMinHeight={"0" as const}
             displayMinWidth={"0" as const}
-            displayWidth={"auto" as const}
+            displayWidth={"60px" as const}
             loading={"lazy" as const}
+            src={{
+              src: "/plasmic/pg_staking/images/arcoPrimaryColorsvg.svg",
+              fullWidth: 216,
+              fullHeight: 150,
+              aspectRatio: 1.440994,
+            }}
           />
 
           <p.PlasmicLink
@@ -138,7 +144,7 @@ function PlasmicNavBar__RenderFunc(props: {
               projectcss.all,
               projectcss.a,
               projectcss.__wab_text,
-              sty.link__dd5H0
+              sty.link__gvcAq
             )}
             component={Link}
             href={`/about`}

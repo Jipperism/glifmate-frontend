@@ -1,6 +1,16 @@
 {
   "props": [
     {
+      "name": "Large",
+      "type": "fontsize",
+      "value": "32px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "id": "8nbRbOL4D"
+      }
+    },
+    {
       "name": "black 85",
       "type": "color",
       "value": "#000000BF",

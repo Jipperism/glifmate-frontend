@@ -5,6 +5,8 @@
   --plasmic-token-max-page-width: var(--token-OvRly4y3P);
   --token-gGQoVGJZg: #000000bf;
   --plasmic-token-black-85: var(--token-gGQoVGJZg);
+  --token-8nbRbOL4D: 32px;
+  --plasmic-token-large: var(--token-8nbRbOL4D);
 }
 
 .plasmic_tokens {

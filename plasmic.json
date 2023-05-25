@@ -210,6 +210,16 @@
           "id": "KVJO-MO5ld",
           "name": "TotalStakedValueProvider",
           "componentImportPath": "@/components/data-providers/TotalStakedValueProvider"
+        },
+        {
+          "id": "QBovGxWYvU",
+          "name": "WalletDataProvider",
+          "componentImportPath": "@/components/data-providers/WalletDataProvider"
+        },
+        {
+          "id": "x9FAUK0Cl_",
+          "name": "HideIfWalletConnected",
+          "componentImportPath": "@/components/HideIfWalletConnected"
         }
       ]
     }
