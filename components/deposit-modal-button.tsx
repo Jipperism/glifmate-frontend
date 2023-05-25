@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
+import Button from "@/components/Button";
 
 interface ModalButtonProps {
   className?: string;
@@ -11,13 +12,7 @@ export function DepositModalButton({ className }: ModalButtonProps) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <button
-        style={{ cursor: "pointer" }}
-        className={className}
-        onClick={() => setShowModal(true)}
-      >
-        Deposit
-      </button>
+      <Button onClick={() => setShowModal(true)}>Deposit</Button>
       <ReactModal
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
@@ -34,8 +29,7 @@ export function DepositModalButton({ className }: ModalButtonProps) {
             borderRadius: "20px",
           },
           overlay: {
-            backgroundColor: "black",
-            opacity: 0.75,
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
           },
         }}
       >

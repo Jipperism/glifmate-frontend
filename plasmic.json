@@ -1,0 +1,233 @@
+{
+  "platform": "nextjs",
+  "code": {
+    "lang": "ts",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+  },
+  "images": {
+    "scheme": "public-files",
+    "publicDir": "../public",
+    "publicUrlPrefix": "/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+      "projectApiToken": "bUdpfIVtp3vjoYBjjdT81thyjqS2DhqWbXXiGJmLcSS84ltNkzqxECePWiDjI9v30OZNi30ybk4P7d4n4mBw",
+      "projectName": "PG staking",
+      "version": "latest",
+      "cssFilePath": "plasmic/pg_staking/plasmic_pg_staking.module.css",
+      "components": [
+        {
+          "id": "kLiRdGmg5zv",
+          "name": "Footer",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicFooter.tsx",
+          "importSpec": {
+            "modulePath": "Footer.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicFooter.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "DVQmJDwc4r",
+          "name": "NavBar",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavBar.tsx",
+          "importSpec": {
+            "modulePath": "NavBar.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicNavBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "LRxRpZH-jJ",
+          "name": "DepositModalContent",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicDepositModalContent.tsx",
+          "importSpec": {
+            "modulePath": "DepositModalContent.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicDepositModalContent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "KZiUfPVLwuq",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "OeFBFuO34W6D",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "plasmic-pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "2E9DZPjHuax",
+          "name": "About",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicAbout.tsx",
+          "importSpec": {
+            "modulePath": "plasmic-pages/about.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicAbout.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "hDCtDazGctA",
+          "name": "FaQs",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicFaQs.tsx",
+          "importSpec": {
+            "modulePath": "plasmic-pages/faq.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicFaQs.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "u23Jt2pEJ7",
+          "name": "Deposit",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicDeposit.tsx",
+          "importSpec": {
+            "modulePath": "plasmic-pages/deposit.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicDeposit.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        }
+      ],
+      "icons": [
+        {
+          "id": "rfyvLwXz3cm",
+          "name": "SearchsvgIcon",
+          "moduleFilePath": "plasmic/pg_staking/icons/PlasmicIcon__Searchsvg.tsx"
+        },
+        {
+          "id": "ZJynSTynHR8",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/pg_staking/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "HpWGKnw3ZpM",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/pg_staking/icons/PlasmicIcon__Icon.tsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "zlLgLB3Sv3",
+          "name": "vector-line.svg",
+          "filePath": "../public/plasmic/pg_staking/images/vectorLinesvg.svg"
+        },
+        {
+          "id": "jCxhZrc73",
+          "name": "vector-line.svg 2",
+          "filePath": "../public/plasmic/pg_staking/images/vectorLinesvg2.svg"
+        },
+        {
+          "id": "tXAMiKVlyi",
+          "name": "vector-line.svg 3",
+          "filePath": "../public/plasmic/pg_staking/images/vectorLinesvg3.svg"
+        },
+        {
+          "id": "ihHjy4_vqV",
+          "name": "arco-primary-color.svg",
+          "filePath": "../public/plasmic/pg_staking/images/arcoPrimaryColorsvg.svg"
+        },
+        {
+          "id": "bmCm4rewM",
+          "name": "vector-line-dark.svg",
+          "filePath": "../public/plasmic/pg_staking/images/vectorLineDarksvg.svg"
+        }
+      ],
+      "indirect": false,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "anz0E9shXpLi1",
+          "name": "PlasmicHead",
+          "componentImportPath": "@plasmicapp/react-web"
+        },
+        {
+          "id": "9zDqG16aU0zLP",
+          "name": "Fetcher",
+          "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "aYoYQSYoB7",
+          "name": "ConnectWalletButton",
+          "componentImportPath": "@/components/connect-wallet-button"
+        },
+        {
+          "id": "jzMDyQ-x2A",
+          "name": "DepositForm",
+          "componentImportPath": "@/components/forms/deposit-form"
+        },
+        {
+          "id": "g43CnAoUer",
+          "name": "DepositModalButton",
+          "componentImportPath": "@/components/deposit-modal-button"
+        },
+        {
+          "id": "KVJO-MO5ld",
+          "name": "TotalStakedValueProvider",
+          "componentImportPath": "@/components/data-providers/TotalStakedValueProvider"
+        }
+      ]
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "qqPMw8o9H4jqN",
+        "name": "Screen",
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "contextFilePath": "plasmic/pg_staking/PlasmicGlobalVariant__Screen.tsx"
+      }
+    ]
+  },
+  "wrapPagesWithGlobalContexts": true,
+  "nextjsConfig": {
+    "pagesDir": "../pages"
+  },
+  "cliVersion": "0.1.285",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.285/dist/plasmic.schema.json"
+}

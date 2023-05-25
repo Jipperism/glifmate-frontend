@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "plasmic:sync": "plasmic sync",
+    "plasmic:watch": "plasmic watch"
   },
   "dependencies": {
     "@plasmicapp/loader-nextjs": "^1.0.280",
+    "@plasmicapp/react-web": "^0.2.220",
     "@rainbow-me/rainbowkit": "^1.0.0",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",

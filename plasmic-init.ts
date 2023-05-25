@@ -36,20 +36,24 @@ export const PLASMIC = initPlasmicLoader({
 PLASMIC.registerComponent(ConnectWalletButton, {
   name: "ConnectWalletButton",
   props: {},
+  importPath: "@/components/connect-wallet-button",
 });
 
 PLASMIC.registerComponent(DepositForm, {
   name: "DepositForm",
   props: {},
+  importPath: "@/components/forms/deposit-form",
 });
 
 PLASMIC.registerComponent(DepositModalButton, {
   name: "DepositModalButton",
   props: {},
+  importPath: "@/components/deposit-modal-button",
 });
 
 PLASMIC.registerComponent(TotalStakedValueProvider, {
   name: "TotalStakedValueProvider",
+  importPath: "@/components/data-providers/TotalStakedValueProvider",
   providesData: true,
   props: {
     children: {

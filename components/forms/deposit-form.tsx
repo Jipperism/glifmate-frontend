@@ -5,6 +5,7 @@ import { PublicGoodsDonator__factory } from "@/contract-types";
 import { parseUnits, toBigInt } from "ethers";
 import { toast } from "react-toastify";
 import { PUBLIC_POOLTOKEN_ADDRESS } from "@/constants";
+import Button from "@/components/Button";
 
 export const DepositForm = () => {
   const {
@@ -71,6 +72,7 @@ export const DepositForm = () => {
         <input
           disabled={disabled}
           type="number"
+          value={depositAmount}
           name="depositAmount"
           onChange={(e) => {
             setDepositAmount(e.target.valueAsNumber);
@@ -82,18 +84,25 @@ export const DepositForm = () => {
         <input
           disabled={disabled}
           type="number"
+          value={receiveAmount}
           name="receiveAmount"
           max={depositAmount}
           onChange={(e) => setReceiveAmount(e.target.valueAsNumber)}
         />
       </label>
       <h4>Donate: {donationPercentageClamped}%</h4>
-      <button type="button" disabled={disabled} onClick={onClear}>
-        Clear
-      </button>
-      <button disabled={disabled} type={"button"} onClick={onDeposit}>
-        Send
-      </button>
+
+      <div style={{ display: "flex" }}>
+        <Button
+          onClick={() => console.log("Clicked button")}
+          isDisabled={disabled}
+        >
+          Clear
+        </Button>
+        <Button isDisabled={disabled} type={"button"} onClick={onDeposit}>
+          Send
+        </Button>
+      </div>
     </form>
   );
 };

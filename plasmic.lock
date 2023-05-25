@@ -1,0 +1,144 @@
+{
+  "projects": [
+    {
+      "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+      "version": "latest",
+      "dependencies": {},
+      "lang": "ts",
+      "fileLocks": [
+        {
+          "type": "globalVariant",
+          "assetId": "qqPMw8o9H4jqN",
+          "checksum": "a869a6dc2deeecbc4808cf23d87e8de6"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "kLiRdGmg5zv",
+          "checksum": "7037aa28126b01538d1234a69d40f4ac"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "kLiRdGmg5zv",
+          "checksum": "7037aa28126b01538d1234a69d40f4ac"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "DVQmJDwc4r",
+          "checksum": "dedbf81ff34d4c047aae24810a853b58"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "DVQmJDwc4r",
+          "checksum": "dedbf81ff34d4c047aae24810a853b58"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "LRxRpZH-jJ",
+          "checksum": "74a7beb65a7927ae529f9fb4b0337c11"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "LRxRpZH-jJ",
+          "checksum": "74a7beb65a7927ae529f9fb4b0337c11"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "KZiUfPVLwuq",
+          "checksum": "a42a22de079d078218b92d658fa39a1c"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "KZiUfPVLwuq",
+          "checksum": "a42a22de079d078218b92d658fa39a1c"
+        },
+        {
+          "type": "icon",
+          "assetId": "rfyvLwXz3cm",
+          "checksum": "6337f74bc3f07026fd04a0f932c18b80"
+        },
+        {
+          "type": "icon",
+          "assetId": "ZJynSTynHR8",
+          "checksum": "4630199fbc8b00ff1e0f763f0fd9e38b"
+        },
+        {
+          "type": "icon",
+          "assetId": "HpWGKnw3ZpM",
+          "checksum": "d6854685b88acb382c6ecc344a35a681"
+        },
+        {
+          "type": "image",
+          "assetId": "zlLgLB3Sv3",
+          "checksum": "063b88ae192eb6b3ee819e1e55964c9e"
+        },
+        {
+          "type": "image",
+          "assetId": "jCxhZrc73",
+          "checksum": "ac2ad1f2c9db71bd4a8dfd78466b23e2"
+        },
+        {
+          "type": "image",
+          "assetId": "tXAMiKVlyi",
+          "checksum": "0fa2866e4c14e123f3f887e18d6074bf"
+        },
+        {
+          "type": "image",
+          "assetId": "ihHjy4_vqV",
+          "checksum": "394aca0add27098ab1d634332f8af98a"
+        },
+        {
+          "type": "image",
+          "assetId": "bmCm4rewM",
+          "checksum": "2b9323314df3daa1d17dc6c36550ccf7"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "OeFBFuO34W6D",
+          "checksum": "8cc9d2a604d9a4c84f0a0b786c2bcd86"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "OeFBFuO34W6D",
+          "checksum": "8cc9d2a604d9a4c84f0a0b786c2bcd86"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "2E9DZPjHuax",
+          "checksum": "d9d7133cc93a3beae23219d8d7b0f8b4"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "2E9DZPjHuax",
+          "checksum": "d9d7133cc93a3beae23219d8d7b0f8b4"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "hDCtDazGctA",
+          "checksum": "31ca127588fa776d3209bdf5e6175dae"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "hDCtDazGctA",
+          "checksum": "31ca127588fa776d3209bdf5e6175dae"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "u23Jt2pEJ7",
+          "checksum": "9ccb649623a1862b43764833da3aa49a"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "u23Jt2pEJ7",
+          "checksum": "9ccb649623a1862b43764833da3aa49a"
+        },
+        {
+          "assetId": "rLycm7fJPyjpC5eVgPhFFv",
+          "type": "projectCss",
+          "checksum": "a456263b521ccb310288c2ab8b827ff2"
+        }
+      ],
+      "codegenVersion": "0.0.1"
+    }
+  ],
+  "cliVersion": "0.1.285"
+}
