@@ -1,28 +1,15 @@
 import { useContractRead } from "wagmi";
-import { ethers } from "ethers";
-import { usePrestakeAddress } from "@/hooks/getPrestakeAddress";
+import { ethers, toBigInt } from "ethers";
+import { useContractAddresses } from "@/hooks/getAddresses";
+import preStakeABI from "@/abi/PreStakeABI";
 
 export const useTotalValueLocked = () => {
-  const prestakeAddress = usePrestakeAddress();
+  const { PRESTAKE } = useContractAddresses();
   const { data } = useContractRead({
-    address: prestakeAddress,
-    abi: [
-      {
-        inputs: [],
-        name: "totalValueLocked",
-        outputs: [
-          {
-            internalType: "uin256",
-            name: "",
-            type: "uint256",
-          },
-        ],
-        stateMutability: "view",
-        type: "function",
-      },
-    ],
+    address: PRESTAKE as `0x${string}`,
+    abi: preStakeABI,
     functionName: "totalValueLocked",
     watch: true,
   });
-  return data ? data / ethers.WeiPerEther : undefined;
+  return data ? toBigInt(data as string) / ethers.WeiPerEther : undefined;
 };

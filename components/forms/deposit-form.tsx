@@ -1,23 +1,22 @@
 import React, { useMemo, useState } from "react";
 
 import { useAccount, useContractWrite } from "wagmi";
-import { PublicGoodsDonator__factory } from "@/contract-types";
-import { parseUnits, toBigInt } from "ethers";
+import { ethers, toBigInt } from "ethers";
 import { toast } from "react-toastify";
 
 import Button from "@/components/Button";
-import { usePrestakeAddress } from "@/hooks/getPrestakeAddress";
+import { useContractAddresses } from "@/hooks/getAddresses";
+import DonationPoolABI from "@/abi/PublicGoodsABI";
 
 export const DepositForm = () => {
-  const prestakeAddress = usePrestakeAddress();
+  const { PUBLIC_GOODS } = useContractAddresses();
+  const { address, isConnecting } = useAccount();
 
   const { isLoading, writeAsync: deposit } = useContractWrite({
-    address: prestakeAddress,
-    abi: PublicGoodsDonator__factory.abi,
+    address: PUBLIC_GOODS as `0x${string}`,
+    abi: DonationPoolABI,
     functionName: "deposit",
   });
-
-  const { address, isConnecting } = useAccount();
 
   const [depositAmount, setDepositAmount] = useState(1);
   const [receiveAmount, setReceiveAmount] = useState(1);
@@ -41,15 +40,11 @@ export const DepositForm = () => {
     if (!address) {
       return;
     }
-    const depositAmountInWei = parseUnits(depositAmount.toString());
-    console.log(depositAmountInWei);
+    const depositAmountInWei = toBigInt(depositAmount) * ethers.WeiPerEther;
     try {
       await deposit({
-        args: [
-          address,
-          depositAmountInWei,
-          toBigInt(donationPercentageClamped),
-        ],
+        args: [address, toBigInt(donationPercentageClamped)],
+        value: depositAmountInWei,
       });
     } catch (e) {
       toast("Error depositing", {
@@ -95,10 +90,7 @@ export const DepositForm = () => {
       <h4>Donate: {donationPercentageClamped}%</h4>
 
       <div style={{ display: "flex" }}>
-        <Button
-          onClick={() => console.log("Clicked button")}
-          isDisabled={disabled}
-        >
+        <Button onClick={onClear} isDisabled={disabled}>
           Clear
         </Button>
         <Button isDisabled={disabled} type={"button"} onClick={onDeposit}>
