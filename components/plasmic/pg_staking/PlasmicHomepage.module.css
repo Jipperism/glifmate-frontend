@@ -39,7 +39,7 @@
   background: linear-gradient(
     0deg,
     #000000 3%,
-    #963d97 9%,
+    #963d97 4%,
     #e03a3e 32%,
     #963d97 62%,
     #56b9ff 89%
@@ -59,10 +59,23 @@
       #56b9ff 89%
     );
 }
-.navBar:global(.__wab_instance) {
+.navHomepage:global(.__wab_instance) {
   position: relative;
   width: 100%;
   min-width: 0;
+}
+.navHomepagedepositClicked:global(.__wab_instance) {
+  display: none;
+}
+.navHomepageClicked:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
+}
+.navHomepageClickeddepositClicked:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+  display: flex;
 }
 .freeBox__nj5YB {
   display: flex;
@@ -990,6 +1003,7 @@
   height: auto;
   max-width: 100%;
   font-size: 30px;
+  font-family: "Oxygen Mono";
 }
 .column__qSgU {
   display: flex;
@@ -1034,8 +1048,8 @@
   align-items: stretch;
   justify-content: flex-start;
   min-width: 0;
-  margin-left: calc(0px - 25px);
-  width: calc(100% + 25px);
+  margin-left: calc(0px - 50px);
+  width: calc(100% + 50px);
 }
 .freeBox__gPz63 > :global(.__wab_flex-container) > *,
 .freeBox__gPz63 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1045,16 +1059,16 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 25px;
+  margin-left: 50px;
 }
 .img___9V8Pq {
   position: relative;
   object-fit: cover;
   max-width: 100%;
   width: 8px;
-  height: 953px;
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 1;
+  max-height: 1115px;
 }
 .img___9V8Pq > picture > img {
   object-fit: cover;
@@ -1064,7 +1078,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img___9V8Pq {
-    height: 1270px;
+    max-height: 1511px;
   }
 }
 .freeBox__jIdGo {
@@ -1109,8 +1123,8 @@
   align-items: flex-start;
   justify-content: flex-start;
   min-width: 0;
-  margin-top: calc(0px - 35px);
-  height: calc(100% + 35px);
+  margin-top: calc(0px - 50px);
+  height: calc(100% + 50px);
 }
 .freeBox__sPaS > :global(.__wab_flex-container) > *,
 .freeBox__sPaS > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1120,7 +1134,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-top: 35px;
+  margin-top: 50px;
 }
 .h2___1HlnD {
   width: 100%;
@@ -1140,7 +1154,7 @@
 }
 .freeBox__cTvBw > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
@@ -1157,17 +1171,17 @@
 }
 .img__dXwfA {
   position: relative;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
   width: 80px;
   height: 80px;
   flex-shrink: 0;
 }
 .img__dXwfA > picture > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .img__dXwfA > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .h4__iJyM {
   width: auto;
@@ -1186,7 +1200,7 @@
 }
 .freeBox__ioIvD > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
@@ -1203,17 +1217,17 @@
 }
 .img__uriZ {
   position: relative;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
   width: 80px;
   height: 80px;
   flex-shrink: 0;
 }
 .img__uriZ > picture > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .img__uriZ > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .h4__cbnj3 {
   width: auto;
@@ -1232,7 +1246,7 @@
 }
 .freeBox__oyYr9 > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
@@ -1249,17 +1263,17 @@
 }
 .img__lnBz4 {
   position: relative;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
   width: 80px;
   height: 80px;
   flex-shrink: 0;
 }
 .img__lnBz4 > picture > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .img__lnBz4 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .h4__tQhr {
   width: auto;
@@ -1309,4 +1323,15 @@
 }
 .footer:global(.__wab_instance) {
   position: relative;
+}
+.footerdepositClicked:global(.__wab_instance) {
+  display: none;
+}
+.footerClicked:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
+}
+.footerClickeddepositClicked:global(.__wab_instance) {
+  display: flex;
 }

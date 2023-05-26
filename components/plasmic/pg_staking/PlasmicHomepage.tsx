@@ -36,12 +36,14 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavBar from "../../NavBar"; // plasmic-import: DVQmJDwc4r/component
+import NavHomepage from "../../NavHomepage"; // plasmic-import: DVQmJDwc4r/component
+import NavHomepageClicked from "../../NavHomepageClicked"; // plasmic-import: RXe4ilcxbG/component
 import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
 import DepositModalContent from "../../DepositModalContent"; // plasmic-import: LRxRpZH-jJ/component
 import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
 import { DepositModalButton } from "@/components/deposit-modal-button"; // plasmic-import: g43CnAoUer/codeComponent
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
+import FooterClicked from "../../FooterClicked"; // plasmic-import: BmAm7vNSRg/component
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
@@ -70,7 +72,8 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
-  navBar?: p.Flex<typeof NavBar>;
+  navHomepage?: p.Flex<typeof NavHomepage>;
+  navHomepageClicked?: p.Flex<typeof NavHomepageClicked>;
   h1?: p.Flex<"h1">;
   totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   depositModalContent?: p.Flex<typeof DepositModalContent>;
@@ -79,6 +82,7 @@ export type PlasmicHomepage__OverridesType = {
   depositModalButton?: p.Flex<typeof DepositModalButton>;
   columns?: p.Flex<"div">;
   footer?: p.Flex<typeof Footer>;
+  footerClicked?: p.Flex<typeof FooterClicked>;
 };
 
 export interface DefaultHomepageProps {}
@@ -117,7 +121,9 @@ function PlasmicHomepage__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
+
   const stateSpecs = React.useMemo(
     () => [
       {
@@ -177,18 +183,44 @@ function PlasmicHomepage__RenderFunc(props: {
               ),
             })}
           >
-            <NavBar
-              data-plasmic-name={"navBar"}
-              data-plasmic-override={overrides.navBar}
-              className={classNames("__wab_instance", sty.navBar, {
-                [sty.navBardepositClicked]: hasVariant(
-                  $state,
-                  "depositClicked",
-                  "depositClicked"
-                ),
-              })}
-            />
-
+            {(
+              hasVariant($state, "depositClicked", "depositClicked")
+                ? true
+                : true
+            ) ? (
+              <NavHomepage
+                data-plasmic-name={"navHomepage"}
+                data-plasmic-override={overrides.navHomepage}
+                className={classNames("__wab_instance", sty.navHomepage, {
+                  [sty.navHomepagedepositClicked]: hasVariant(
+                    $state,
+                    "depositClicked",
+                    "depositClicked"
+                  ),
+                })}
+              />
+            ) : null}
+            {(
+              hasVariant($state, "depositClicked", "depositClicked")
+                ? true
+                : true
+            ) ? (
+              <NavHomepageClicked
+                data-plasmic-name={"navHomepageClicked"}
+                data-plasmic-override={overrides.navHomepageClicked}
+                className={classNames(
+                  "__wab_instance",
+                  sty.navHomepageClicked,
+                  {
+                    [sty.navHomepageClickeddepositClicked]: hasVariant(
+                      $state,
+                      "depositClicked",
+                      "depositClicked"
+                    ),
+                  }
+                )}
+              />
+            ) : null}
             <div
               className={classNames(projectcss.all, sty.freeBox__nj5YB, {
                 [sty.freeBoxdepositClicked__nj5YBJ31I]: hasVariant(
@@ -248,7 +280,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.h3___6EDmk
                       )}
                     >
-                      {"Trusted by the Arcological Swiss Association"}
+                      {
+                        "Trusted by Glif, Protocol Labs and Acrological Association"
+                      }
                     </h3>
                     <TotalStakedValueProvider
                       data-plasmic-name={"totalStakedValueProvider"}
@@ -945,7 +979,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   data-plasmic-override={overrides.depositModalButton}
                   className={classNames(
                     "__wab_instance",
-                    sty.depositModalButton
+                    sty.depositModalButton,
+                    {
+                      [sty.depositModalButtondepositClicked]: hasVariant(
+                        $state,
+                        "depositClicked",
+                        "depositClicked"
+                      ),
+                    }
                   )}
                 />
               </p.Stack>
@@ -1044,12 +1085,12 @@ function PlasmicHomepage__RenderFunc(props: {
                               "depositClicked"
                             ),
                           })}
-                          displayHeight={
+                          displayHeight={"auto" as const}
+                          displayMaxHeight={
                             hasVariant(globalVariants, "screen", "mobileOnly")
-                              ? ("1270px" as const)
-                              : ("953px" as const)
+                              ? ("1511px" as const)
+                              : ("1115px" as const)
                           }
-                          displayMaxHeight={"none" as const}
                           displayMaxWidth={"100%" as const}
                           displayMinHeight={"0" as const}
                           displayMinWidth={"0" as const}
@@ -1115,7 +1156,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__dXwfA)}
+                                      className={classNames(sty.img__dXwfA, {
+                                        [sty.imgdepositClicked__dXwfAJ31I]:
+                                          hasVariant(
+                                            $state,
+                                            "depositClicked",
+                                            "depositClicked"
+                                          ),
+                                      })}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1123,6 +1171,25 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
+                                      src={
+                                        hasVariant(
+                                          $state,
+                                          "depositClicked",
+                                          "depositClicked"
+                                        )
+                                          ? {
+                                              src: "/plasmic/pg_staking/images/_1Darkenedsvg.svg",
+                                              fullWidth: 101,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.673077,
+                                            }
+                                          : {
+                                              src: "/plasmic/pg_staking/images/_1Svg.svg",
+                                              fullWidth: 101,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.673077,
+                                            }
+                                      }
                                     />
 
                                     <h4
@@ -1150,7 +1217,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__uriZ)}
+                                      className={classNames(sty.img__uriZ, {
+                                        [sty.imgdepositClicked__uriZJ31I]:
+                                          hasVariant(
+                                            $state,
+                                            "depositClicked",
+                                            "depositClicked"
+                                          ),
+                                      })}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1158,6 +1232,25 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
+                                      src={
+                                        hasVariant(
+                                          $state,
+                                          "depositClicked",
+                                          "depositClicked"
+                                        )
+                                          ? {
+                                              src: "/plasmic/pg_staking/images/_2Darkenedsvg.svg",
+                                              fullWidth: 109,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.72381,
+                                            }
+                                          : {
+                                              src: "/plasmic/pg_staking/images/_2Svg.svg",
+                                              fullWidth: 109,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.72381,
+                                            }
+                                      }
                                     />
 
                                     <h4
@@ -1183,7 +1276,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__lnBz4)}
+                                      className={classNames(sty.img__lnBz4, {
+                                        [sty.imgdepositClicked__lnBz4J31I]:
+                                          hasVariant(
+                                            $state,
+                                            "depositClicked",
+                                            "depositClicked"
+                                          ),
+                                      })}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1191,6 +1291,25 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
+                                      src={
+                                        hasVariant(
+                                          $state,
+                                          "depositClicked",
+                                          "depositClicked"
+                                        )
+                                          ? {
+                                              src: "/plasmic/pg_staking/images/_3Darkenedsvg.svg",
+                                              fullWidth: 108,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.719626,
+                                            }
+                                          : {
+                                              src: "/plasmic/pg_staking/images/_3Svg.svg",
+                                              fullWidth: 108,
+                                              fullHeight: 150,
+                                              aspectRatio: 0.719626,
+                                            }
+                                      }
                                     />
 
                                     <h4
@@ -1248,17 +1367,40 @@ function PlasmicHomepage__RenderFunc(props: {
                 </p.Stack>
               </p.Stack>
             </div>
-            <Footer
-              data-plasmic-name={"footer"}
-              data-plasmic-override={overrides.footer}
-              className={classNames("__wab_instance", sty.footer, {
-                [sty.footerdepositClicked]: hasVariant(
-                  $state,
-                  "depositClicked",
-                  "depositClicked"
-                ),
-              })}
-            />
+            {(
+              hasVariant($state, "depositClicked", "depositClicked")
+                ? true
+                : true
+            ) ? (
+              <Footer
+                data-plasmic-name={"footer"}
+                data-plasmic-override={overrides.footer}
+                className={classNames("__wab_instance", sty.footer, {
+                  [sty.footerdepositClicked]: hasVariant(
+                    $state,
+                    "depositClicked",
+                    "depositClicked"
+                  ),
+                })}
+              />
+            ) : null}
+            {(
+              hasVariant($state, "depositClicked", "depositClicked")
+                ? true
+                : true
+            ) ? (
+              <FooterClicked
+                data-plasmic-name={"footerClicked"}
+                data-plasmic-override={overrides.footerClicked}
+                className={classNames("__wab_instance", sty.footerClicked, {
+                  [sty.footerClickeddepositClicked]: hasVariant(
+                    $state,
+                    "depositClicked",
+                    "depositClicked"
+                  ),
+                })}
+              />
+            ) : null}
           </div>
         </div>
       </div>
@@ -1269,7 +1411,8 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "navBar",
+    "navHomepage",
+    "navHomepageClicked",
     "h1",
     "totalStakedValueProvider",
     "depositModalContent",
@@ -1278,9 +1421,11 @@ const PlasmicDescendants = {
     "depositModalButton",
     "columns",
     "footer",
+    "footerClicked",
   ],
 
-  navBar: ["navBar"],
+  navHomepage: ["navHomepage"],
+  navHomepageClicked: ["navHomepageClicked"],
   h1: ["h1"],
   totalStakedValueProvider: ["totalStakedValueProvider"],
   depositModalContent: ["depositModalContent"],
@@ -1289,13 +1434,15 @@ const PlasmicDescendants = {
   depositModalButton: ["depositModalButton"],
   columns: ["columns"],
   footer: ["footer"],
+  footerClicked: ["footerClicked"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navBar: typeof NavBar;
+  navHomepage: typeof NavHomepage;
+  navHomepageClicked: typeof NavHomepageClicked;
   h1: "h1";
   totalStakedValueProvider: typeof TotalStakedValueProvider;
   depositModalContent: typeof DepositModalContent;
@@ -1304,6 +1451,7 @@ type NodeDefaultElementType = {
   depositModalButton: typeof DepositModalButton;
   columns: "div";
   footer: typeof Footer;
+  footerClicked: typeof FooterClicked;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1367,7 +1515,8 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navBar: makeNodeComponent("navBar"),
+    navHomepage: makeNodeComponent("navHomepage"),
+    navHomepageClicked: makeNodeComponent("navHomepageClicked"),
     h1: makeNodeComponent("h1"),
     totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     depositModalContent: makeNodeComponent("depositModalContent"),
@@ -1376,6 +1525,7 @@ export const PlasmicHomepage = Object.assign(
     depositModalButton: makeNodeComponent("depositModalButton"),
     columns: makeNodeComponent("columns"),
     footer: makeNodeComponent("footer"),
+    footerClicked: makeNodeComponent("footerClicked"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

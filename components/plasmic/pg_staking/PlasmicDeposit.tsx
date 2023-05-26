@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavBar from "../../NavBar"; // plasmic-import: DVQmJDwc4r/component
+import NavHomepage from "../../NavHomepage"; // plasmic-import: DVQmJDwc4r/component
 import { DepositForm } from "@/components/forms/deposit-form"; // plasmic-import: jzMDyQ-x2A/codeComponent
 import { DepositModalButton } from "@/components/deposit-modal-button"; // plasmic-import: g43CnAoUer/codeComponent
 
@@ -56,7 +56,7 @@ export const PlasmicDeposit__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicDeposit__OverridesType = {
   root?: p.Flex<"div">;
-  navBar?: p.Flex<typeof NavBar>;
+  navHomepage?: p.Flex<typeof NavHomepage>;
   depositForm?: p.Flex<typeof DepositForm>;
   depositModalButton?: p.Flex<typeof DepositModalButton>;
 };
@@ -97,6 +97,7 @@ function PlasmicDeposit__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -138,10 +139,10 @@ function PlasmicDeposit__RenderFunc(props: {
             sty.root
           )}
         >
-          <NavBar
-            data-plasmic-name={"navBar"}
-            data-plasmic-override={overrides.navBar}
-            className={classNames("__wab_instance", sty.navBar)}
+          <NavHomepage
+            data-plasmic-name={"navHomepage"}
+            data-plasmic-override={overrides.navHomepage}
+            className={classNames("__wab_instance", sty.navHomepage)}
           />
 
           <DepositForm
@@ -162,8 +163,8 @@ function PlasmicDeposit__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navBar", "depositForm", "depositModalButton"],
-  navBar: ["navBar"],
+  root: ["root", "navHomepage", "depositForm", "depositModalButton"],
+  navHomepage: ["navHomepage"],
   depositForm: ["depositForm"],
   depositModalButton: ["depositModalButton"],
 } as const;
@@ -172,7 +173,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navBar: typeof NavBar;
+  navHomepage: typeof NavHomepage;
   depositForm: typeof DepositForm;
   depositModalButton: typeof DepositModalButton;
 };
@@ -238,7 +239,7 @@ export const PlasmicDeposit = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navBar: makeNodeComponent("navBar"),
+    navHomepage: makeNodeComponent("navHomepage"),
     depositForm: makeNodeComponent("depositForm"),
     depositModalButton: makeNodeComponent("depositModalButton"),
 

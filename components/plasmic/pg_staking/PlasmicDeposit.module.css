@@ -8,6 +8,15 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
+  background: linear-gradient(
+      0deg,
+      #000000 0%,
+      #963d97 6%,
+      #e03a3e 47%,
+      #963d97 79%,
+      #56b9ff 100%
+    )
+    0% 0% / 100% 100% repeat;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -21,7 +30,7 @@
 :where(.root > *) {
   grid-column: 4;
 }
-.navBar:global(.__wab_instance) {
+.navHomepage:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -29,6 +38,7 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
+  color: #535353;
 }
 .depositModalButton:global(.__wab_instance) {
   max-width: 100%;

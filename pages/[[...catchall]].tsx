@@ -17,6 +17,8 @@ import { WalletProvider } from "@/providers/WalletProvider";
 import { ToastContainer } from "react-toastify";
 import ReactModal from "react-modal";
 
+import { ChakraProvider } from "@chakra-ui/react";
+
 ReactModal.setAppElement("#__next");
 
 export default function PlasmicLoaderPage(props: {
@@ -37,10 +39,12 @@ export default function PlasmicLoaderPage(props: {
       pageParams={pageMeta.params}
       pageQuery={router.query}
     >
-      <WalletProvider>
-        <PlasmicComponent component={pageMeta.displayName} />
-        <ToastContainer />
-      </WalletProvider>
+      <ChakraProvider>
+        <WalletProvider>
+          <PlasmicComponent component={pageMeta.displayName} />
+          <ToastContainer />
+        </WalletProvider>
+      </ChakraProvider>
     </PlasmicRootProvider>
   );
 }

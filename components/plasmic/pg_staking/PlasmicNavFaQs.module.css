@@ -1,0 +1,128 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  padding: 0px;
+}
+.freeBox___4GjPz {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-right: 0px;
+  max-width: var(--token-OvRly4y3P);
+  min-width: 0;
+  padding: 50px 10px;
+}
+.freeBox___4GjPz > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.freeBox___4GjPz > :global(.__wab_flex-container) > *,
+.freeBox___4GjPz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___4GjPz > :global(.__wab_flex-container) > picture > img,
+.freeBox___4GjPz
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___4GjPz {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___4GjPz > :global(.__wab_flex-container) {
+    flex-direction: column;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 25px);
+    height: calc(100% + 25px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___4GjPz > :global(.__wab_flex-container) > *,
+  .freeBox___4GjPz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox___4GjPz > :global(.__wab_flex-container) > picture > img,
+  .freeBox___4GjPz
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 25px;
+  }
+}
+.freeBox__tvLkT {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 80px;
+  padding: 0px;
+}
+.freeBox__tvLkT > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 25px);
+  width: calc(100% + 25px);
+}
+.freeBox__tvLkT > :global(.__wab_flex-container) > *,
+.freeBox__tvLkT > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__tvLkT > :global(.__wab_flex-container) > picture > img,
+.freeBox__tvLkT
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 25px;
+}
+.img {
+  position: relative;
+  object-fit: fill;
+  flex-shrink: 0;
+  height: 50px;
+}
+.img > picture > img {
+  object-fit: fill;
+}
+.img > :global(.__wab_img-spacer) > img {
+  object-fit: fill;
+}
+.link__hgfRd {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000000;
+  position: relative;
+}
+.link__cbLba {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000000;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #f2f2f2;
+}
+.connectWalletButton:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}

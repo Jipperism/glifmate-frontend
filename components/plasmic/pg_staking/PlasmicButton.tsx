@@ -180,7 +180,9 @@ function PlasmicButton__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
+
   const stateSpecs = React.useMemo(
     () => [
       {
@@ -220,7 +222,6 @@ function PlasmicButton__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.color,
       },
     ],
-
     [$props, $ctx]
   );
   const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
@@ -663,7 +664,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicButton__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

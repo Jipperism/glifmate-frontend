@@ -36,7 +36,11 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
+import NavAbout from "../../NavAbout"; // plasmic-import: dFhBY5srv5/component
+import ConnectWalletButton from "../../ConnectWalletButton"; // plasmic-import: kvF1fFLi7E/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
+
+import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -54,10 +58,10 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  button?: p.Flex<"button">;
+  navAbout?: p.Flex<typeof NavAbout>;
+  connectWalletButton?: p.Flex<typeof ConnectWalletButton>;
   h1?: p.Flex<"h1">;
-  h3?: p.Flex<"h3">;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
   footer?: p.Flex<typeof Footer>;
 };
 
@@ -97,7 +101,12 @@ function PlasmicAbout__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqqPMw8O9H4JqN(),
+  });
 
   return (
     <React.Fragment>
@@ -125,67 +134,33 @@ function PlasmicAbout__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__yc5Xq)}>
-            <div className={classNames(projectcss.all, sty.freeBox__nBtj0)}>
-              <div className={classNames(projectcss.all, sty.freeBox__ppd7N)}>
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___2U0R8)}
-                >
-                  <p.PlasmicImg
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"auto" as const}
-                    displayMaxHeight={"none" as const}
-                    displayMaxWidth={"100%" as const}
-                    displayMinHeight={"0" as const}
-                    displayMinWidth={"0" as const}
-                    displayWidth={"auto" as const}
-                    loading={"lazy" as const}
-                  />
+            <NavAbout
+              data-plasmic-name={"navAbout"}
+              data-plasmic-override={overrides.navAbout}
+              className={classNames("__wab_instance", sty.navAbout)}
+            />
 
-                  <h5
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h5,
-                      projectcss.__wab_text,
-                      sty.h5__itAzO
-                    )}
-                  >
-                    {"ABOUT"}
-                  </h5>
-                  <h5
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h5,
-                      projectcss.__wab_text,
-                      sty.h5___04WH
-                    )}
-                  >
-                    {"FAQs"}
-                  </h5>
-                </p.Stack>
+            <div className={classNames(projectcss.all, sty.freeBox__nBtj0)}>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ppd7N)}
+              >
                 <p.Stack
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__gXxzS)}
                 >
-                  <button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
+                  <ConnectWalletButton
+                    data-plasmic-name={"connectWalletButton"}
+                    data-plasmic-override={overrides.connectWalletButton}
                     className={classNames(
-                      projectcss.all,
-                      projectcss.button,
-                      projectcss.__wab_text,
-                      sty.button
+                      "__wab_instance",
+                      sty.connectWalletButton
                     )}
-                  >
-                    {"CONNECT WALLET"}
-                  </button>
+                  />
                 </p.Stack>
-              </div>
+              </p.Stack>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__p2X1)}>
               <p.Stack
@@ -212,13 +187,11 @@ function PlasmicAbout__RenderFunc(props: {
                       {"Public Goods Staking"}
                     </h1>
                     <h3
-                      data-plasmic-name={"h3"}
-                      data-plasmic-override={overrides.h3}
                       className={classNames(
                         projectcss.all,
                         projectcss.h3,
                         projectcss.__wab_text,
-                        sty.h3
+                        sty.h3___5SIxX
                       )}
                     >
                       {"brought to you by Arcological Association and Glif "}
@@ -237,16 +210,92 @@ function PlasmicAbout__RenderFunc(props: {
                     "By leasing/staking FIL, you get a return on your bags and you have the opportunity to support the funding of core infrastructure, tooling and implementations with zero loss of your initial funds. By giving a percentage of awards away we create a network effect- by funding core projects, the ecosystem gains more developers accelerating development, this brings in more apps and more users- and we attract more developers (and more external funders) and the cycle expands. "
                   }
                 </h4>
-                <h4
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h4,
-                    projectcss.__wab_text,
-                    sty.h4__ggkz6
-                  )}
-                >
-                  {""}
-                </h4>
+                {true ? (
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__p2DXj)}
+                  >
+                    <h3
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h3,
+                        projectcss.__wab_text,
+                        sty.h3__pmUvj
+                      )}
+                    >
+                      {"Glif"}
+                    </h3>
+                    <h4
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h4,
+                        projectcss.__wab_text,
+                        sty.h4__dVGu
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>
+                          {
+                            "The Swiss Army Knife of Filecoin DeFi community, PG staking was co-developed with GLIF Pools. "
+                          }
+                        </React.Fragment>
+                        {
+                          <p.PlasmicLink
+                            data-plasmic-name={"link"}
+                            data-plasmic-override={overrides.link}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              projectcss.__wab_text,
+                              projectcss.plasmic_default__inline,
+                              sty.link
+                            )}
+                            component={Link}
+                            href={"https://www.glif.io/" as const}
+                            platform={"nextjs"}
+                          >
+                            {"GLIF"}
+                          </p.PlasmicLink>
+                        }
+
+                        <React.Fragment>
+                          {" is Filecoin’s premier staking protocol."}
+                        </React.Fragment>
+                      </React.Fragment>
+                    </h4>
+                  </p.Stack>
+                ) : null}
+                {true ? (
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___8Jdkg)}
+                  >
+                    <h3
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h3,
+                        projectcss.__wab_text,
+                        sty.h3__uiHvU
+                      )}
+                    >
+                      {"Acrological Association"}
+                    </h3>
+                    <h4
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h4,
+                        projectcss.__wab_text,
+                        sty.h4__swswl
+                      )}
+                    >
+                      {
+                        "The Arcological Association (ASA) supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological’s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
+                      }
+                    </h4>
+                  </p.Stack>
+                ) : null}
               </p.Stack>
             </div>
             <Footer
@@ -262,11 +311,11 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "button", "h1", "h3", "footer"],
-  img: ["img"],
-  button: ["button"],
+  root: ["root", "navAbout", "connectWalletButton", "h1", "link", "footer"],
+  navAbout: ["navAbout"],
+  connectWalletButton: ["connectWalletButton"],
   h1: ["h1"],
-  h3: ["h3"],
+  link: ["link"],
   footer: ["footer"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -274,10 +323,10 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof p.PlasmicImg;
-  button: "button";
+  navAbout: typeof NavAbout;
+  connectWalletButton: typeof ConnectWalletButton;
   h1: "h1";
-  h3: "h3";
+  link: "a";
   footer: typeof Footer;
 };
 
@@ -342,10 +391,10 @@ export const PlasmicAbout = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
-    button: makeNodeComponent("button"),
+    navAbout: makeNodeComponent("navAbout"),
+    connectWalletButton: makeNodeComponent("connectWalletButton"),
     h1: makeNodeComponent("h1"),
-    h3: makeNodeComponent("h3"),
+    link: makeNodeComponent("link"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicAbout

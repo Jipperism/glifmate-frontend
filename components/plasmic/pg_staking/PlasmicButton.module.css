@@ -9,7 +9,7 @@
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.1s;
   border-radius: 100px;
-  padding: 20px 50px;
+  padding: 10px 20px;
   border-width: 0px;
 }
 .root > :global(.__wab_flex-container) {
@@ -261,7 +261,7 @@
   color: #000000;
   font-weight: 500;
   white-space: pre;
-  font-size: 40px;
+  font-size: 24px;
 }
 .slotTargetChildrencolor_green {
   color: #ffffff;

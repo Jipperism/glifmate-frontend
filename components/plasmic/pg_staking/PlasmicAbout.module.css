@@ -33,10 +33,24 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: none;
+  background: linear-gradient(
+      0deg,
+      #000000 0%,
+      #963d97 8%,
+      #e03a3e 44%,
+      #963d97 79%,
+      #56b9ff 100%
+    )
+    0% 0% / 100% 100% repeat;
   grid-column-start: 1;
   grid-column-end: -1;
   padding: 0px;
+}
+.navAbout:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__nBtj0 {
   display: flex;
@@ -48,69 +62,57 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 0px;
+  padding: 50px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__nBtj0 {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .freeBox__ppd7N {
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
   height: auto;
   max-width: var(--token-OvRly4y3P);
   min-width: 0;
   padding: 8px;
 }
-.freeBox___2U0R8 {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  padding: 0px;
-}
-.freeBox___2U0R8 > :global(.__wab_flex-container) {
+.freeBox__ppd7N > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  margin-left: calc(0px - 25px);
-  width: calc(100% + 25px);
+  justify-content: flex-end;
+  min-width: 0;
 }
-.freeBox___2U0R8 > :global(.__wab_flex-container) > *,
-.freeBox___2U0R8 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox___2U0R8 > :global(.__wab_flex-container) > picture > img,
-.freeBox___2U0R8
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 25px;
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ppd7N {
+    display: flex;
+    flex-direction: column;
+  }
 }
-.img {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ppd7N > :global(.__wab_flex-container) {
+    flex-direction: column;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 50px);
+    height: calc(100% + 50px);
+  }
 }
-.img > picture > img {
-  object-fit: cover;
-}
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
-.h5__itAzO {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  background: #26e53b;
-}
-.h5___04WH {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ppd7N > :global(.__wab_flex-container) > *,
+  .freeBox__ppd7N > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__ppd7N > :global(.__wab_flex-container) > picture > img,
+  .freeBox__ppd7N
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 50px;
+  }
 }
 .freeBox__gXxzS {
   display: flex;
@@ -138,15 +140,8 @@
   > img {
   margin-left: 25px;
 }
-.button {
+.connectWalletButton:global(.__wab_instance) {
   position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  font-weight: 600;
-  font-size: 20px;
-  color: #000000;
-  padding: 10px;
 }
 .freeBox__p2X1 {
   display: flex;
@@ -196,15 +191,15 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .freeBox__anqZa > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-width: 0;
-  margin-top: calc(0px - 35px);
-  height: calc(100% + 35px);
+  margin-top: calc(0px - 25px);
+  height: calc(100% + 25px);
 }
 .freeBox__anqZa > :global(.__wab_flex-container) > *,
 .freeBox__anqZa > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -214,7 +209,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-top: 35px;
+  margin-top: 25px;
 }
 .h1 {
   width: 100%;
@@ -223,12 +218,13 @@
   font-size: 63px;
   min-width: 0;
 }
-.h3 {
+.h3___5SIxX {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   font-size: 40px;
+  font-weight: 500;
   min-width: 0;
 }
 .h4__oIg2I {
@@ -237,7 +233,85 @@
   max-width: 100%;
   font-size: 30px;
 }
-.h4__ggkz6 {
+.freeBox__p2DXj {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__p2DXj > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 35px);
+  height: calc(100% + 35px);
+}
+.freeBox__p2DXj > :global(.__wab_flex-container) > *,
+.freeBox__p2DXj > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__p2DXj > :global(.__wab_flex-container) > picture > img,
+.freeBox__p2DXj
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 35px;
+}
+.h3__pmUvj {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 40px;
+  font-weight: 500;
+}
+.h4__dVGu {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 30px;
+}
+.freeBox___8Jdkg {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___8Jdkg > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 35px);
+  height: calc(100% + 35px);
+}
+.freeBox___8Jdkg > :global(.__wab_flex-container) > *,
+.freeBox___8Jdkg > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___8Jdkg > :global(.__wab_flex-container) > picture > img,
+.freeBox___8Jdkg
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 35px;
+}
+.h3__uiHvU {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 40px;
+  font-weight: 500;
+}
+.h4__swswl {
   width: auto;
   height: auto;
   max-width: 100%;
