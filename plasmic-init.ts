@@ -2,10 +2,7 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 
 import dynamic from "next/dynamic";
 import { ConnectWalletButton } from "@/components/connect-wallet-button";
-import {
-  DepositModalButton,
-  OnClickOpenDepositModal,
-} from "@/components/deposit-modal-button";
+import { OnClickOpenDepositModal } from "@/components/deposit-modal-button";
 const DepositForm = dynamic(() => import("@/components/forms/deposit-form"), {
   ssr: false,
 });
@@ -95,8 +92,8 @@ PLASMIC.registerComponent(HideIfWalletConnected, {
   },
 });
 
-// @ts-ignore
 PLASMIC.registerComponent(OnClickOpenDepositModal, {
+  importPath: "@/components/deposit-modal-button",
   name: "OnClickOpenDepositModal",
   isAttachment: true,
   styleSections: false, // This component does not accept className

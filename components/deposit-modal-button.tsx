@@ -19,11 +19,13 @@ export function OnClickOpenDepositModal({
     )
   );
   return (
-    React.Children.map(children, (child) =>
-      cloneElement(child as ReactElement, {
-        ...filteredProps, // forward extra props for composability
-        onClick: () => setOpen(true),
-      })
-    ) || <></>
+    <>
+      {React.Children.map(children, (child) =>
+        cloneElement(child as ReactElement, {
+          ...filteredProps, // forward extra props for composability
+          onClick: () => setOpen(true),
+        })
+      )}
+    </>
   );
 }

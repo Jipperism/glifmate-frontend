@@ -82,45 +82,6 @@
           "componentType": "page"
         },
         {
-          "id": "2E9DZPjHuax",
-          "name": "About",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicAbout.tsx",
-          "importSpec": {
-            "modulePath": "../pages/about.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicAbout.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
-        },
-        {
-          "id": "hDCtDazGctA",
-          "name": "FaQs",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicFaQs.tsx",
-          "importSpec": {
-            "modulePath": "../pages/faq.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicFaQs.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
-        },
-        {
-          "id": "u23Jt2pEJ7",
-          "name": "Deposit",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicDeposit.tsx",
-          "importSpec": {
-            "modulePath": "../pages/deposit.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicDeposit.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
-        },
-        {
           "id": "DVQmJDwc4r",
           "name": "NavHomepage",
           "type": "managed",
