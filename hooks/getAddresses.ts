@@ -3,6 +3,7 @@ import {
   PUBLIC_GOODS_ADDRESS_HYPERSPACE,
   PRESTAKE_ADDRESS_HYPERSPACE,
   PRESTAKE_ADDRESS_MAINNET,
+  DEFAULT_CHAIN_ID,
 } from "@/constants";
 
 export const getNetworkNameByChainId = (chainId: number) => {
@@ -37,14 +38,13 @@ export const getAddresses = (chainId: number) => {
   }
 };
 
-export const useContractAddresses = () => {
-  const { isConnected } = useAccount();
+export const useChainIdWithDefault = () => {
   const chainId = useChainId();
-  if (!isConnected) {
-    return {
-      PRESTAKE: undefined,
-      PUBLIC_GOODS: undefined,
-    };
-  }
-  return getAddresses(chainId);
+  return chainId ?? DEFAULT_CHAIN_ID;
+};
+
+export const useContractAddresses = () => {
+  const chainId = useChainId();
+  const chainIdOrDefault = chainId ?? DEFAULT_CHAIN_ID;
+  return getAddresses(chainIdOrDefault);
 };
