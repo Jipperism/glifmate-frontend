@@ -18,6 +18,10 @@ import { ToastContainer } from "react-toastify";
 import ReactModal from "react-modal";
 
 import { ChakraProvider } from "@chakra-ui/react";
+import {
+  DepositModalContext,
+  DepositModalProvider,
+} from "@/providers/DepositModalContext";
 
 ReactModal.setAppElement("#__next");
 
@@ -41,8 +45,10 @@ export default function PlasmicLoaderPage(props: {
     >
       <ChakraProvider>
         <WalletProvider>
-          <PlasmicComponent component={pageMeta.displayName} />
-          <ToastContainer />
+          <DepositModalProvider>
+            <ToastContainer />
+            <PlasmicComponent component={pageMeta.displayName} />
+          </DepositModalProvider>
         </WalletProvider>
       </ChakraProvider>
     </PlasmicRootProvider>

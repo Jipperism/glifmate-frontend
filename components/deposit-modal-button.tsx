@@ -1,40 +1,29 @@
-import React, { useState } from "react";
-import ReactModal from "react-modal";
-import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
-import Button from "@/components/Button";
+import React, {
+  cloneElement,
+  ReactElement,
+  ReactNode,
+  useContext,
+} from "react";
+import { DepositModalContext } from "@/providers/DepositModalContext";
 
-interface ModalButtonProps {
-  className?: string;
-  children: React.ReactNode;
-}
-
-export function DepositModalButton({ className }: ModalButtonProps) {
-  const [showModal, setShowModal] = useState(false);
+export function OnClickOpenDepositModal({
+  children,
+  ...props
+}: {
+  children: ReactNode;
+}) {
+  const { setOpen } = useContext(DepositModalContext);
+  const filteredProps = Object.fromEntries(
+    Object.entries(props).filter(
+      ([key]) => !key.startsWith("data-plasmic") && key !== "className"
+    )
+  );
   return (
-    <>
-      <Button onClick={() => setShowModal(true)}>Deposit</Button>
-      <ReactModal
-        isOpen={showModal}
-        onRequestClose={() => setShowModal(false)}
-        style={{
-          content: {
-            marginLeft: "auto",
-            marginRight: "auto",
-            marginTop: "auto",
-
-            marginBottom: "auto",
-            maxWidth: "500px",
-            height: "fit-content",
-
-            borderRadius: "20px",
-          },
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-          },
-        }}
-      >
-        <PlasmicComponent component="DepositModalContent" />
-      </ReactModal>
-    </>
+    React.Children.map(children, (child) =>
+      cloneElement(child as ReactElement, {
+        ...filteredProps, // forward extra props for composability
+        onClick: () => setOpen(true),
+      })
+    ) || <></>
   );
 }
