@@ -58,7 +58,7 @@
   min-width: 0;
   padding: 0px;
 }
-.navFaQs:global(.__wab_instance) {
+.nav:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -131,77 +131,6 @@
   > picture
   > img {
   margin-top: 35px;
-}
-.navigationBar:global(.__wab_instance) {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 20px;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  padding: 16px;
-}
-.link___0Xqnz {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 0px;
-}
-.img__qkCa4 {
-  object-fit: cover;
-  height: 40px;
-}
-.img__qkCa4 > picture > img {
-  object-fit: cover;
-}
-.img__qkCa4 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
-.img__s5Tbg {
-  object-fit: cover;
-}
-.img__s5Tbg > picture > img {
-  object-fit: cover;
-}
-.img__s5Tbg > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
-.img__xOuS {
-  object-fit: cover;
-}
-.img__xOuS > picture > img {
-  object-fit: cover;
-}
-.img__xOuS > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
-.link__ozy9A {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-}
-.link__hq7Eq {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-}
-.link__zYMgU {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
 }
 .h6 {
   width: 100%;
@@ -617,8 +546,8 @@
 }
 .freeBox__f27Wm > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }
@@ -663,8 +592,8 @@
 }
 .freeBox___9OW4C > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }
@@ -709,8 +638,8 @@
 }
 .freeBox___5JAdp > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }

@@ -123,29 +123,29 @@ const PublicGoodsABI = [
     stateMutability: "nonpayable",
     type: "function",
   },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "donationPercent",
-        type: "uint256",
-      },
-    ],
-    name: "deposit",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+  // {
+  //   inputs: [
+  //     {
+  //       internalType: "address",
+  //       name: "recipient",
+  //       type: "address",
+  //     },
+  //     {
+  //       internalType: "uint256",
+  //       name: "amount",
+  //       type: "uint256",
+  //     },
+  //     {
+  //       internalType: "uint256",
+  //       name: "donationPercent",
+  //       type: "uint256",
+  //     },
+  //   ],
+  //   name: "deposit",
+  //   outputs: [],
+  //   stateMutability: "nonpayable",
+  //   type: "function",
+  // },
   {
     inputs: [
       {
@@ -223,6 +223,6 @@ const PublicGoodsABI = [
     stateMutability: "nonpayable",
     type: "function",
   },
-];
+] as const;
 
 export default PublicGoodsABI;

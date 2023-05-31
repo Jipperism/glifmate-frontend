@@ -36,11 +36,8 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavAbout from "../../NavAbout"; // plasmic-import: dFhBY5srv5/component
-import ConnectWalletButton from "../../ConnectWalletButton"; // plasmic-import: kvF1fFLi7E/component
+import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
-
-import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -58,8 +55,7 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
-  navAbout?: p.Flex<typeof NavAbout>;
-  connectWalletButton?: p.Flex<typeof ConnectWalletButton>;
+  nav?: p.Flex<typeof Nav>;
   h1?: p.Flex<"h1">;
   link?: p.Flex<"a"> & Partial<LinkProps>;
   footer?: p.Flex<typeof Footer>;
@@ -104,10 +100,6 @@ function PlasmicAbout__RenderFunc(props: {
 
   const [$queries, setDollarQueries] = React.useState({});
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
-  });
-
   return (
     <React.Fragment>
       <Head></Head>
@@ -134,34 +126,13 @@ function PlasmicAbout__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__yc5Xq)}>
-            <NavAbout
-              data-plasmic-name={"navAbout"}
-              data-plasmic-override={overrides.navAbout}
-              className={classNames("__wab_instance", sty.navAbout)}
+            <Nav
+              data-plasmic-name={"nav"}
+              data-plasmic-override={overrides.nav}
+              activeUrl={"about" as const}
+              className={classNames("__wab_instance", sty.nav)}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__nBtj0)}>
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ppd7N)}
-              >
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__gXxzS)}
-                >
-                  <ConnectWalletButton
-                    data-plasmic-name={"connectWalletButton"}
-                    data-plasmic-override={overrides.connectWalletButton}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.connectWalletButton
-                    )}
-                  />
-                </p.Stack>
-              </p.Stack>
-            </div>
             <div className={classNames(projectcss.all, sty.freeBox__p2X1)}>
               <p.Stack
                 as={"div"}
@@ -258,7 +229,6 @@ function PlasmicAbout__RenderFunc(props: {
                             {"GLIF"}
                           </p.PlasmicLink>
                         }
-
                         <React.Fragment>
                           {" is Filecoin’s premier staking protocol."}
                         </React.Fragment>
@@ -311,9 +281,8 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navAbout", "connectWalletButton", "h1", "link", "footer"],
-  navAbout: ["navAbout"],
-  connectWalletButton: ["connectWalletButton"],
+  root: ["root", "nav", "h1", "link", "footer"],
+  nav: ["nav"],
   h1: ["h1"],
   link: ["link"],
   footer: ["footer"],
@@ -323,8 +292,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navAbout: typeof NavAbout;
-  connectWalletButton: typeof ConnectWalletButton;
+  nav: typeof Nav;
   h1: "h1";
   link: "a";
   footer: typeof Footer;
@@ -335,7 +303,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicAbout__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -391,8 +358,7 @@ export const PlasmicAbout = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navAbout: makeNodeComponent("navAbout"),
-    connectWalletButton: makeNodeComponent("connectWalletButton"),
+    nav: makeNodeComponent("nav"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),
     footer: makeNodeComponent("footer"),

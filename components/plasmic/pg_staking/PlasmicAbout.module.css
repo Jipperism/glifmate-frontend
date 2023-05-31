@@ -46,102 +46,11 @@
   grid-column-end: -1;
   padding: 0px;
 }
-.navAbout:global(.__wab_instance) {
+.nav:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
   min-width: 0;
-}
-.freeBox__nBtj0 {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 50px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__nBtj0 {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.freeBox__ppd7N {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  width: 100%;
-  height: auto;
-  max-width: var(--token-OvRly4y3P);
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__ppd7N > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__ppd7N {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__ppd7N > :global(.__wab_flex-container) {
-    flex-direction: column;
-    margin-left: calc(0px - 0px);
-    width: calc(100% + 0px);
-    margin-top: calc(0px - 50px);
-    height: calc(100% + 50px);
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__ppd7N > :global(.__wab_flex-container) > *,
-  .freeBox__ppd7N > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-  .freeBox__ppd7N > :global(.__wab_flex-container) > picture > img,
-  .freeBox__ppd7N
-    > :global(.__wab_flex-container)
-    > :global(.__wab_slot)
-    > picture
-    > img {
-    margin-left: 0px;
-    margin-top: 50px;
-  }
-}
-.freeBox__gXxzS {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  padding: 0px;
-}
-.freeBox__gXxzS > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin-left: calc(0px - 25px);
-  width: calc(100% + 25px);
-}
-.freeBox__gXxzS > :global(.__wab_flex-container) > *,
-.freeBox__gXxzS > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__gXxzS > :global(.__wab_flex-container) > picture > img,
-.freeBox__gXxzS
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 25px;
-}
-.connectWalletButton:global(.__wab_instance) {
-  position: relative;
 }
 .freeBox__p2X1 {
   display: flex;

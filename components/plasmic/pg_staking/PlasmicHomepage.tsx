@@ -21,6 +21,12 @@ import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
 import {
+  usePlasmicDataConfig,
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+} from "@plasmicapp/react-web/lib/data-sources";
+
+import {
   hasVariant,
   classNames,
   wrapWithClassName,
@@ -36,14 +42,14 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavHomepage from "../../NavHomepage"; // plasmic-import: DVQmJDwc4r/component
-import NavHomepageClicked from "../../NavHomepageClicked"; // plasmic-import: RXe4ilcxbG/component
+import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
 import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
 import DepositModalContent from "../../DepositModalContent"; // plasmic-import: LRxRpZH-jJ/component
 import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
-import { DepositModalButton } from "@/components/deposit-modal-button"; // plasmic-import: g43CnAoUer/codeComponent
+import { OnClickOpenDepositModal } from "@/components/deposit-modal-button"; // plasmic-import: Hdz9yyGLjX/codeComponent
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 import FooterClicked from "../../FooterClicked"; // plasmic-import: BmAm7vNSRg/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 9zDqG16aU0zLP/codeComponent
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
@@ -55,16 +61,10 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: OeFBFuO34W6D/
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ZJynSTynHR8/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: HpWGKnw3ZpM/icon
 
-export type PlasmicHomepage__VariantMembers = {
-  depositClicked: "depositClicked";
-};
-export type PlasmicHomepage__VariantsArgs = {
-  depositClicked?: SingleBooleanChoiceArg<"depositClicked">;
-};
+export type PlasmicHomepage__VariantMembers = {};
+export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
-export const PlasmicHomepage__VariantProps = new Array<VariantPropType>(
-  "depositClicked"
-);
+export const PlasmicHomepage__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicHomepage__ArgsType = {};
 type ArgPropType = keyof PlasmicHomepage__ArgsType;
@@ -72,14 +72,13 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
-  navHomepage?: p.Flex<typeof NavHomepage>;
-  navHomepageClicked?: p.Flex<typeof NavHomepageClicked>;
+  nav?: p.Flex<typeof Nav>;
   h1?: p.Flex<"h1">;
   totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   depositModalContent?: p.Flex<typeof DepositModalContent>;
   textInput?: p.Flex<typeof Button>;
   textInput2?: p.Flex<typeof Button>;
-  depositModalButton?: p.Flex<typeof DepositModalButton>;
+  onClickOpenDepositModal?: p.Flex<typeof OnClickOpenDepositModal>;
   columns?: p.Flex<"div">;
   footer?: p.Flex<typeof Footer>;
   footerClicked?: p.Flex<typeof FooterClicked>;
@@ -124,20 +123,6 @@ function PlasmicHomepage__RenderFunc(props: {
 
   const [$queries, setDollarQueries] = React.useState({});
 
-  const stateSpecs = React.useMemo(
-    () => [
-      {
-        path: "depositClicked",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.depositClicked,
-      },
-    ],
-
-    [$props, $ctx]
-  );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
-
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqqPMw8O9H4JqN(),
   });
@@ -164,94 +149,28 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
-            sty.root,
-            {
-              [sty.rootdepositClicked]: hasVariant(
-                $state,
-                "depositClicked",
-                "depositClicked"
-              ),
-            }
+            sty.root
           )}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__vnFQh, {
-              [sty.freeBoxdepositClicked__vnFQhJ31I]: hasVariant(
-                $state,
-                "depositClicked",
-                "depositClicked"
-              ),
-            })}
-          >
-            {(
-              hasVariant($state, "depositClicked", "depositClicked")
-                ? true
-                : true
-            ) ? (
-              <NavHomepage
-                data-plasmic-name={"navHomepage"}
-                data-plasmic-override={overrides.navHomepage}
-                className={classNames("__wab_instance", sty.navHomepage, {
-                  [sty.navHomepagedepositClicked]: hasVariant(
-                    $state,
-                    "depositClicked",
-                    "depositClicked"
-                  ),
-                })}
-              />
-            ) : null}
-            {(
-              hasVariant($state, "depositClicked", "depositClicked")
-                ? true
-                : true
-            ) ? (
-              <NavHomepageClicked
-                data-plasmic-name={"navHomepageClicked"}
-                data-plasmic-override={overrides.navHomepageClicked}
-                className={classNames(
-                  "__wab_instance",
-                  sty.navHomepageClicked,
-                  {
-                    [sty.navHomepageClickeddepositClicked]: hasVariant(
-                      $state,
-                      "depositClicked",
-                      "depositClicked"
-                    ),
-                  }
-                )}
-              />
-            ) : null}
-            <div
-              className={classNames(projectcss.all, sty.freeBox__nj5YB, {
-                [sty.freeBoxdepositClicked__nj5YBJ31I]: hasVariant(
-                  $state,
-                  "depositClicked",
-                  "depositClicked"
-                ),
-              })}
-            >
+          <div className={classNames(projectcss.all, sty.freeBox__vnFQh)}>
+            <Nav
+              data-plasmic-name={"nav"}
+              data-plasmic-override={overrides.nav}
+              activeUrl={"home" as const}
+              className={classNames("__wab_instance", sty.nav)}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox__nj5YB)}>
               <p.Stack
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rmFif, {
-                  [sty.freeBoxdepositClicked__rmFifJ31I]: hasVariant(
-                    $state,
-                    "depositClicked",
-                    "depositClicked"
-                  ),
-                })}
+                className={classNames(projectcss.all, sty.freeBox__rmFif)}
               >
                 {true ? (
                   <p.Stack
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__kTsO5, {
-                      [sty.freeBoxdepositClicked__kTsO5J31I]: hasVariant(
-                        $state,
-                        "depositClicked",
-                        "depositClicked"
-                      ),
-                    })}
+                    className={classNames(projectcss.all, sty.freeBox__kTsO5)}
                   >
                     <h1
                       data-plasmic-name={"h1"}
@@ -260,14 +179,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         projectcss.all,
                         projectcss.h1,
                         projectcss.__wab_text,
-                        sty.h1,
-                        {
-                          [sty.h1depositClicked]: hasVariant(
-                            $state,
-                            "depositClicked",
-                            "depositClicked"
-                          ),
-                        }
+                        sty.h1
                       )}
                     >
                       {"Earn rewards while funding public goods"}
@@ -322,74 +234,29 @@ function PlasmicHomepage__RenderFunc(props: {
                     </TotalStakedValueProvider>
                   </p.Stack>
                 ) : null}
-                {(
-                  hasVariant($state, "depositClicked", "depositClicked")
-                    ? true
-                    : true
-                ) ? (
+                {true ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__kPlcs, {
-                      [sty.freeBoxdepositClicked__kPlcsJ31I]: hasVariant(
-                        $state,
-                        "depositClicked",
-                        "depositClicked"
-                      ),
-                    })}
+                    className={classNames(projectcss.all, sty.freeBox__kPlcs)}
                   >
                     <p.Stack
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__cv9B, {
-                        [sty.freeBoxdepositClicked__cv9BJ31I]: hasVariant(
-                          $state,
-                          "depositClicked",
-                          "depositClicked"
-                        ),
-                      })}
+                      className={classNames(projectcss.all, sty.freeBox__cv9B)}
                     >
-                      {(
-                        hasVariant($state, "depositClicked", "depositClicked")
-                          ? true
-                          : true
-                      ) ? (
+                      {true ? (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__nJpq,
-                            {
-                              [sty.freeBoxdepositClicked__nJpqJ31I]: hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              ),
-                            }
+                            sty.freeBox__nJpq
                           )}
                         >
-                          <p.Stack
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__nGm,
-                              {
-                                [sty.freeBoxdepositClicked__nGmJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.freeBox__nGm
                             )}
                           >
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              )
-                                ? true
-                                : true
-                            ) ? (
+                            {true ? (
                               <DepositModalContent
                                 data-plasmic-name={"depositModalContent"}
                                 data-plasmic-override={
@@ -397,39 +264,11 @@ function PlasmicHomepage__RenderFunc(props: {
                                 }
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.depositModalContent,
-                                  {
-                                    [sty.depositModalContentdepositClicked]:
-                                      hasVariant(
-                                        $state,
-                                        "depositClicked",
-                                        "depositClicked"
-                                      ),
-                                  }
+                                  sty.depositModalContent
                                 )}
-                                depositClicked={
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ) &&
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? true
-                                    : hasVariant(
-                                        $state,
-                                        "depositClicked",
-                                        "depositClicked"
-                                      )
-                                    ? true
-                                    : undefined
-                                }
                               />
                             ) : null}
-                          </p.Stack>
+                          </div>
                         </div>
                       ) : null}
                       <p.Stack
@@ -437,36 +276,17 @@ function PlasmicHomepage__RenderFunc(props: {
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__qsTs0,
-                          {
-                            [sty.freeBoxdepositClicked__qsTs0J31I]: hasVariant(
-                              $state,
-                              "depositClicked",
-                              "depositClicked"
-                            ),
-                          }
+                          sty.freeBox__qsTs0
                         )}
                       >
-                        {(
-                          hasVariant($state, "depositClicked", "depositClicked")
-                            ? true
-                            : false
-                        ) ? (
+                        {false ? (
                           <p.Stack
                             as={"button"}
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
                               projectcss.button,
-                              sty.button___0Hcdz,
-                              {
-                                [sty.buttondepositClicked___0HcdzJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.button___0Hcdz
                             )}
                           >
                             <h3
@@ -479,212 +299,73 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Connect Wallet"}
                             </h3>
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              )
-                                ? true
-                                : true
-                            ) ? (
-                              <p.PlasmicImg
-                                alt={""}
-                                className={classNames(sty.img__zzQer, {
-                                  [sty.imgdepositClicked__zzQerJ31I]:
-                                    hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    ),
-                                })}
-                                displayHeight={"24px" as const}
-                                displayMaxHeight={"none" as const}
-                                displayMaxWidth={"100%" as const}
-                                displayMinHeight={"0" as const}
-                                displayMinWidth={"0" as const}
-                                displayWidth={"80px" as const}
-                                loading={"lazy" as const}
-                              />
-                            ) : null}
+                            <p.PlasmicImg
+                              alt={""}
+                              className={classNames(sty.img__zzQer)}
+                              displayHeight={"24px" as const}
+                              displayMaxHeight={"none" as const}
+                              displayMaxWidth={"100%" as const}
+                              displayMinHeight={"0" as const}
+                              displayMinWidth={"0" as const}
+                              displayWidth={"80px" as const}
+                              loading={"lazy" as const}
+                            />
                           </p.Stack>
                         ) : null}
                       </p.Stack>
-                      {(
-                        hasVariant($state, "depositClicked", "depositClicked")
-                          ? true
-                          : true
-                      ) ? (
-                        <p.Stack
-                          as={"div"}
-                          hasGap={true}
+                      {true ? (
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__lVcHi,
-                            {
-                              [sty.freeBoxdepositClicked__lVcHiJ31I]:
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                ),
-                            }
+                            sty.freeBox__lVcHi
                           )}
                         >
-                          {(
-                            hasVariant(
-                              $state,
-                              "depositClicked",
-                              "depositClicked"
-                            )
-                              ? true
-                              : true
-                          ) ? (
+                          {true ? (
                             <p.Stack
                               as={"div"}
                               hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__zRlO,
-                                {
-                                  [sty.freeBoxdepositClicked__zRlOJ31I]:
-                                    hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    ),
-                                }
+                                sty.freeBox__zRlO
                               )}
                             >
-                              {(
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                ) &&
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? true
-                                  : hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    )
-                                  ? true
-                                  : true
-                              ) ? (
-                                <h4
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h4,
-                                    projectcss.__wab_text,
-                                    sty.h4__fhkI,
-                                    {
-                                      [sty.h4depositClicked__fhkIJ31I]:
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        ),
-                                    }
-                                  )}
-                                >
-                                  {"Amount"}
-                                </h4>
-                              ) : null}
-                              {(
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                )
-                                  ? true
-                                  : true
-                              ) ? (
-                                <Button
-                                  data-plasmic-name={"textInput"}
-                                  data-plasmic-override={overrides.textInput}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.textInput,
-                                    {
-                                      [sty.textInputdepositClicked]: hasVariant(
-                                        $state,
-                                        "depositClicked",
-                                        "depositClicked"
-                                      ),
-                                    }
-                                  )}
-                                />
-                              ) : null}
-                              {(
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                ) &&
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? true
-                                  : hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    )
-                                  ? true
-                                  : true
-                              ) ? (
-                                <h4
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h4,
-                                    projectcss.__wab_text,
-                                    sty.h4__lxQjV,
-                                    {
-                                      [sty.h4depositClicked__lxQjVJ31I]:
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        ),
-                                    }
-                                  )}
-                                >
-                                  {"Receive"}
-                                </h4>
-                              ) : null}
-                              {(
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                )
-                                  ? true
-                                  : true
-                              ) ? (
-                                <Button
-                                  data-plasmic-name={"textInput2"}
-                                  data-plasmic-override={overrides.textInput2}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.textInput2,
-                                    {
-                                      [sty.textInput2depositClicked]:
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        ),
-                                    }
-                                  )}
-                                />
-                              ) : null}
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4__fhkI
+                                )}
+                              >
+                                {"Amount"}
+                              </h4>
+                              <Button
+                                data-plasmic-name={"textInput"}
+                                data-plasmic-override={overrides.textInput}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.textInput
+                                )}
+                              />
+
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4__lxQjV
+                                )}
+                              >
+                                {"Receive"}
+                              </h4>
+                              <Button
+                                data-plasmic-name={"textInput2"}
+                                data-plasmic-override={overrides.textInput2}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.textInput2
+                                )}
+                              />
                             </p.Stack>
                           ) : null}
                           <p.Stack
@@ -692,114 +373,49 @@ function PlasmicHomepage__RenderFunc(props: {
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__bgJvg,
-                              {
-                                [sty.freeBoxdepositClicked__bgJvgJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.freeBox__bgJvg
                             )}
                           >
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              ) &&
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? true
-                                : true
-                            ) ? (
-                              <h4
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.h4,
-                                  projectcss.__wab_text,
-                                  sty.h4__epDO,
-                                  {
-                                    [sty.h4depositClicked__epDOJ31I]:
-                                      hasVariant(
-                                        $state,
-                                        "depositClicked",
-                                        "depositClicked"
-                                      ),
-                                  }
-                                )}
-                              >
-                                {"Amount"}
-                              </h4>
-                            ) : null}
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              ) &&
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? true
-                                : true
-                            ) ? (
-                              <h4
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.h4,
-                                  projectcss.__wab_text,
-                                  sty.h4__l4Gjb,
-                                  {
-                                    [sty.h4depositClicked__l4GjbJ31I]:
-                                      hasVariant(
-                                        $state,
-                                        "depositClicked",
-                                        "depositClicked"
-                                      ),
-                                  }
-                                )}
-                              >
-                                {"Receive"}
-                              </h4>
-                            ) : null}
                             <h4
                               className={classNames(
                                 projectcss.all,
                                 projectcss.h4,
                                 projectcss.__wab_text,
-                                sty.h4__ntZek,
-                                {
-                                  [sty.h4depositClicked__ntZekJ31I]: hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                                }
+                                sty.h4__epDO
+                              )}
+                            >
+                              {"Amount"}
+                            </h4>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__l4Gjb
+                              )}
+                            >
+                              {"Receive"}
+                            </h4>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__ntZek
                               )}
                             >
                               {"Donate"}
                             </h4>
                           </p.Stack>
-                        </p.Stack>
+                        </div>
                       ) : null}
-                      {(
-                        hasVariant($state, "depositClicked", "depositClicked")
-                          ? true
-                          : true
-                      ) ? (
+                      {true ? (
                         <p.Stack
                           as={"div"}
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__shQtC,
-                            {
-                              [sty.freeBoxdepositClicked__shQtCJ31I]:
-                                hasVariant(
-                                  $state,
-                                  "depositClicked",
-                                  "depositClicked"
-                                ),
-                            }
+                            sty.freeBox__shQtC
                           )}
                         >
                           <p.Stack
@@ -808,15 +424,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.button,
-                              sty.button__fLo2F,
-                              {
-                                [sty.buttondepositClicked__fLo2FJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.button__fLo2F
                             )}
                           >
                             <h3
@@ -829,34 +437,17 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Close"}
                             </h3>
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              )
-                                ? true
-                                : true
-                            ) ? (
-                              <p.PlasmicImg
-                                alt={""}
-                                className={classNames(sty.img__xTgmv, {
-                                  [sty.imgdepositClicked__xTgmvJ31I]:
-                                    hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    ),
-                                })}
-                                displayHeight={"24px" as const}
-                                displayMaxHeight={"none" as const}
-                                displayMaxWidth={"100%" as const}
-                                displayMinHeight={"0" as const}
-                                displayMinWidth={"0" as const}
-                                displayWidth={"80px" as const}
-                                loading={"lazy" as const}
-                              />
-                            ) : null}
+                            <p.PlasmicImg
+                              alt={""}
+                              className={classNames(sty.img__xTgmv)}
+                              displayHeight={"24px" as const}
+                              displayMaxHeight={"none" as const}
+                              displayMaxWidth={"100%" as const}
+                              displayMinHeight={"0" as const}
+                              displayMinWidth={"0" as const}
+                              displayWidth={"80px" as const}
+                              loading={"lazy" as const}
+                            />
                           </p.Stack>
                           <p.Stack
                             as={"button"}
@@ -864,15 +455,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.button,
-                              sty.button__xyYzE,
-                              {
-                                [sty.buttondepositClicked__xyYzEJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.button__xyYzE
                             )}
                           >
                             <h3
@@ -885,34 +468,17 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Clear"}
                             </h3>
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              )
-                                ? true
-                                : true
-                            ) ? (
-                              <p.PlasmicImg
-                                alt={""}
-                                className={classNames(sty.img__gix1G, {
-                                  [sty.imgdepositClicked__gix1GJ31I]:
-                                    hasVariant(
-                                      $state,
-                                      "depositClicked",
-                                      "depositClicked"
-                                    ),
-                                })}
-                                displayHeight={"24px" as const}
-                                displayMaxHeight={"none" as const}
-                                displayMaxWidth={"100%" as const}
-                                displayMinHeight={"0" as const}
-                                displayMinWidth={"0" as const}
-                                displayWidth={"80px" as const}
-                                loading={"lazy" as const}
-                              />
-                            ) : null}
+                            <p.PlasmicImg
+                              alt={""}
+                              className={classNames(sty.img__gix1G)}
+                              displayHeight={"24px" as const}
+                              displayMaxHeight={"none" as const}
+                              displayMaxWidth={"100%" as const}
+                              displayMinHeight={"0" as const}
+                              displayMinWidth={"0" as const}
+                              displayWidth={"80px" as const}
+                              loading={"lazy" as const}
+                            />
                           </p.Stack>
                           <p.Stack
                             as={"button"}
@@ -920,15 +486,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.button,
-                              sty.button___0Weyj,
-                              {
-                                [sty.buttondepositClicked___0WeyjJ31I]:
-                                  hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                              }
+                              sty.button___0Weyj
                             )}
                           >
                             <h3
@@ -941,65 +499,49 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Send"}
                             </h3>
-                            {(
-                              hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              )
-                                ? true
-                                : true
-                            ) ? (
-                              <p.PlasmicImg
-                                alt={""}
-                                className={classNames(sty.img__tyK, {
-                                  [sty.imgdepositClicked__tyKJ31I]: hasVariant(
-                                    $state,
-                                    "depositClicked",
-                                    "depositClicked"
-                                  ),
-                                })}
-                                displayHeight={"24px" as const}
-                                displayMaxHeight={"none" as const}
-                                displayMaxWidth={"100%" as const}
-                                displayMinHeight={"0" as const}
-                                displayMinWidth={"0" as const}
-                                displayWidth={"80px" as const}
-                                loading={"lazy" as const}
-                              />
-                            ) : null}
+                            <p.PlasmicImg
+                              alt={""}
+                              className={classNames(sty.img__tyK)}
+                              displayHeight={"24px" as const}
+                              displayMaxHeight={"none" as const}
+                              displayMaxWidth={"100%" as const}
+                              displayMinHeight={"0" as const}
+                              displayMinWidth={"0" as const}
+                              displayWidth={"80px" as const}
+                              loading={"lazy" as const}
+                            />
                           </p.Stack>
                         </p.Stack>
                       ) : null}
                     </p.Stack>
                   </div>
                 ) : null}
-                <DepositModalButton
-                  data-plasmic-name={"depositModalButton"}
-                  data-plasmic-override={overrides.depositModalButton}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.depositModalButton,
-                    {
-                      [sty.depositModalButtondepositClicked]: hasVariant(
-                        $state,
-                        "depositClicked",
-                        "depositClicked"
-                      ),
-                    }
-                  )}
-                />
+                {true ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__uc49B)}
+                  >
+                    <OnClickOpenDepositModal
+                      data-plasmic-name={"onClickOpenDepositModal"}
+                      data-plasmic-override={overrides.onClickOpenDepositModal}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.onClickOpenDepositModal
+                      )}
+                    >
+                      <Button
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button__nW77K
+                        )}
+                      >
+                        {"Deposit"}
+                      </Button>
+                    </OnClickOpenDepositModal>
+                  </div>
+                ) : null}
               </p.Stack>
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__vAi6C, {
-                [sty.freeBoxdepositClicked__vAi6CJ31I]: hasVariant(
-                  $state,
-                  "depositClicked",
-                  "depositClicked"
-                ),
-              })}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__vAi6C)}>
               <p.Stack
                 as={"div"}
                 hasGap={true}
@@ -1013,13 +555,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.columns)}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.column__tAcp6, {
-                      [sty.columndepositClicked__tAcp6J31I]: hasVariant(
-                        $state,
-                        "depositClicked",
-                        "depositClicked"
-                      ),
-                    })}
+                    className={classNames(projectcss.all, sty.column__tAcp6)}
                   >
                     {true ? (
                       <p.Stack
@@ -1035,14 +571,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             projectcss.all,
                             projectcss.h2,
                             projectcss.__wab_text,
-                            sty.h2___1QzwO,
-                            {
-                              [sty.h2depositClicked___1QzwOJ31I]: hasVariant(
-                                $state,
-                                "depositClicked",
-                                "depositClicked"
-                              ),
-                            }
+                            sty.h2___1QzwO
                           )}
                         >
                           {"Tl;dr"}
@@ -1078,13 +607,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img___9V8Pq, {
-                            [sty.imgdepositClicked___9V8PqJ31I]: hasVariant(
-                              $state,
-                              "depositClicked",
-                              "depositClicked"
-                            ),
-                          })}
+                          className={classNames(sty.img___9V8Pq)}
                           displayHeight={"auto" as const}
                           displayMaxHeight={
                             hasVariant(globalVariants, "screen", "mobileOnly")
@@ -1096,25 +619,12 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0" as const}
                           displayWidth={"8px" as const}
                           loading={"lazy" as const}
-                          src={
-                            hasVariant(
-                              $state,
-                              "depositClicked",
-                              "depositClicked"
-                            )
-                              ? {
-                                  src: "/plasmic/pg_staking/images/vectorLineDarksvg.svg",
-                                  fullWidth: 1,
-                                  fullHeight: 150,
-                                  aspectRatio: 0.004,
-                                }
-                              : {
-                                  src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                                  fullWidth: 1,
-                                  fullHeight: 150,
-                                  aspectRatio: 0.004498,
-                                }
-                          }
+                          src={{
+                            src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
+                            fullWidth: 1,
+                            fullHeight: 150,
+                            aspectRatio: 0.004498,
+                          }}
                         />
 
                         {true ? (
@@ -1156,14 +666,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__dXwfA, {
-                                        [sty.imgdepositClicked__dXwfAJ31I]:
-                                          hasVariant(
-                                            $state,
-                                            "depositClicked",
-                                            "depositClicked"
-                                          ),
-                                      })}
+                                      className={classNames(sty.img__dXwfA)}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1171,25 +674,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
-                                      src={
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        )
-                                          ? {
-                                              src: "/plasmic/pg_staking/images/_1Darkenedsvg.svg",
-                                              fullWidth: 101,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.673077,
-                                            }
-                                          : {
-                                              src: "/plasmic/pg_staking/images/_1Svg.svg",
-                                              fullWidth: 101,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.673077,
-                                            }
-                                      }
+                                      src={{
+                                        src: "/plasmic/pg_staking/images/_1Svg.svg",
+                                        fullWidth: 101,
+                                        fullHeight: 150,
+                                        aspectRatio: 0.673077,
+                                      }}
                                     />
 
                                     <h4
@@ -1217,14 +707,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__uriZ, {
-                                        [sty.imgdepositClicked__uriZJ31I]:
-                                          hasVariant(
-                                            $state,
-                                            "depositClicked",
-                                            "depositClicked"
-                                          ),
-                                      })}
+                                      className={classNames(sty.img__uriZ)}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1232,25 +715,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
-                                      src={
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        )
-                                          ? {
-                                              src: "/plasmic/pg_staking/images/_2Darkenedsvg.svg",
-                                              fullWidth: 109,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.72381,
-                                            }
-                                          : {
-                                              src: "/plasmic/pg_staking/images/_2Svg.svg",
-                                              fullWidth: 109,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.72381,
-                                            }
-                                      }
+                                      src={{
+                                        src: "/plasmic/pg_staking/images/_2Svg.svg",
+                                        fullWidth: 109,
+                                        fullHeight: 150,
+                                        aspectRatio: 0.72381,
+                                      }}
                                     />
 
                                     <h4
@@ -1276,14 +746,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   >
                                     <p.PlasmicImg
                                       alt={""}
-                                      className={classNames(sty.img__lnBz4, {
-                                        [sty.imgdepositClicked__lnBz4J31I]:
-                                          hasVariant(
-                                            $state,
-                                            "depositClicked",
-                                            "depositClicked"
-                                          ),
-                                      })}
+                                      className={classNames(sty.img__lnBz4)}
                                       displayHeight={"80px" as const}
                                       displayMaxHeight={"none" as const}
                                       displayMaxWidth={"100%" as const}
@@ -1291,25 +754,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                       displayMinWidth={"0" as const}
                                       displayWidth={"80px" as const}
                                       loading={"lazy" as const}
-                                      src={
-                                        hasVariant(
-                                          $state,
-                                          "depositClicked",
-                                          "depositClicked"
-                                        )
-                                          ? {
-                                              src: "/plasmic/pg_staking/images/_3Darkenedsvg.svg",
-                                              fullWidth: 108,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.719626,
-                                            }
-                                          : {
-                                              src: "/plasmic/pg_staking/images/_3Svg.svg",
-                                              fullWidth: 108,
-                                              fullHeight: 150,
-                                              aspectRatio: 0.719626,
-                                            }
-                                      }
+                                      src={{
+                                        src: "/plasmic/pg_staking/images/_3Svg.svg",
+                                        fullWidth: 108,
+                                        fullHeight: 150,
+                                        aspectRatio: 0.719626,
+                                      }}
                                     />
 
                                     <h4
@@ -1367,38 +817,17 @@ function PlasmicHomepage__RenderFunc(props: {
                 </p.Stack>
               </p.Stack>
             </div>
-            {(
-              hasVariant($state, "depositClicked", "depositClicked")
-                ? true
-                : true
-            ) ? (
-              <Footer
-                data-plasmic-name={"footer"}
-                data-plasmic-override={overrides.footer}
-                className={classNames("__wab_instance", sty.footer, {
-                  [sty.footerdepositClicked]: hasVariant(
-                    $state,
-                    "depositClicked",
-                    "depositClicked"
-                  ),
-                })}
-              />
-            ) : null}
-            {(
-              hasVariant($state, "depositClicked", "depositClicked")
-                ? true
-                : true
-            ) ? (
+            <Footer
+              data-plasmic-name={"footer"}
+              data-plasmic-override={overrides.footer}
+              className={classNames("__wab_instance", sty.footer)}
+            />
+
+            {true ? (
               <FooterClicked
                 data-plasmic-name={"footerClicked"}
                 data-plasmic-override={overrides.footerClicked}
-                className={classNames("__wab_instance", sty.footerClicked, {
-                  [sty.footerClickeddepositClicked]: hasVariant(
-                    $state,
-                    "depositClicked",
-                    "depositClicked"
-                  ),
-                })}
+                className={classNames("__wab_instance", sty.footerClicked)}
               />
             ) : null}
           </div>
@@ -1411,27 +840,24 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "navHomepage",
-    "navHomepageClicked",
+    "nav",
     "h1",
     "totalStakedValueProvider",
     "depositModalContent",
     "textInput",
     "textInput2",
-    "depositModalButton",
+    "onClickOpenDepositModal",
     "columns",
     "footer",
     "footerClicked",
   ],
-
-  navHomepage: ["navHomepage"],
-  navHomepageClicked: ["navHomepageClicked"],
+  nav: ["nav"],
   h1: ["h1"],
   totalStakedValueProvider: ["totalStakedValueProvider"],
   depositModalContent: ["depositModalContent"],
   textInput: ["textInput"],
   textInput2: ["textInput2"],
-  depositModalButton: ["depositModalButton"],
+  onClickOpenDepositModal: ["onClickOpenDepositModal"],
   columns: ["columns"],
   footer: ["footer"],
   footerClicked: ["footerClicked"],
@@ -1441,14 +867,13 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navHomepage: typeof NavHomepage;
-  navHomepageClicked: typeof NavHomepageClicked;
+  nav: typeof Nav;
   h1: "h1";
   totalStakedValueProvider: typeof TotalStakedValueProvider;
   depositModalContent: typeof DepositModalContent;
   textInput: typeof Button;
   textInput2: typeof Button;
-  depositModalButton: typeof DepositModalButton;
+  onClickOpenDepositModal: typeof OnClickOpenDepositModal;
   columns: "div";
   footer: typeof Footer;
   footerClicked: typeof FooterClicked;
@@ -1459,7 +884,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicHomepage__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -1515,14 +939,13 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navHomepage: makeNodeComponent("navHomepage"),
-    navHomepageClicked: makeNodeComponent("navHomepageClicked"),
+    nav: makeNodeComponent("nav"),
     h1: makeNodeComponent("h1"),
     totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     depositModalContent: makeNodeComponent("depositModalContent"),
     textInput: makeNodeComponent("textInput"),
     textInput2: makeNodeComponent("textInput2"),
-    depositModalButton: makeNodeComponent("depositModalButton"),
+    onClickOpenDepositModal: makeNodeComponent("onClickOpenDepositModal"),
     columns: makeNodeComponent("columns"),
     footer: makeNodeComponent("footer"),
     footerClicked: makeNodeComponent("footerClicked"),

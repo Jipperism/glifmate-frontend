@@ -36,9 +36,8 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavHomepage from "../../NavHomepage"; // plasmic-import: DVQmJDwc4r/component
+import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
 import { DepositForm } from "@/components/forms/deposit-form"; // plasmic-import: jzMDyQ-x2A/codeComponent
-import { DepositModalButton } from "@/components/deposit-modal-button"; // plasmic-import: g43CnAoUer/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -56,9 +55,8 @@ export const PlasmicDeposit__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicDeposit__OverridesType = {
   root?: p.Flex<"div">;
-  navHomepage?: p.Flex<typeof NavHomepage>;
+  nav?: p.Flex<typeof Nav>;
   depositForm?: p.Flex<typeof DepositForm>;
-  depositModalButton?: p.Flex<typeof DepositModalButton>;
 };
 
 export interface DefaultDepositProps {}
@@ -110,7 +108,6 @@ function PlasmicDeposit__RenderFunc(props: {
           property="og:title"
           content={PlasmicDeposit.pageMetadata.title}
         />
-
         <meta
           key="twitter:title"
           name="twitter:title"
@@ -139,22 +136,16 @@ function PlasmicDeposit__RenderFunc(props: {
             sty.root
           )}
         >
-          <NavHomepage
-            data-plasmic-name={"navHomepage"}
-            data-plasmic-override={overrides.navHomepage}
-            className={classNames("__wab_instance", sty.navHomepage)}
+          <Nav
+            data-plasmic-name={"nav"}
+            data-plasmic-override={overrides.nav}
+            className={classNames("__wab_instance", sty.nav)}
           />
 
           <DepositForm
             data-plasmic-name={"depositForm"}
             data-plasmic-override={overrides.depositForm}
             className={classNames("__wab_instance", sty.depositForm)}
-          />
-
-          <DepositModalButton
-            data-plasmic-name={"depositModalButton"}
-            data-plasmic-override={overrides.depositModalButton}
-            className={classNames("__wab_instance", sty.depositModalButton)}
           />
         </div>
       </div>
@@ -163,19 +154,17 @@ function PlasmicDeposit__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navHomepage", "depositForm", "depositModalButton"],
-  navHomepage: ["navHomepage"],
+  root: ["root", "nav", "depositForm"],
+  nav: ["nav"],
   depositForm: ["depositForm"],
-  depositModalButton: ["depositModalButton"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navHomepage: typeof NavHomepage;
+  nav: typeof Nav;
   depositForm: typeof DepositForm;
-  depositModalButton: typeof DepositModalButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -183,7 +172,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicDeposit__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -239,9 +227,8 @@ export const PlasmicDeposit = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navHomepage: makeNodeComponent("navHomepage"),
+    nav: makeNodeComponent("nav"),
     depositForm: makeNodeComponent("depositForm"),
-    depositModalButton: makeNodeComponent("depositModalButton"),
 
     // Metadata about props expected for PlasmicDeposit
     internalVariantProps: PlasmicDeposit__VariantProps,

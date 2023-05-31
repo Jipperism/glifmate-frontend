@@ -9,43 +9,31 @@
   position: relative;
   padding: 0px;
 }
-.freeBox__nc3Uy {
+.freeBox__ctHgR {
   display: flex;
   position: relative;
   flex-direction: row;
   width: 100%;
   height: auto;
   margin-right: 0px;
-  max-width: var(--token-OvRly4y3P);
+  max-width: none;
   min-width: 0;
-  padding: 50px 10px;
+  padding: 28px 40px;
 }
-.freeBox__nc3Uy > :global(.__wab_flex-container) {
+.freeBox__ctHgR > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   min-width: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
-}
-.freeBox__nc3Uy > :global(.__wab_flex-container) > *,
-.freeBox__nc3Uy > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__nc3Uy > :global(.__wab_flex-container) > picture > img,
-.freeBox__nc3Uy
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__nc3Uy {
+  .freeBox__ctHgR {
     display: flex;
     flex-direction: column;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__nc3Uy > :global(.__wab_flex-container) {
+  .freeBox__ctHgR > :global(.__wab_flex-container) {
     flex-direction: column;
     margin-left: calc(0px - 0px);
     width: calc(100% + 0px);
@@ -54,10 +42,10 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__nc3Uy > :global(.__wab_flex-container) > *,
-  .freeBox__nc3Uy > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-  .freeBox__nc3Uy > :global(.__wab_flex-container) > picture > img,
-  .freeBox__nc3Uy
+  .freeBox__ctHgR > :global(.__wab_flex-container) > *,
+  .freeBox__ctHgR > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__ctHgR > :global(.__wab_flex-container) > picture > img,
+  .freeBox__ctHgR
     > :global(.__wab_flex-container)
     > :global(.__wab_slot)
     > picture
@@ -66,7 +54,7 @@
     margin-top: 25px;
   }
 }
-.freeBox__huXho {
+.freeBox__zdy6Z {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -76,28 +64,47 @@
   max-height: 80px;
   padding: 0px;
 }
-.freeBox__huXho > :global(.__wab_flex-container) {
+.freeBox__zdy6Z > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   margin-left: calc(0px - 25px);
   width: calc(100% + 25px);
 }
-.freeBox__huXho > :global(.__wab_flex-container) > *,
-.freeBox__huXho > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__huXho > :global(.__wab_flex-container) > picture > img,
-.freeBox__huXho
+.freeBox__zdy6Z > :global(.__wab_flex-container) > *,
+.freeBox__zdy6Z > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__zdy6Z > :global(.__wab_flex-container) > picture > img,
+.freeBox__zdy6Z
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 25px;
 }
+.link__zeXoU {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.linkactiveUrl_home__zeXoUuT4Y5 {
+  color: #0070f3;
+}
 .img {
   position: relative;
   object-fit: fill;
   flex-shrink: 0;
   height: 50px;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
 }
 .img > picture > img {
   object-fit: fill;
@@ -105,13 +112,19 @@
 .img > :global(.__wab_img-spacer) > img {
   object-fit: fill;
 }
-.link___419PR {
+.imgactiveUrl_home {
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+}
+.link__gvcAq {
   font-size: 26px;
   font-weight: 700;
   color: #000000;
   position: relative;
 }
-.link___8PhO {
+.linkactiveUrl_about__gvcAqubnt1 {
+  background: #ffffff;
+}
+.link__ri5Lh {
   font-size: 26px;
   font-weight: 700;
   color: #000000;
@@ -119,6 +132,9 @@
   width: auto;
   height: auto;
   max-width: 100%;
+}
+.linkactiveUrl_faQs__ri5LHuuFxr {
+  background: #ffffff;
 }
 .connectWalletButton:global(.__wab_instance) {
   max-width: 100%;

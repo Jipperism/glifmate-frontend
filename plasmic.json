@@ -75,50 +75,11 @@
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
           "renderModuleFilePath": "plasmic/pg_staking/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "plasmic-pages/index.tsx"
+            "modulePath": "../pages/index.tsx"
           },
           "cssFilePath": "plasmic/pg_staking/PlasmicHomepage.module.css",
           "scheme": "blackbox",
           "componentType": "page"
-        },
-        {
-          "id": "DVQmJDwc4r",
-          "name": "NavHomepage",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavHomepage.tsx",
-          "importSpec": {
-            "modulePath": "NavHomepage.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicNavHomepage.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "dFhBY5srv5",
-          "name": "NavAbout",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavAbout.tsx",
-          "importSpec": {
-            "modulePath": "NavAbout.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicNavAbout.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "LBgBXGXsRI",
-          "name": "NavFaQs",
-          "type": "managed",
-          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavFaQs.tsx",
-          "importSpec": {
-            "modulePath": "NavFaQs.tsx"
-          },
-          "cssFilePath": "plasmic/pg_staking/PlasmicNavFaQs.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
         },
         {
           "id": "BmAm7vNSRg",
@@ -134,30 +95,56 @@
           "componentType": "component"
         },
         {
-          "id": "RXe4ilcxbG",
-          "name": "NavHomepageClicked",
+          "id": "2E9DZPjHuax",
+          "name": "About",
           "type": "managed",
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavHomepageClicked.tsx",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicAbout.tsx",
           "importSpec": {
-            "modulePath": "NavHomepageClicked.tsx"
+            "modulePath": "../pages/about.tsx"
           },
-          "cssFilePath": "plasmic/pg_staking/PlasmicNavHomepageClicked.module.css",
+          "cssFilePath": "plasmic/pg_staking/PlasmicAbout.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "hDCtDazGctA",
+          "name": "FaQs",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicFaQs.tsx",
+          "importSpec": {
+            "modulePath": "../pages/faq.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicFaQs.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "DVQmJDwc4r",
+          "name": "Nav",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNav.tsx",
+          "importSpec": {
+            "modulePath": "Nav.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicNav.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
         {
-          "id": "kvF1fFLi7E",
-          "name": "ConnectWalletButton",
+          "id": "u23Jt2pEJ7",
+          "name": "Deposit",
           "type": "managed",
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicConnectWalletButton.tsx",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicDeposit.tsx",
           "importSpec": {
-            "modulePath": "ConnectWalletButton.tsx"
+            "modulePath": "../pages/deposit.tsx"
           },
-          "cssFilePath": "plasmic/pg_staking/PlasmicConnectWalletButton.module.css",
+          "cssFilePath": "plasmic/pg_staking/PlasmicDeposit.module.css",
           "scheme": "blackbox",
-          "componentType": "component"
+          "componentType": "page"
         }
       ],
       "icons": [
@@ -293,11 +280,6 @@
           "componentImportPath": "@/components/forms/deposit-form"
         },
         {
-          "id": "g43CnAoUer",
-          "name": "DepositModalButton",
-          "componentImportPath": "@/components/deposit-modal-button"
-        },
-        {
           "id": "KVJO-MO5ld",
           "name": "TotalStakedValueProvider",
           "componentImportPath": "@/components/data-providers/TotalStakedValueProvider"
@@ -311,6 +293,11 @@
           "id": "x9FAUK0Cl_",
           "name": "HideIfWalletConnected",
           "componentImportPath": "@/components/HideIfWalletConnected"
+        },
+        {
+          "id": "Hdz9yyGLjX",
+          "name": "OnClickOpenDepositModal",
+          "componentImportPath": "@/components/deposit-modal-button"
         }
       ]
     },

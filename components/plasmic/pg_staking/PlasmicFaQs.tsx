@@ -36,8 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import NavFaQs from "../../NavFaQs"; // plasmic-import: LBgBXGXsRI/component
-import { NavigationBar } from "@plasmicpkgs/plasmic-nav"; // plasmic-import: jGx9tiKJoex/codeComponent
+import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
@@ -58,8 +57,7 @@ export const PlasmicFaQs__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaQs__OverridesType = {
   root?: p.Flex<"div">;
-  navFaQs?: p.Flex<typeof NavFaQs>;
-  navigationBar?: p.Flex<typeof NavigationBar>;
+  nav?: p.Flex<typeof Nav>;
   h6?: p.Flex<"h6">;
   footer?: p.Flex<typeof Footer>;
 };
@@ -134,10 +132,11 @@ function PlasmicFaQs__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__aUgK1)}>
             <div className={classNames(projectcss.all, sty.freeBox__odphg)}>
-              <NavFaQs
-                data-plasmic-name={"navFaQs"}
-                data-plasmic-override={overrides.navFaQs}
-                className={classNames("__wab_instance", sty.navFaQs)}
+              <Nav
+                data-plasmic-name={"nav"}
+                data-plasmic-override={overrides.nav}
+                activeUrl={"faQs" as const}
+                className={classNames("__wab_instance", sty.nav)}
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___3YbeX)}>
@@ -152,112 +151,6 @@ function PlasmicFaQs__RenderFunc(props: {
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__j7T5V)}
                   >
-                    <NavigationBar
-                      data-plasmic-name={"navigationBar"}
-                      data-plasmic-override={overrides.navigationBar}
-                      brand={
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link___0Xqnz
-                          )}
-                          component={Link}
-                          href={"#" as const}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__qkCa4)}
-                            displayHeight={"40px" as const}
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"none" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={"auto" as const}
-                            src={
-                              "https://static1.plasmic.app/nav-logo-placeholder.svg" as const
-                            }
-                          />
-                        </p.PlasmicLink>
-                      }
-                      className={classNames(
-                        "__wab_instance",
-                        sty.navigationBar
-                      )}
-                      closeButton={
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__xOuS)}
-                          displayHeight={"auto" as const}
-                          displayMaxHeight={"none" as const}
-                          displayMaxWidth={"none" as const}
-                          displayMinHeight={"0" as const}
-                          displayMinWidth={"0" as const}
-                          displayWidth={"auto" as const}
-                          src={"https://static1.plasmic.app/close.svg" as const}
-                        />
-                      }
-                      itemsGap={8 as const}
-                      menuItems={
-                        <React.Fragment>
-                          <p.PlasmicLink
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
-                              sty.link__ozy9A
-                            )}
-                            component={Link}
-                            href={"/" as const}
-                            platform={"nextjs"}
-                          >
-                            {"Home"}
-                          </p.PlasmicLink>
-                          <p.PlasmicLink
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
-                              sty.link__hq7Eq
-                            )}
-                            component={Link}
-                            href={"/" as const}
-                            platform={"nextjs"}
-                          >
-                            {"About"}
-                          </p.PlasmicLink>
-                          <p.PlasmicLink
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
-                              sty.link__zYMgU
-                            )}
-                            component={Link}
-                            href={"/" as const}
-                            platform={"nextjs"}
-                          >
-                            {"Contact"}
-                          </p.PlasmicLink>
-                        </React.Fragment>
-                      }
-                      openButton={
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__s5Tbg)}
-                          displayHeight={"auto" as const}
-                          displayMaxHeight={"none" as const}
-                          displayMaxWidth={"none" as const}
-                          displayMinHeight={"0" as const}
-                          displayMinWidth={"0" as const}
-                          displayWidth={"auto" as const}
-                          src={"https://static1.plasmic.app/menu.svg" as const}
-                        />
-                      }
-                      responsiveBreakpoint={768 as const}
-                    />
-
                     <h6
                       data-plasmic-name={"h6"}
                       data-plasmic-override={overrides.h6}
@@ -697,7 +590,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           {"multisig"}
                                         </p.PlasmicLink>
                                       }
-
                                       <React.Fragment>
                                         {
                                           ", which can be triggered and distributed in the following ways:\n\nExisting mechanisms:\n"
@@ -743,7 +635,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           </li>
                                         </ul>
                                       }
-
                                       <React.Fragment>
                                         {"\nMechanisms under development:\n"}
                                       </React.Fragment>
@@ -789,7 +680,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           </li>
                                         </ul>
                                       }
-
                                       <React.Fragment>{""}</React.Fragment>
                                     </React.Fragment>
                                   </h4>
@@ -877,7 +767,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           {"Join us"}
                                         </p.PlasmicLink>
                                       }
-
                                       <React.Fragment>
                                         {" in the public-goods-pool channel."}
                                       </React.Fragment>
@@ -1479,7 +1368,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           {"multisig"}
                                         </p.PlasmicLink>
                                       }
-
                                       <React.Fragment>
                                         {
                                           ", which can be triggered and distributed in the following ways:\n\nExisting mechanisms:\n"
@@ -1525,7 +1413,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           </li>
                                         </ul>
                                       }
-
                                       <React.Fragment>
                                         {"\nMechanisms under development:\n"}
                                       </React.Fragment>
@@ -1571,7 +1458,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           </li>
                                         </ul>
                                       }
-
                                       <React.Fragment>{""}</React.Fragment>
                                     </React.Fragment>
                                   </h4>
@@ -1659,7 +1545,6 @@ function PlasmicFaQs__RenderFunc(props: {
                                           {"Join us"}
                                         </p.PlasmicLink>
                                       }
-
                                       <React.Fragment>
                                         {" in the public-goods-pool channel."}
                                       </React.Fragment>
@@ -1860,9 +1745,8 @@ function PlasmicFaQs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navFaQs", "navigationBar", "h6", "footer"],
-  navFaQs: ["navFaQs"],
-  navigationBar: ["navigationBar"],
+  root: ["root", "nav", "h6", "footer"],
+  nav: ["nav"],
   h6: ["h6"],
   footer: ["footer"],
 } as const;
@@ -1871,8 +1755,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navFaQs: typeof NavFaQs;
-  navigationBar: typeof NavigationBar;
+  nav: typeof Nav;
   h6: "h6";
   footer: typeof Footer;
 };
@@ -1882,7 +1765,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFaQs__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -1938,8 +1820,7 @@ export const PlasmicFaQs = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navFaQs: makeNodeComponent("navFaQs"),
-    navigationBar: makeNodeComponent("navigationBar"),
+    nav: makeNodeComponent("nav"),
     h6: makeNodeComponent("h6"),
     footer: makeNodeComponent("footer"),
 

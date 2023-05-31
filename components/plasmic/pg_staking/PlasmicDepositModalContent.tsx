@@ -46,14 +46,14 @@ import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLy
 import sty from "./PlasmicDepositModalContent.module.css"; // plasmic-import: LRxRpZH-jJ/css
 
 export type PlasmicDepositModalContent__VariantMembers = {
-  depositClicked: "depositClicked";
+  depositClicked2: "depositClicked2";
 };
 export type PlasmicDepositModalContent__VariantsArgs = {
-  depositClicked?: SingleBooleanChoiceArg<"depositClicked">;
+  depositClicked2?: SingleBooleanChoiceArg<"depositClicked2">;
 };
 type VariantPropType = keyof PlasmicDepositModalContent__VariantsArgs;
 export const PlasmicDepositModalContent__VariantProps =
-  new Array<VariantPropType>("depositClicked");
+  new Array<VariantPropType>("depositClicked2");
 
 export type PlasmicDepositModalContent__ArgsType = {};
 type ArgPropType = keyof PlasmicDepositModalContent__ArgsType;
@@ -69,7 +69,7 @@ export type PlasmicDepositModalContent__OverridesType = {
 };
 
 export interface DefaultDepositModalContentProps {
-  depositClicked?: SingleBooleanChoiceArg<"depositClicked">;
+  depositClicked2?: SingleBooleanChoiceArg<"depositClicked2">;
   className?: string;
 }
 
@@ -113,10 +113,11 @@ function PlasmicDepositModalContent__RenderFunc(props: {
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "depositClicked",
+        path: "depositClicked2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.depositClicked,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $props.depositClicked2,
       },
     ],
     [$props, $ctx]
@@ -124,7 +125,7 @@ function PlasmicDepositModalContent__RenderFunc(props: {
   const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
 
   return (
-    (hasVariant($state, "depositClicked", "depositClicked") ? true : true) ? (
+    (hasVariant($state, "depositClicked2", "depositClicked2") ? true : true) ? (
       <p.Stack
         as={"div"}
         data-plasmic-name={"root"}
@@ -140,23 +141,23 @@ function PlasmicDepositModalContent__RenderFunc(props: {
           projectcss.plasmic_tokens,
           sty.root,
           {
-            [sty.rootdepositClicked]: hasVariant(
+            [sty.rootdepositClicked2]: hasVariant(
               $state,
-              "depositClicked",
-              "depositClicked"
+              "depositClicked2",
+              "depositClicked2"
             ),
           }
         )}
       >
         {(
-          hasVariant($state, "depositClicked", "depositClicked") ? true : true
+          hasVariant($state, "depositClicked2", "depositClicked2") ? true : true
         ) ? (
           <div
             className={classNames(projectcss.all, sty.freeBox__aCedf, {
-              [sty.freeBoxdepositClicked__aCedfDEzGr]: hasVariant(
+              [sty.freeBoxdepositClicked2__aCedfDEzGr]: hasVariant(
                 $state,
-                "depositClicked",
-                "depositClicked"
+                "depositClicked2",
+                "depositClicked2"
               ),
             })}
           >
@@ -216,15 +217,15 @@ function PlasmicDepositModalContent__RenderFunc(props: {
             projectcss.__wab_text,
             sty.h6__bdIcm,
             {
-              [sty.h6depositClicked__bdIcmDEzGr]: hasVariant(
+              [sty.h6depositClicked2__bdIcmDEzGr]: hasVariant(
                 $state,
-                "depositClicked",
-                "depositClicked"
+                "depositClicked2",
+                "depositClicked2"
               ),
             }
           )}
         >
-          {hasVariant($state, "depositClicked", "depositClicked")
+          {hasVariant($state, "depositClicked2", "depositClicked2")
             ? "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"
             : "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"}
         </h6>
