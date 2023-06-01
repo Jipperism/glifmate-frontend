@@ -51,7 +51,7 @@ export type PlasmicButton__VariantMembers = {
   showEndIcon: "showEndIcon";
   isDisabled: "isDisabled";
   shape: "rounded" | "round" | "sharp";
-  size: "compact" | "minimal";
+  size: "compact" | "minimal" | "small";
   color:
     | "blue"
     | "green"
@@ -72,7 +72,7 @@ export type PlasmicButton__VariantsArgs = {
   showEndIcon?: SingleBooleanChoiceArg<"showEndIcon">;
   isDisabled?: SingleBooleanChoiceArg<"isDisabled">;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
-  size?: SingleChoiceArg<"compact" | "minimal">;
+  size?: SingleChoiceArg<"compact" | "minimal" | "small">;
   color?: SingleChoiceArg<
     | "blue"
     | "green"
@@ -128,7 +128,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   submitsForm?: boolean;
   target?: boolean;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
-  size?: SingleChoiceArg<"compact" | "minimal">;
+  size?: SingleChoiceArg<"compact" | "minimal" | "small">;
   color?: SingleChoiceArg<
     | "blue"
     | "green"
@@ -306,6 +306,7 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootsize_minimal_color_link]:
             hasVariant($state, "color", "link") &&
             hasVariant($state, "size", "minimal"),
+          [sty.rootsize_small]: hasVariant($state, "size", "small"),
         }
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
@@ -521,6 +522,11 @@ function PlasmicButton__RenderFunc(props: {
             [sty.slotTargetChildrensize_minimal_color_link]:
               hasVariant($state, "color", "link") &&
               hasVariant($state, "size", "minimal"),
+            [sty.slotTargetChildrensize_small]: hasVariant(
+              $state,
+              "size",
+              "small"
+            ),
           }),
         })}
       </div>
@@ -614,7 +620,7 @@ function PlasmicButton__RenderFunc(props: {
   ) as React.ReactElement | null;
 }
 
-function useBehavior<P extends pp.BaseButtonProps>(
+function useBehavior<P extends pp.PlumeButtonProps>(
   props: P,
   ref: pp.ButtonRef
 ) {

@@ -42,12 +42,11 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
-import NavResponsive from "../../NavResponsive"; // plasmic-import: _B4LOOIRh-/component
-import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
+import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
 import DepositModalContent from "../../DepositModalContent"; // plasmic-import: LRxRpZH-jJ/component
 import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
 import { OnClickOpenDepositModal } from "@/components/deposit-modal-button"; // plasmic-import: Hdz9yyGLjX/codeComponent
+import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 import FooterClicked from "../../FooterClicked"; // plasmic-import: BmAm7vNSRg/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 9zDqG16aU0zLP/codeComponent
@@ -73,14 +72,14 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
-  nav?: p.Flex<typeof Nav>;
-  navResponsive?: p.Flex<typeof NavResponsive>;
+  header?: p.Flex<typeof Header>;
   h1?: p.Flex<"h1">;
-  totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   depositModalContent?: p.Flex<typeof DepositModalContent>;
   textInput?: p.Flex<typeof Button>;
   textInput2?: p.Flex<typeof Button>;
   onClickOpenDepositModal?: p.Flex<typeof OnClickOpenDepositModal>;
+  text?: p.Flex<"div">;
+  totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   columns?: p.Flex<"div">;
   footer?: p.Flex<typeof Footer>;
   footerClicked?: p.Flex<typeof FooterClicked>;
@@ -168,20 +167,13 @@ function PlasmicHomepage__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__vnFQh)}>
-            <Nav
-              data-plasmic-name={"nav"}
-              data-plasmic-override={overrides.nav}
-              activeUrl={"home" as const}
-              className={classNames("__wab_instance", sty.nav)}
+            <Header
+              data-plasmic-name={"header"}
+              data-plasmic-override={overrides.header}
+              className={classNames("__wab_instance", sty.header)}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__nj5YB)}>
-              <NavResponsive
-                data-plasmic-name={"navResponsive"}
-                data-plasmic-override={overrides.navResponsive}
-                className={classNames("__wab_instance", sty.navResponsive)}
-              />
-
               <p.Stack
                 as={"div"}
                 hasGap={true}
@@ -213,46 +205,68 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.h3___6EDmk
                       )}
                     >
-                      {
-                        "Trusted by Glif, Protocol Labs and Acrological Association"
-                      }
-                    </h3>
-                    <TotalStakedValueProvider
-                      data-plasmic-name={"totalStakedValueProvider"}
-                      data-plasmic-override={overrides.totalStakedValueProvider}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.totalStakedValueProvider
-                      )}
-                    >
-                      <ph.DataCtxReader>
-                        {($ctx) => (
-                          <h3
+                      <React.Fragment>
+                        <React.Fragment>{"Trusted by "}</React.Fragment>
+                        {
+                          <span
                             className={classNames(
                               projectcss.all,
-                              projectcss.h3,
+                              projectcss.span,
                               projectcss.__wab_text,
-                              sty.h3___8Xkl9
+                              projectcss.plasmic_default__inline,
+                              sty.span__b8FRs
                             )}
                           >
-                            {(() => {
-                              try {
-                                return `${
-                                  $ctx.totalStakedValue
-                                    ? $ctx.totalStakedValue
-                                    : "XXX"
-                                } FIL deposited`;
-                              } catch (e) {
-                                if (e instanceof TypeError) {
-                                  return "XXX FIL deposited";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </h3>
-                        )}
-                      </ph.DataCtxReader>
-                    </TotalStakedValueProvider>
+                            {"◉"}
+                          </span>
+                        }
+                        <React.Fragment>{" Glif "}</React.Fragment>
+                        {
+                          <span
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.span,
+                              projectcss.__wab_text,
+                              projectcss.plasmic_default__inline,
+                              sty.span__s8Mp8
+                            )}
+                          >
+                            {"◉"}
+                          </span>
+                        }
+                        <React.Fragment>{" Protocol "}</React.Fragment>
+                        {
+                          <span
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.span,
+                              projectcss.__wab_text,
+                              projectcss.plasmic_default__inline,
+                              sty.span__dRj7L
+                            )}
+                          >
+                            {"◉"}
+                          </span>
+                        }
+                        <React.Fragment>{" Labs "}</React.Fragment>
+                        {
+                          <span
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.span,
+                              projectcss.__wab_text,
+                              projectcss.plasmic_default__inline,
+                              sty.span__h6Btv
+                            )}
+                          >
+                            {"◉ "}
+                          </span>
+                        }
+                        <React.Fragment>
+                          {"Acrological Association"}
+                        </React.Fragment>
+                      </React.Fragment>
+                    </h3>
                   </p.Stack>
                 ) : null}
                 {true ? (
@@ -554,12 +568,89 @@ function PlasmicHomepage__RenderFunc(props: {
                           "__wab_instance",
                           sty.button__nW77K
                         )}
+                        color={"blue" as const}
                       >
-                        {"Deposit"}
+                        <div
+                          data-plasmic-name={"text"}
+                          data-plasmic-override={overrides.text}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text
+                          )}
+                        >
+                          {hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          ) ? (
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Deposit"}
+                              </span>
+                              <React.Fragment>{"  🚀"}</React.Fragment>
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Deposit"}
+                              </span>
+                              <React.Fragment>
+                                {" to public goods 🚀"}
+                              </React.Fragment>
+                            </React.Fragment>
+                          )}
+                        </div>
                       </Button>
                     </OnClickOpenDepositModal>
                   </div>
                 ) : null}
+                <TotalStakedValueProvider
+                  data-plasmic-name={"totalStakedValueProvider"}
+                  data-plasmic-override={overrides.totalStakedValueProvider}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.totalStakedValueProvider
+                  )}
+                >
+                  <ph.DataCtxReader>
+                    {($ctx) => (
+                      <h3
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h3,
+                          projectcss.__wab_text,
+                          sty.h3___8Xkl9
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return `${
+                              $ctx.totalStakedValue
+                                ? $ctx.totalStakedValue
+                                : "XXX"
+                            } FIL deposited`;
+                          } catch (e) {
+                            if (e instanceof TypeError) {
+                              return "XXX FIL deposited";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </h3>
+                    )}
+                  </ph.DataCtxReader>
+                </TotalStakedValueProvider>
               </p.Stack>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__vAi6C)}>
@@ -861,26 +952,26 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "nav",
-    "navResponsive",
+    "header",
     "h1",
-    "totalStakedValueProvider",
     "depositModalContent",
     "textInput",
     "textInput2",
     "onClickOpenDepositModal",
+    "text",
+    "totalStakedValueProvider",
     "columns",
     "footer",
     "footerClicked",
   ],
-  nav: ["nav"],
-  navResponsive: ["navResponsive"],
+  header: ["header"],
   h1: ["h1"],
-  totalStakedValueProvider: ["totalStakedValueProvider"],
   depositModalContent: ["depositModalContent"],
   textInput: ["textInput"],
   textInput2: ["textInput2"],
-  onClickOpenDepositModal: ["onClickOpenDepositModal"],
+  onClickOpenDepositModal: ["onClickOpenDepositModal", "text"],
+  text: ["text"],
+  totalStakedValueProvider: ["totalStakedValueProvider"],
   columns: ["columns"],
   footer: ["footer"],
   footerClicked: ["footerClicked"],
@@ -890,14 +981,14 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  nav: typeof Nav;
-  navResponsive: typeof NavResponsive;
+  header: typeof Header;
   h1: "h1";
-  totalStakedValueProvider: typeof TotalStakedValueProvider;
   depositModalContent: typeof DepositModalContent;
   textInput: typeof Button;
   textInput2: typeof Button;
   onClickOpenDepositModal: typeof OnClickOpenDepositModal;
+  text: "div";
+  totalStakedValueProvider: typeof TotalStakedValueProvider;
   columns: "div";
   footer: typeof Footer;
   footerClicked: typeof FooterClicked;
@@ -963,14 +1054,14 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    nav: makeNodeComponent("nav"),
-    navResponsive: makeNodeComponent("navResponsive"),
+    header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
-    totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     depositModalContent: makeNodeComponent("depositModalContent"),
     textInput: makeNodeComponent("textInput"),
     textInput2: makeNodeComponent("textInput2"),
     onClickOpenDepositModal: makeNodeComponent("onClickOpenDepositModal"),
+    text: makeNodeComponent("text"),
+    totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     columns: makeNodeComponent("columns"),
     footer: makeNodeComponent("footer"),
     footerClicked: makeNodeComponent("footerClicked"),
@@ -981,7 +1072,7 @@ export const PlasmicHomepage = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "Public Goods Funding",
+      title: "Public Goods Funding - Home",
       description: "",
       ogImageSrc: "",
       canonical: "",

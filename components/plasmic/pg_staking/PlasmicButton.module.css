@@ -12,7 +12,7 @@
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.1s;
   border-radius: 999px;
-  padding: 50px;
+  padding: 20px 50px;
   border-width: 0px;
 }
 .root > :global(.__wab_flex-container) {
@@ -31,6 +31,9 @@
 }
 .rootshowStartIcon {
   padding-left: 16px;
+}
+.rootcolor_blue {
+  background: #0091ff;
 }
 .rootcolor_green {
   background: #30a46c;
@@ -59,11 +62,11 @@
 .rootcolor_softRed {
   background: #fff0ee;
 }
-.rootcolor_softSand {
-  background: #eeeeec;
-}
 .rootshowEndIcon {
   padding-right: 16px;
+}
+.rootcolor_softSand {
+  background: #eeeeec;
 }
 .rootcolor_clear {
   background: #ffffff00;
@@ -94,8 +97,13 @@
 .rootsize_minimal {
   padding: 0px;
 }
-.rootcolor_blue {
-  background: #0091ff;
+.rootsize_small {
+  width: auto;
+  justify-self: flex-start;
+  height: auto;
+  display: inline-flex;
+  border-radius: 12px;
+  padding: 12px;
 }
 .rootshape_round_size_compact {
   padding: 6px;
@@ -108,6 +116,9 @@
 }
 .root:hover {
   background: #282826;
+}
+.rootcolor_blue:hover {
+  background: #369eff;
 }
 .rootcolor_green:hover {
   background: #3cb179;
@@ -145,9 +156,6 @@
 .rootcolor_link:hover {
   background: #ffffff00;
 }
-.rootcolor_blue:hover {
-  background: #369eff;
-}
 .root:focus-within {
   box-shadow: 0px 0px 0px 3px #96c7f2;
   outline: none;
@@ -158,6 +166,9 @@
 }
 .root:active {
   background: #2e2e2b;
+}
+.rootcolor_blue:active {
+  background: #52a9ff;
 }
 .rootcolor_green:active {
   background: #4cc38a;
@@ -194,9 +205,6 @@
 }
 .rootcolor_link:active {
   background: #ffffff00;
-}
-.rootcolor_blue:active {
-  background: #52a9ff;
 }
 .startIconContainer {
   display: flex;
@@ -267,6 +275,9 @@
   white-space: pre;
   font-size: 50px;
 }
+.slotTargetChildrencolor_blue {
+  color: #ffffff;
+}
 .slotTargetChildrencolor_green {
   color: #ffffff;
 }
@@ -303,8 +314,8 @@
 .slotTargetChildrencolor_link {
   color: #0091ff;
 }
-.slotTargetChildrencolor_blue {
-  color: #ffffff;
+.slotTargetChildrensize_small {
+  font-size: 18px;
 }
 .rootcolor_link:hover .slotTargetChildrencolor_link {
   color: #0081f1;
@@ -312,6 +323,9 @@
 .rootcolor_link:hover .slotTargetChildrencolor_link > :global(.__wab_text),
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
+  > :global(.__wab_expr_html_text),
+.rootcolor_link:hover
+  .slotTargetChildrencolor_link
   > :global(.__wab_slot-string-wrapper),
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
@@ -320,6 +334,10 @@
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.rootcolor_link:hover
+  .slotTargetChildrencolor_link
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
@@ -330,6 +348,11 @@
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.rootcolor_link:hover
+  .slotTargetChildrencolor_link
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
@@ -337,6 +360,12 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_text),
+.rootcolor_link:hover
+  .slotTargetChildrencolor_link
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
 .rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)

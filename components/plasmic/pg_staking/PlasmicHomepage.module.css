@@ -45,10 +45,9 @@
   grid-column-end: -1;
   padding: 0px;
 }
-.nav:global(.__wab_instance) {
+.header:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
   position: relative;
-  width: 100%;
-  min-width: 0;
 }
 .freeBox__nj5YB {
   display: flex;
@@ -62,10 +61,6 @@
   min-width: 0;
   padding: 0px;
 }
-.navResponsive:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-}
 .freeBox__rmFif {
   display: flex;
   position: relative;
@@ -78,8 +73,8 @@
 }
 .freeBox__rmFif > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
   margin-top: calc(0px - 75px);
   height: calc(100% + 75px);
@@ -123,32 +118,29 @@
   margin-top: 35px;
 }
 .h1 {
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   font-size: 63px;
-  min-width: 0;
 }
 .h3___6EDmk {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 40px;
-  min-width: 0;
+  font-size: 32px;
 }
-.totalStakedValueProvider:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
+.span__b8FRs {
+  font-size: 28px;
 }
-.h3___8Xkl9 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: 40px;
-  min-width: 0;
+.span__s8Mp8 {
+  font-size: 28px;
+}
+.span__dRj7L {
+  font-size: 28px;
+}
+.span__h6Btv {
+  font-size: 28px;
 }
 .freeBox__kPlcs {
   position: fixed;
@@ -614,10 +606,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
   padding: 8px;
 }
 .onClickOpenDepositModal:global(.__wab_instance) {
@@ -625,7 +616,7 @@
   object-fit: cover;
 }
 .button__nW77K:global(.__wab_instance) {
-  max-width: 500px;
+  max-width: none;
   position: relative;
   width: 100%;
   min-width: 0;
@@ -636,11 +627,26 @@
   width: 1em;
   height: 1em;
 }
+.text {
+  font-weight: 400;
+}
 .svg___09LKt {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
+}
+.totalStakedValueProvider:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.h3___8Xkl9 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 40px;
 }
 .freeBox__vAi6C {
   display: flex;

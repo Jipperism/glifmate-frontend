@@ -56,7 +56,9 @@ export const PlasmicNavResponsive__ArgProps = new Array<ArgPropType>();
 export type PlasmicNavResponsive__OverridesType = {
   root?: p.Flex<"div">;
   navigationBar?: p.Flex<typeof NavigationBar>;
-  freeBox?: p.Flex<"div">;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
+  about?: p.Flex<"a"> & Partial<LinkProps>;
+  faQs?: p.Flex<"a"> & Partial<LinkProps>;
   connectWalletButton?: p.Flex<typeof ConnectWalletButton>;
 };
 
@@ -121,15 +123,17 @@ function PlasmicNavResponsive__RenderFunc(props: {
         data-plasmic-override={overrides.navigationBar}
         brand={
           <p.PlasmicLink
-            className={classNames(projectcss.all, projectcss.a, sty.link__tIDg)}
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(projectcss.all, projectcss.a, sty.link)}
             component={Link}
-            href={`/`}
+            href={`/home`}
             platform={"nextjs"}
           >
             <p.PlasmicImg
               alt={""}
               className={classNames(sty.img__knpep)}
-              displayHeight={"40px" as const}
+              displayHeight={"50px" as const}
               displayMaxHeight={"none" as const}
               displayMaxWidth={"none" as const}
               displayMinHeight={"0" as const}
@@ -149,7 +153,7 @@ function PlasmicNavResponsive__RenderFunc(props: {
           <p.PlasmicImg
             alt={""}
             className={classNames(sty.img__cF2Fl)}
-            displayHeight={"auto" as const}
+            displayHeight={"36px" as const}
             displayMaxHeight={"none" as const}
             displayMaxWidth={"none" as const}
             displayMinHeight={"0" as const}
@@ -159,41 +163,39 @@ function PlasmicNavResponsive__RenderFunc(props: {
           />
         }
         forceOpenMenu={true}
-        itemsGap={8 as const}
+        itemsGap={24 as const}
         menuItems={
           <React.Fragment>
-            <div
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox)}
+            <p.PlasmicLink
+              data-plasmic-name={"about"}
+              data-plasmic-override={overrides.about}
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                sty.about
+              )}
+              component={Link}
+              href={`/about`}
+              platform={"nextjs"}
             >
-              <p.PlasmicLink
-                className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  projectcss.__wab_text,
-                  sty.link__soy9U
-                )}
-                component={Link}
-                href={`/faq`}
-                platform={"nextjs"}
-              >
-                {"FAQs"}
-              </p.PlasmicLink>
-              <p.PlasmicLink
-                className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  projectcss.__wab_text,
-                  sty.link__lFgkm
-                )}
-                component={Link}
-                href={`/about`}
-                platform={"nextjs"}
-              >
-                {"About"}
-              </p.PlasmicLink>
-            </div>
+              {"ABOUT"}
+            </p.PlasmicLink>
+            <p.PlasmicLink
+              data-plasmic-name={"faQs"}
+              data-plasmic-override={overrides.faQs}
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                sty.faQs
+              )}
+              component={Link}
+              href={`/faq`}
+              platform={"nextjs"}
+            >
+              {"FAQs"}
+            </p.PlasmicLink>
             <ConnectWalletButton
               data-plasmic-name={"connectWalletButton"}
               data-plasmic-override={overrides.connectWalletButton}
@@ -205,7 +207,7 @@ function PlasmicNavResponsive__RenderFunc(props: {
           <p.PlasmicImg
             alt={""}
             className={classNames(sty.img___4Ceh4)}
-            displayHeight={"auto" as const}
+            displayHeight={"36px" as const}
             displayMaxHeight={"none" as const}
             displayMaxWidth={"none" as const}
             displayMinHeight={"0" as const}
@@ -221,9 +223,24 @@ function PlasmicNavResponsive__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navigationBar", "freeBox", "connectWalletButton"],
-  navigationBar: ["navigationBar", "freeBox", "connectWalletButton"],
-  freeBox: ["freeBox"],
+  root: [
+    "root",
+    "navigationBar",
+    "link",
+    "about",
+    "faQs",
+    "connectWalletButton",
+  ],
+  navigationBar: [
+    "navigationBar",
+    "link",
+    "about",
+    "faQs",
+    "connectWalletButton",
+  ],
+  link: ["link"],
+  about: ["about"],
+  faQs: ["faQs"],
   connectWalletButton: ["connectWalletButton"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -232,7 +249,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navigationBar: typeof NavigationBar;
-  freeBox: "div";
+  link: "a";
+  about: "a";
+  faQs: "a";
   connectWalletButton: typeof ConnectWalletButton;
 };
 
@@ -297,7 +316,9 @@ export const PlasmicNavResponsive = Object.assign(
   {
     // Helper components rendering sub-elements
     navigationBar: makeNodeComponent("navigationBar"),
-    freeBox: makeNodeComponent("freeBox"),
+    link: makeNodeComponent("link"),
+    about: makeNodeComponent("about"),
+    faQs: makeNodeComponent("faQs"),
     connectWalletButton: makeNodeComponent("connectWalletButton"),
 
     // Metadata about props expected for PlasmicNavResponsive

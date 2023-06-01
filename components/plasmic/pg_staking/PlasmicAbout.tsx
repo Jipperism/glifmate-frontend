@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
+import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -55,7 +55,7 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
-  nav?: p.Flex<typeof Nav>;
+  header?: p.Flex<typeof Header>;
   h1?: p.Flex<"h1">;
   link?: p.Flex<"a"> & Partial<LinkProps>;
   footer?: p.Flex<typeof Footer>;
@@ -102,7 +102,20 @@ function PlasmicAbout__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicAbout.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicAbout.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicAbout.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -126,11 +139,11 @@ function PlasmicAbout__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__yc5Xq)}>
-            <Nav
-              data-plasmic-name={"nav"}
-              data-plasmic-override={overrides.nav}
+            <Header
+              data-plasmic-name={"header"}
+              data-plasmic-override={overrides.header}
               activeUrl={"about" as const}
-              className={classNames("__wab_instance", sty.nav)}
+              className={classNames("__wab_instance", sty.header)}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__p2X1)}>
@@ -281,8 +294,8 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "nav", "h1", "link", "footer"],
-  nav: ["nav"],
+  root: ["root", "header", "h1", "link", "footer"],
+  header: ["header"],
   h1: ["h1"],
   link: ["link"],
   footer: ["footer"],
@@ -292,7 +305,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  nav: typeof Nav;
+  header: typeof Header;
   h1: "h1";
   link: "a";
   footer: typeof Footer;
@@ -358,7 +371,7 @@ export const PlasmicAbout = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    nav: makeNodeComponent("nav"),
+    header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),
     footer: makeNodeComponent("footer"),
@@ -369,7 +382,7 @@ export const PlasmicAbout = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Public Goods Funding - About",
       description: "",
       ogImageSrc: "",
       canonical: "",

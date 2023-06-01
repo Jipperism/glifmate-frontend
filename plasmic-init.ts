@@ -3,7 +3,7 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import dynamic from "next/dynamic";
 import { ConnectWalletButton } from "@/components/connect-wallet-button";
 import { OnClickOpenDepositModal } from "@/components/deposit-modal-button";
-import NavigationResponsive from "@/components/NavigationResponsive";
+import NavigationResponsive from "@/components/navigation-responsive";
 const DepositForm = dynamic(() => import("@/components/forms/deposit-form"), {
   ssr: false,
 });
@@ -108,6 +108,9 @@ PLASMIC.registerComponent(NavigationResponsive, {
   importPath: "@/components/navigation-responsive",
   props: {
     logo: {
+      type: "slot",
+    },
+    urls: {
       type: "slot",
     },
     breakpoint: {

@@ -46,11 +46,9 @@
   grid-column-end: -1;
   padding: 0px;
 }
-.nav:global(.__wab_instance) {
+.header:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 100%;
-  min-width: 0;
 }
 .freeBox__p2X1 {
   display: flex;

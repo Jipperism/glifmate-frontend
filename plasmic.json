@@ -95,13 +95,26 @@
           "componentType": "component"
         },
         {
+          "id": "_B4LOOIRh-",
+          "name": "NavResponsive",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavResponsive.tsx",
+          "importSpec": {
+            "modulePath": "NavResponsive.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicNavResponsive.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
           "id": "OeFBFuO34W6D",
           "name": "Homepage",
           "type": "managed",
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
           "renderModuleFilePath": "plasmic/pg_staking/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../pages/index.tsx"
+            "modulePath": "../pages/home.tsx"
           },
           "cssFilePath": "plasmic/pg_staking/PlasmicHomepage.module.css",
           "scheme": "blackbox",
@@ -134,15 +147,15 @@
           "componentType": "page"
         },
         {
-          "id": "_B4LOOIRh-",
-          "name": "NavResponsive",
+          "id": "lTFHprYmdK",
+          "name": "Header",
           "type": "managed",
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
-          "renderModuleFilePath": "plasmic/pg_staking/PlasmicNavResponsive.tsx",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicHeader.tsx",
           "importSpec": {
-            "modulePath": "NavResponsive.tsx"
+            "modulePath": "Header.tsx"
           },
-          "cssFilePath": "plasmic/pg_staking/PlasmicNavResponsive.module.css",
+          "cssFilePath": "plasmic/pg_staking/PlasmicHeader.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -298,6 +311,11 @@
           "id": "Hdz9yyGLjX",
           "name": "OnClickOpenDepositModal",
           "componentImportPath": "@/components/deposit-modal-button"
+        },
+        {
+          "id": "aqgnBIGoRl",
+          "name": "NavigationResponsive",
+          "componentImportPath": "@/components/navigation-responsive"
         }
       ]
     },
@@ -329,6 +347,12 @@
         "name": "Screen",
         "projectId": "rLycm7fJPyjpC5eVgPhFFv",
         "contextFilePath": "plasmic/pg_staking/PlasmicGlobalVariant__Screen.tsx"
+      },
+      {
+        "id": "mTgdq1BJvl",
+        "name": "UnnamedGlobalGroupOfVariants",
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "contextFilePath": "plasmic/pg_staking/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants.tsx"
       }
     ]
   },

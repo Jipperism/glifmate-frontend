@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
+import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
@@ -57,7 +57,7 @@ export const PlasmicFaQs__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaQs__OverridesType = {
   root?: p.Flex<"div">;
-  nav?: p.Flex<typeof Nav>;
+  header?: p.Flex<typeof Header>;
   h6?: p.Flex<"h6">;
   footer?: p.Flex<typeof Footer>;
 };
@@ -107,7 +107,20 @@ function PlasmicFaQs__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicFaQs.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicFaQs.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicFaQs.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -131,14 +144,13 @@ function PlasmicFaQs__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__aUgK1)}>
-            <div className={classNames(projectcss.all, sty.freeBox__odphg)}>
-              <Nav
-                data-plasmic-name={"nav"}
-                data-plasmic-override={overrides.nav}
-                activeUrl={"faQs" as const}
-                className={classNames("__wab_instance", sty.nav)}
-              />
-            </div>
+            <Header
+              data-plasmic-name={"header"}
+              data-plasmic-override={overrides.header}
+              activeUrl={"faQs" as const}
+              className={classNames("__wab_instance", sty.header)}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox___3YbeX)}>
               <p.Stack
                 as={"div"}
@@ -1745,8 +1757,8 @@ function PlasmicFaQs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "nav", "h6", "footer"],
-  nav: ["nav"],
+  root: ["root", "header", "h6", "footer"],
+  header: ["header"],
   h6: ["h6"],
   footer: ["footer"],
 } as const;
@@ -1755,7 +1767,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  nav: typeof Nav;
+  header: typeof Header;
   h6: "h6";
   footer: typeof Footer;
 };
@@ -1820,7 +1832,7 @@ export const PlasmicFaQs = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    nav: makeNodeComponent("nav"),
+    header: makeNodeComponent("header"),
     h6: makeNodeComponent("h6"),
     footer: makeNodeComponent("footer"),
 
@@ -1830,7 +1842,7 @@ export const PlasmicFaQs = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Public Goods Funding - FAQ",
       description: "",
       ogImageSrc: "",
       canonical: "",
