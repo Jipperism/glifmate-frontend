@@ -25,6 +25,18 @@
   align-items: center;
   justify-content: space-between;
   min-width: 0;
+  margin-left: calc(0px - 20px);
+  width: calc(100% + 20px);
+}
+.freeBox__ctHgR > :global(.__wab_flex-container) > *,
+.freeBox__ctHgR > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__ctHgR > :global(.__wab_flex-container) > picture > img,
+.freeBox__ctHgR
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 20px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__ctHgR {

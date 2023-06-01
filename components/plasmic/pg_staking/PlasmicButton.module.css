@@ -6,16 +6,20 @@
   cursor: pointer;
   transition-property: background;
   transition-duration: 0.1s;
+  max-width: 500px;
+  width: 100%;
+  min-width: 0;
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.1s;
-  border-radius: 100px;
-  padding: 10px 20px;
+  border-radius: 999px;
+  padding: 50px;
   border-width: 0px;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }
@@ -259,9 +263,9 @@
 }
 .slotTargetChildren {
   color: #000000;
-  font-weight: 500;
+  font-weight: 600;
   white-space: pre;
-  font-size: 24px;
+  font-size: 50px;
 }
 .slotTargetChildrencolor_green {
   color: #ffffff;

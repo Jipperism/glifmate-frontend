@@ -250,7 +250,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.h3__uiHvU
                       )}
                     >
-                      {"Acrological Association"}
+                      {"Arcological Association"}
                     </h3>
                     <h4
                       className={classNames(

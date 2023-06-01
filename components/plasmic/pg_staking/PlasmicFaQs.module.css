@@ -546,8 +546,8 @@
 }
 .freeBox__f27Wm > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }
@@ -722,12 +722,12 @@
   flex-direction: column;
 }
 .freeBox___6NRf4 {
-  display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 .freeBox___6NRf4 > :global(.__wab_flex-container) {

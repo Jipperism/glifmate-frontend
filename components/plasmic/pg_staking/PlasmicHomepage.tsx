@@ -43,6 +43,7 @@ import {
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
 import Nav from "../../Nav"; // plasmic-import: DVQmJDwc4r/component
+import NavResponsive from "../../NavResponsive"; // plasmic-import: _B4LOOIRh-/component
 import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
 import DepositModalContent from "../../DepositModalContent"; // plasmic-import: LRxRpZH-jJ/component
 import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
@@ -73,6 +74,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   nav?: p.Flex<typeof Nav>;
+  navResponsive?: p.Flex<typeof NavResponsive>;
   h1?: p.Flex<"h1">;
   totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   depositModalContent?: p.Flex<typeof DepositModalContent>;
@@ -129,7 +131,20 @@ function PlasmicHomepage__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicHomepage.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicHomepage.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -161,6 +176,12 @@ function PlasmicHomepage__RenderFunc(props: {
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__nj5YB)}>
+              <NavResponsive
+                data-plasmic-name={"navResponsive"}
+                data-plasmic-override={overrides.navResponsive}
+                className={classNames("__wab_instance", sty.navResponsive)}
+              />
+
               <p.Stack
                 as={"div"}
                 hasGap={true}
@@ -841,6 +862,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "nav",
+    "navResponsive",
     "h1",
     "totalStakedValueProvider",
     "depositModalContent",
@@ -852,6 +874,7 @@ const PlasmicDescendants = {
     "footerClicked",
   ],
   nav: ["nav"],
+  navResponsive: ["navResponsive"],
   h1: ["h1"],
   totalStakedValueProvider: ["totalStakedValueProvider"],
   depositModalContent: ["depositModalContent"],
@@ -868,6 +891,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   nav: typeof Nav;
+  navResponsive: typeof NavResponsive;
   h1: "h1";
   totalStakedValueProvider: typeof TotalStakedValueProvider;
   depositModalContent: typeof DepositModalContent;
@@ -940,6 +964,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     nav: makeNodeComponent("nav"),
+    navResponsive: makeNodeComponent("navResponsive"),
     h1: makeNodeComponent("h1"),
     totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     depositModalContent: makeNodeComponent("depositModalContent"),
@@ -956,7 +981,7 @@ export const PlasmicHomepage = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "Public Goods Funding",
       description: "",
       ogImageSrc: "",
       canonical: "",
