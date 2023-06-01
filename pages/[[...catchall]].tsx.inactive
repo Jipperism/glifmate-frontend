@@ -18,10 +18,7 @@ import { ToastContainer } from "react-toastify";
 import ReactModal from "react-modal";
 
 import { ChakraProvider } from "@chakra-ui/react";
-import {
-  DepositModalContext,
-  DepositModalProvider,
-} from "@/providers/DepositModalContext";
+import { DepositModalProvider } from "@/providers/DepositModalContext";
 
 ReactModal.setAppElement("#__next");
 

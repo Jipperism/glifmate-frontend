@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   useAccount,
@@ -29,6 +29,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Formik } from "formik";
+import ConnectWalletButton from "@/components/connect-wallet-button";
 
 export interface DepositFormProps {
   className?: string;
@@ -37,6 +38,12 @@ export interface DepositFormProps {
 export const DepositForm = ({ className }: DepositFormProps) => {
   const { PUBLIC_GOODS } = useContractAddresses();
   const { address, isConnecting } = useAccount();
+
+  const [showConnectWallet, setShowConnectWallet] = useState(false);
+
+  useEffect(() => {
+    setShowConnectWallet(!address);
+  }, [address]);
 
   const [formValues, setFormValues] = useState<
     | {
@@ -152,7 +159,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
       }) => {
         const isErrored = isPrepareError || isWriteError;
         const error = prepareError || writeError;
-        const disabled = !address || isLoading || isConnecting;
+        const disabled = showConnectWallet || isLoading || isConnecting;
         const submitDisabled = disabled || isErrored;
         return (
           <form
@@ -161,6 +168,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
             onSubmit={handleSubmit}
           >
             <VStack width={"100%"}>
+              {showConnectWallet && <ConnectWalletButton />}
               <Flex alignItems={"center"} width={"100%"}>
                 <FormLabel minWidth={"110px"} fontWeight={700} mb={0}>
                   Deposit
@@ -264,6 +272,8 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                   setFieldValue("depositAmount", 0);
                 }}
                 isDisabled={disabled}
+                size="small"
+                style={{ width: "100px" }}
               >
                 Clear
               </Button>
@@ -271,6 +281,9 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                 isDisabled={submitDisabled}
                 type={"button"}
                 onClick={() => onDeposit()}
+                size="small"
+                style={{ width: "100%" }}
+                color="blue"
               >
                 Send
               </Button>

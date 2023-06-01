@@ -36,8 +36,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
-import { HideIfWalletConnected } from "@/components/HideIfWalletConnected"; // plasmic-import: x9FAUK0Cl_/codeComponent
-import { ConnectWalletButton } from "@/components/connect-wallet-button"; // plasmic-import: aYoYQSYoB7/codeComponent
 import { DepositForm } from "@/components/forms/deposit-form"; // plasmic-import: jzMDyQ-x2A/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -63,8 +61,6 @@ export type PlasmicDepositModalContent__OverridesType = {
   root?: p.Flex<"div">;
   h3?: p.Flex<"h3">;
   img?: p.Flex<typeof p.PlasmicImg>;
-  hideIfWalletConnected?: p.Flex<typeof HideIfWalletConnected>;
-  depositFormConnectWalletButton?: p.Flex<typeof ConnectWalletButton>;
   depositForm?: p.Flex<typeof DepositForm>;
 };
 
@@ -229,22 +225,6 @@ function PlasmicDepositModalContent__RenderFunc(props: {
             ? "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"
             : "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"}
         </h6>
-        <HideIfWalletConnected
-          data-plasmic-name={"hideIfWalletConnected"}
-          data-plasmic-override={overrides.hideIfWalletConnected}
-          className={classNames("__wab_instance", sty.hideIfWalletConnected)}
-        >
-          {true ? (
-            <ConnectWalletButton
-              data-plasmic-name={"depositFormConnectWalletButton"}
-              data-plasmic-override={overrides.depositFormConnectWalletButton}
-              className={classNames(
-                "__wab_instance",
-                sty.depositFormConnectWalletButton
-              )}
-            />
-          ) : null}
-        </HideIfWalletConnected>
         <DepositForm
           data-plasmic-name={"depositForm"}
           data-plasmic-override={overrides.depositForm}
@@ -256,21 +236,9 @@ function PlasmicDepositModalContent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "h3",
-    "img",
-    "hideIfWalletConnected",
-    "depositFormConnectWalletButton",
-    "depositForm",
-  ],
+  root: ["root", "h3", "img", "depositForm"],
   h3: ["h3"],
   img: ["img"],
-  hideIfWalletConnected: [
-    "hideIfWalletConnected",
-    "depositFormConnectWalletButton",
-  ],
-  depositFormConnectWalletButton: ["depositFormConnectWalletButton"],
   depositForm: ["depositForm"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -280,8 +248,6 @@ type NodeDefaultElementType = {
   root: "div";
   h3: "h3";
   img: typeof p.PlasmicImg;
-  hideIfWalletConnected: typeof HideIfWalletConnected;
-  depositFormConnectWalletButton: typeof ConnectWalletButton;
   depositForm: typeof DepositForm;
 };
 
@@ -347,10 +313,6 @@ export const PlasmicDepositModalContent = Object.assign(
     // Helper components rendering sub-elements
     h3: makeNodeComponent("h3"),
     img: makeNodeComponent("img"),
-    hideIfWalletConnected: makeNodeComponent("hideIfWalletConnected"),
-    depositFormConnectWalletButton: makeNodeComponent(
-      "depositFormConnectWalletButton"
-    ),
     depositForm: makeNodeComponent("depositForm"),
 
     // Metadata about props expected for PlasmicDepositModalContent

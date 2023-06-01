@@ -2,11 +2,13 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Button from "@/components/Button";
 import { useMediaQuery } from "@chakra-ui/react";
 interface ConnectWalletButtonProps {
-  breakpoint: number;
+  breakpoint?: number;
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
-  const [isDesktop] = useMediaQuery(`(min-width: ${props.breakpoint}px)`);
+  const [isDesktop] = useMediaQuery(
+    `(min-width: ${props.breakpoint || 768}px)`
+  );
   return (
     <ConnectButton.Custom>
       {({
