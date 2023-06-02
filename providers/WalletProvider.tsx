@@ -12,28 +12,26 @@ import {
 import { publicProvider } from "wagmi/providers/public";
 import React from "react";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+import { RPC_HYPERSPACE, RPC_MAINNET } from "@/constants";
 
 const { chains, publicClient } = configureChains(
-  [filecoinHyperspace, filecoin],
+  [filecoin, filecoinHyperspace],
   [
     jsonRpcProvider({
       rpc: (chain) => {
-        if (chain.id === 314) {
+        if (chain.id === filecoin.id) {
           return {
-            http: "https://api.node.glif.io/rpc/v1",
+            http: RPC_MAINNET,
             webSocket: "wss://wss.node.glif.io/apigw/lotus/rpc/v1",
           };
         }
-        if (chain.id === 3141) {
+        if (chain.id === filecoinHyperspace.id) {
           return {
-            http: "https://api.hyperspace.node.glif.io/rpc/v1",
+            http: RPC_HYPERSPACE,
             webSocket: "wss://api.hyperspace.node.glif.io/rpc/v1/ws",
           };
         }
-        return {
-          http: "https://api.hyperspace.node.glif.io/rpc/v1",
-          webSocket: "wss://api.hyperspace.node.glif.io/rpc/v1/ws",
-        };
+        throw new Error("Unsupported chain!");
       },
     }),
     publicProvider(),

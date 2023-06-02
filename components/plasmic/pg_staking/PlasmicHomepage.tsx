@@ -43,9 +43,8 @@ import {
   ensureGlobalVariants,
 } from "@plasmicapp/react-web";
 import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
-import DepositModalContent from "../../DepositModalContent"; // plasmic-import: LRxRpZH-jJ/component
-import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
 import { OnClickOpenDepositModal } from "@/components/deposit-modal-button"; // plasmic-import: Hdz9yyGLjX/codeComponent
+import Button from "../../Button"; // plasmic-import: KZiUfPVLwuq/component
 import { TotalStakedValueProvider } from "@/components/data-providers/TotalStakedValueProvider"; // plasmic-import: KVJO-MO5ld/codeComponent
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 import FooterClicked from "../../FooterClicked"; // plasmic-import: BmAm7vNSRg/component
@@ -74,10 +73,8 @@ export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   header?: p.Flex<typeof Header>;
   h1?: p.Flex<"h1">;
-  depositModalContent?: p.Flex<typeof DepositModalContent>;
-  textInput?: p.Flex<typeof Button>;
-  textInput2?: p.Flex<typeof Button>;
   onClickOpenDepositModal?: p.Flex<typeof OnClickOpenDepositModal>;
+  button?: p.Flex<typeof Button>;
   text?: p.Flex<"div">;
   totalStakedValueProvider?: p.Flex<typeof TotalStakedValueProvider>;
   columns?: p.Flex<"div">;
@@ -205,356 +202,140 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.h3___6EDmk
                       )}
                     >
-                      <React.Fragment>
-                        <React.Fragment>{"Trusted by "}</React.Fragment>
-                        {
-                          <span
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.span,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.span__b8FRs
-                            )}
-                          >
-                            {"◉"}
-                          </span>
-                        }
-                        <React.Fragment>{" Glif "}</React.Fragment>
-                        {
-                          <span
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.span,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.span__s8Mp8
-                            )}
-                          >
-                            {"◉"}
-                          </span>
-                        }
-                        <React.Fragment>{" Protocol "}</React.Fragment>
-                        {
-                          <span
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.span,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.span__dRj7L
-                            )}
-                          >
-                            {"◉"}
-                          </span>
-                        }
-                        <React.Fragment>{" Labs "}</React.Fragment>
-                        {
-                          <span
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.span,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.span__h6Btv
-                            )}
-                          >
-                            {"◉ "}
-                          </span>
-                        }
+                      {hasVariant(globalVariants, "screen", "mobileOnly") ? (
                         <React.Fragment>
-                          {"Acrological Association"}
+                          <React.Fragment>{"Trusted by\n"}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__b8FRs
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉"
+                                : "◉"}
+                            </span>
+                          }
+                          <React.Fragment>{" Glif\n"}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__s8Mp8
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉"
+                                : "◉"}
+                            </span>
+                          }
+                          <React.Fragment>{" Protocol Labs\n"}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__h6Btv
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉ "
+                                : "◉ "}
+                            </span>
+                          }
+                          <React.Fragment>
+                            {"Acrological Association"}
+                          </React.Fragment>
                         </React.Fragment>
-                      </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          <React.Fragment>{"Trusted by "}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__b8FRs
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉"
+                                : "◉"}
+                            </span>
+                          }
+                          <React.Fragment>{" Glif "}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__s8Mp8
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉"
+                                : "◉"}
+                            </span>
+                          }
+                          <React.Fragment>{" Protocol Labs "}</React.Fragment>
+                          {
+                            <span
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.span,
+                                projectcss.__wab_text,
+                                projectcss.plasmic_default__inline,
+                                sty.span__h6Btv
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              )
+                                ? "◉ "
+                                : "◉ "}
+                            </span>
+                          }
+                          <React.Fragment>
+                            {"Acrological Association"}
+                          </React.Fragment>
+                        </React.Fragment>
+                      )}
                     </h3>
-                  </p.Stack>
-                ) : null}
-                {true ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kPlcs)}
-                  >
-                    <p.Stack
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__cv9B)}
-                    >
-                      {true ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__nJpq
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__nGm
-                            )}
-                          >
-                            {true ? (
-                              <DepositModalContent
-                                data-plasmic-name={"depositModalContent"}
-                                data-plasmic-override={
-                                  overrides.depositModalContent
-                                }
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.depositModalContent
-                                )}
-                              />
-                            ) : null}
-                          </div>
-                        </div>
-                      ) : null}
-                      <p.Stack
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__qsTs0
-                        )}
-                      >
-                        {false ? (
-                          <p.Stack
-                            as={"button"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.button,
-                              sty.button___0Hcdz
-                            )}
-                          >
-                            <h3
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3__dkQwa
-                              )}
-                            >
-                              {"Connect Wallet"}
-                            </h3>
-                            <p.PlasmicImg
-                              alt={""}
-                              className={classNames(sty.img__zzQer)}
-                              displayHeight={"24px" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"80px" as const}
-                              loading={"lazy" as const}
-                            />
-                          </p.Stack>
-                        ) : null}
-                      </p.Stack>
-                      {true ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__lVcHi
-                          )}
-                        >
-                          {true ? (
-                            <p.Stack
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__zRlO
-                              )}
-                            >
-                              <h4
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.h4,
-                                  projectcss.__wab_text,
-                                  sty.h4__fhkI
-                                )}
-                              >
-                                {"Amount"}
-                              </h4>
-                              <Button
-                                data-plasmic-name={"textInput"}
-                                data-plasmic-override={overrides.textInput}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.textInput
-                                )}
-                              />
-
-                              <h4
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.h4,
-                                  projectcss.__wab_text,
-                                  sty.h4__lxQjV
-                                )}
-                              >
-                                {"Receive"}
-                              </h4>
-                              <Button
-                                data-plasmic-name={"textInput2"}
-                                data-plasmic-override={overrides.textInput2}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.textInput2
-                                )}
-                              />
-                            </p.Stack>
-                          ) : null}
-                          <p.Stack
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__bgJvg
-                            )}
-                          >
-                            <h4
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h4,
-                                projectcss.__wab_text,
-                                sty.h4__epDO
-                              )}
-                            >
-                              {"Amount"}
-                            </h4>
-                            <h4
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h4,
-                                projectcss.__wab_text,
-                                sty.h4__l4Gjb
-                              )}
-                            >
-                              {"Receive"}
-                            </h4>
-                            <h4
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h4,
-                                projectcss.__wab_text,
-                                sty.h4__ntZek
-                              )}
-                            >
-                              {"Donate"}
-                            </h4>
-                          </p.Stack>
-                        </div>
-                      ) : null}
-                      {true ? (
-                        <p.Stack
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__shQtC
-                          )}
-                        >
-                          <p.Stack
-                            as={"button"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.button,
-                              sty.button__fLo2F
-                            )}
-                          >
-                            <h3
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3__l6Yqx
-                              )}
-                            >
-                              {"Close"}
-                            </h3>
-                            <p.PlasmicImg
-                              alt={""}
-                              className={classNames(sty.img__xTgmv)}
-                              displayHeight={"24px" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"80px" as const}
-                              loading={"lazy" as const}
-                            />
-                          </p.Stack>
-                          <p.Stack
-                            as={"button"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.button,
-                              sty.button__xyYzE
-                            )}
-                          >
-                            <h3
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3___6QSfm
-                              )}
-                            >
-                              {"Clear"}
-                            </h3>
-                            <p.PlasmicImg
-                              alt={""}
-                              className={classNames(sty.img__gix1G)}
-                              displayHeight={"24px" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"80px" as const}
-                              loading={"lazy" as const}
-                            />
-                          </p.Stack>
-                          <p.Stack
-                            as={"button"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.button,
-                              sty.button___0Weyj
-                            )}
-                          >
-                            <h3
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3__ga1MU
-                              )}
-                            >
-                              {"Send"}
-                            </h3>
-                            <p.PlasmicImg
-                              alt={""}
-                              className={classNames(sty.img__tyK)}
-                              displayHeight={"24px" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"80px" as const}
-                              loading={"lazy" as const}
-                            />
-                          </p.Stack>
-                        </p.Stack>
-                      ) : null}
-                    </p.Stack>
-                  </div>
-                ) : null}
-                {true ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__uc49B)}
-                  >
                     <OnClickOpenDepositModal
                       data-plasmic-name={"onClickOpenDepositModal"}
                       data-plasmic-override={overrides.onClickOpenDepositModal}
@@ -564,10 +345,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       <Button
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button__nW77K
-                        )}
+                        data-plasmic-name={"button"}
+                        data-plasmic-override={overrides.button}
+                        className={classNames("__wab_instance", sty.button)}
                         color={"blue" as const}
                       >
                         <div
@@ -613,44 +393,47 @@ function PlasmicHomepage__RenderFunc(props: {
                         </div>
                       </Button>
                     </OnClickOpenDepositModal>
-                  </div>
-                ) : null}
-                <TotalStakedValueProvider
-                  data-plasmic-name={"totalStakedValueProvider"}
-                  data-plasmic-override={overrides.totalStakedValueProvider}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.totalStakedValueProvider
-                  )}
-                >
-                  <ph.DataCtxReader>
-                    {($ctx) => (
-                      <h3
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h3,
-                          projectcss.__wab_text,
-                          sty.h3___8Xkl9
+                    <TotalStakedValueProvider
+                      data-plasmic-name={"totalStakedValueProvider"}
+                      data-plasmic-override={overrides.totalStakedValueProvider}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.totalStakedValueProvider
+                      )}
+                    >
+                      <ph.DataCtxReader>
+                        {($ctx) => (
+                          <h3
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h3,
+                              projectcss.__wab_text,
+                              sty.h3___8Xkl9
+                            )}
+                          >
+                            {(() => {
+                              try {
+                                return `${
+                                  $ctx.totalStakedValue
+                                    ? $ctx.totalStakedValue
+                                    : "XXX"
+                                } FIL deposited`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "XXX FIL deposited";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </h3>
                         )}
-                      >
-                        {(() => {
-                          try {
-                            return `${
-                              $ctx.totalStakedValue
-                                ? $ctx.totalStakedValue
-                                : "XXX"
-                            } FIL deposited`;
-                          } catch (e) {
-                            if (e instanceof TypeError) {
-                              return "XXX FIL deposited";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </h3>
-                    )}
-                  </ph.DataCtxReader>
-                </TotalStakedValueProvider>
+                      </ph.DataCtxReader>
+                    </TotalStakedValueProvider>
+                  </p.Stack>
+                ) : null}
               </p.Stack>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__vAi6C)}>
@@ -954,10 +737,8 @@ const PlasmicDescendants = {
     "root",
     "header",
     "h1",
-    "depositModalContent",
-    "textInput",
-    "textInput2",
     "onClickOpenDepositModal",
+    "button",
     "text",
     "totalStakedValueProvider",
     "columns",
@@ -966,10 +747,8 @@ const PlasmicDescendants = {
   ],
   header: ["header"],
   h1: ["h1"],
-  depositModalContent: ["depositModalContent"],
-  textInput: ["textInput"],
-  textInput2: ["textInput2"],
-  onClickOpenDepositModal: ["onClickOpenDepositModal", "text"],
+  onClickOpenDepositModal: ["onClickOpenDepositModal", "button", "text"],
+  button: ["button", "text"],
   text: ["text"],
   totalStakedValueProvider: ["totalStakedValueProvider"],
   columns: ["columns"],
@@ -983,10 +762,8 @@ type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
   h1: "h1";
-  depositModalContent: typeof DepositModalContent;
-  textInput: typeof Button;
-  textInput2: typeof Button;
   onClickOpenDepositModal: typeof OnClickOpenDepositModal;
+  button: typeof Button;
   text: "div";
   totalStakedValueProvider: typeof TotalStakedValueProvider;
   columns: "div";
@@ -1056,10 +833,8 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
-    depositModalContent: makeNodeComponent("depositModalContent"),
-    textInput: makeNodeComponent("textInput"),
-    textInput2: makeNodeComponent("textInput2"),
     onClickOpenDepositModal: makeNodeComponent("onClickOpenDepositModal"),
+    button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
     totalStakedValueProvider: makeNodeComponent("totalStakedValueProvider"),
     columns: makeNodeComponent("columns"),

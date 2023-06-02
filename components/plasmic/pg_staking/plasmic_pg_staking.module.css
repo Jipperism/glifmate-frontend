@@ -5,8 +5,27 @@
   --plasmic-token-max-page-width: var(--token-OvRly4y3P);
   --token-gGQoVGJZg: #000000bf;
   --plasmic-token-black-85: var(--token-gGQoVGJZg);
-  --token-8nbRbOL4D: 32px;
+  --token-8nbRbOL4D: 30px;
   --plasmic-token-large: var(--token-8nbRbOL4D);
+  --token-b-YX1IU6q: 30px;
+  --plasmic-token-medium: var(--token-b-YX1IU6q);
+  --token-VpWgElnay: 45px;
+  --plasmic-token-x-large: var(--token-VpWgElnay);
+  --token-TygXv3Cxw: 64px;
+  --plasmic-token-xx-large: var(--token-TygXv3Cxw);
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .plasmic_tokens {
+    --token-8nbRbOL4D: 28px;
+    --plasmic-token-large: var(--token-8nbRbOL4D);
+    --token-b-YX1IU6q: 20px;
+    --plasmic-token-medium: var(--token-b-YX1IU6q);
+    --token-VpWgElnay: 28px;
+    --plasmic-token-x-large: var(--token-VpWgElnay);
+    --token-TygXv3Cxw: 48px;
+    --plasmic-token-xx-large: var(--token-TygXv3Cxw);
+  }
 }
 
 .plasmic_tokens {

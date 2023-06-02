@@ -90,6 +90,11 @@
   > img {
   margin-top: 75px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__bqsl7 {
+    padding-top: 50px;
+  }
+}
 .freeBox__anqZa {
   display: flex;
   position: relative;
@@ -122,7 +127,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-size: 63px;
+  font-size: var(--token-TygXv3Cxw);
   min-width: 0;
 }
 .h3___5SIxX {
@@ -134,11 +139,16 @@
   font-weight: 500;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .h3___5SIxX {
+    font-size: var(--token-8nbRbOL4D);
+  }
+}
 .h4__oIg2I {
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 30px;
+  font-size: var(--token-b-YX1IU6q);
 }
 .freeBox__p2DXj {
   display: flex;
@@ -173,14 +183,14 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 45px;
+  font-size: var(--token-VpWgElnay);
   font-weight: 600;
 }
 .h4__dVGu {
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 30px;
+  font-size: var(--token-b-YX1IU6q);
 }
 .freeBox___8Jdkg {
   display: flex;
@@ -215,14 +225,14 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 45px;
+  font-size: var(--token-VpWgElnay);
   font-weight: 600;
 }
 .h4__swswl {
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 30px;
+  font-size: var(--token-b-YX1IU6q);
 }
 .footer:global(.__wab_instance) {
   max-width: 100%;

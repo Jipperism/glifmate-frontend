@@ -38,6 +38,8 @@ import {
 } from "@plasmicapp/react-web";
 import { NavigationResponsive } from "@/components/navigation-responsive"; // plasmic-import: aqgnBIGoRl/codeComponent
 
+import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
@@ -117,6 +119,10 @@ function PlasmicHeader__RenderFunc(props: {
     [$props, $ctx]
   );
   const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqqPMw8O9H4JqN(),
+  });
 
   return (
     <NavigationResponsive

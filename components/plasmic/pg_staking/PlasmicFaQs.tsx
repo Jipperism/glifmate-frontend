@@ -257,12 +257,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__arr6K)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_1Svg.svg",
@@ -298,12 +298,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___8SjNu)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_2Svg.svg",
@@ -339,12 +339,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__kdo57)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_3Svg.svg",
@@ -380,12 +380,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__yCSo4)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_4Svg.svg",
@@ -442,12 +442,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__ur3CD)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_1Svg.svg",
@@ -483,12 +483,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___1TZu2)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_2Svg.svg",
@@ -522,12 +522,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__hOSta)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_3Svg.svg",
@@ -806,24 +806,29 @@ function PlasmicFaQs__RenderFunc(props: {
                           sty.freeBox__yPPoI
                         )}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__eicS)}
-                          displayHeight={"auto" as const}
-                          displayMaxHeight={"none" as const}
-                          displayMaxWidth={"100%" as const}
-                          displayMinHeight={"0" as const}
-                          displayMinWidth={"0" as const}
-                          displayWidth={"8px" as const}
-                          loading={"lazy" as const}
-                          src={{
-                            src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                            fullWidth: 1,
-                            fullHeight: 150,
-                            aspectRatio: 0.004498,
-                          }}
-                        />
-
+                        {(
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? true
+                            : true
+                        ) ? (
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__eicS)}
+                            displayHeight={"auto" as const}
+                            displayMaxHeight={"none" as const}
+                            displayMaxWidth={"100%" as const}
+                            displayMinHeight={"0" as const}
+                            displayMinWidth={"0" as const}
+                            displayWidth={"8px" as const}
+                            loading={"lazy" as const}
+                            src={{
+                              src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
+                              fullWidth: 1,
+                              fullHeight: 150,
+                              aspectRatio: 0.004498,
+                            }}
+                          />
+                        ) : null}
                         {true ? (
                           <p.Stack
                             as={"div"}
@@ -943,9 +948,28 @@ function PlasmicFaQs__RenderFunc(props: {
                                     sty.h4__qQF
                                   )}
                                 >
-                                  {
-                                    "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     iFIL received = FIL stake / current iFIL price \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
-                                  }
+                                  <React.Fragment>
+                                    <React.Fragment>
+                                      {
+                                        "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     "
+                                      }
+                                    </React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ fontWeight: 700 }}
+                                    >
+                                      {
+                                        "iFIL received = FIL stake / current iFIL price"
+                                      }
+                                    </span>
+                                    <React.Fragment>
+                                      {
+                                        " \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
+                                      }
+                                    </React.Fragment>
+                                  </React.Fragment>
                                 </h4>
                               </p.Stack>
                             ) : null}
@@ -977,24 +1001,29 @@ function PlasmicFaQs__RenderFunc(props: {
                             sty.freeBox__oi3Vc
                           )}
                         >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__aikDz)}
-                            displayHeight={"auto" as const}
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"100%" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={"8px" as const}
-                            loading={"lazy" as const}
-                            src={{
-                              src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                              fullWidth: 1,
-                              fullHeight: 150,
-                              aspectRatio: 0.004498,
-                            }}
-                          />
-
+                          {(
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? true
+                              : true
+                          ) ? (
+                            <p.PlasmicImg
+                              alt={""}
+                              className={classNames(sty.img__aikDz)}
+                              displayHeight={"auto" as const}
+                              displayMaxHeight={"none" as const}
+                              displayMaxWidth={"100%" as const}
+                              displayMinHeight={"0" as const}
+                              displayMinWidth={"0" as const}
+                              displayWidth={"8px" as const}
+                              loading={"lazy" as const}
+                              src={{
+                                src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
+                                fullWidth: 1,
+                                fullHeight: 150,
+                                aspectRatio: 0.004498,
+                              }}
+                            />
+                          ) : null}
                           {true ? (
                             <p.Stack
                               as={"div"}
@@ -1035,12 +1064,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___05Nfo)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_1Svg.svg",
@@ -1076,12 +1105,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__iflRt)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_2Svg.svg",
@@ -1117,12 +1146,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__seO9X)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_3Svg.svg",
@@ -1158,12 +1187,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__wvb3J)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_4Svg.svg",
@@ -1220,12 +1249,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__v1Mdp)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_1Svg.svg",
@@ -1261,12 +1290,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__cw8Gh)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_2Svg.svg",
@@ -1300,12 +1329,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img__scXaz)}
-                                        displayHeight={"80px" as const}
+                                        displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"100%" as const}
+                                        displayMaxWidth={"none" as const}
                                         displayMinHeight={"0" as const}
                                         displayMinWidth={"0" as const}
-                                        displayWidth={"80px" as const}
+                                        displayWidth={"auto" as const}
                                         loading={"lazy" as const}
                                         src={{
                                           src: "/plasmic/pg_staking/images/_3Svg.svg",

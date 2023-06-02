@@ -8,3 +8,7 @@ export const PUBLIC_GOODS_ADDRESS_HYPERSPACE =
   "0xfD6ba95B3cb24F1412b25e8d44D4e1CF3949916A";
 
 export const DEFAULT_CHAIN_ID = 3141;
+
+export const RPC_HYPERSPACE = "https://api.hyperspace.node.glif.io/rpc/v1";
+
+export const RPC_MAINNET = "https://api.node.glif.io/rpc/v1";

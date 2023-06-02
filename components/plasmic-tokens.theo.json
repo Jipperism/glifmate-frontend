@@ -3,11 +3,41 @@
     {
       "name": "Large",
       "type": "fontsize",
-      "value": "32px",
+      "value": "30px",
       "category": "fontsize",
       "meta": {
         "projectId": "rLycm7fJPyjpC5eVgPhFFv",
         "id": "8nbRbOL4D"
+      }
+    },
+    {
+      "name": "Medium",
+      "type": "fontsize",
+      "value": "30px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "id": "b-YX1IU6q"
+      }
+    },
+    {
+      "name": "XLarge",
+      "type": "fontsize",
+      "value": "45px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "id": "VpWgElnay"
+      }
+    },
+    {
+      "name": "XXLarge",
+      "type": "fontsize",
+      "value": "64px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "id": "TygXv3Cxw"
       }
     },
     {
