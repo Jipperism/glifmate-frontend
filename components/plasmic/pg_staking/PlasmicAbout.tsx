@@ -59,7 +59,6 @@ export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
   header?: p.Flex<typeof Header>;
   h1?: p.Flex<"h1">;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
   footer?: p.Flex<typeof Footer>;
 };
 
@@ -232,14 +231,12 @@ function PlasmicAbout__RenderFunc(props: {
                         </React.Fragment>
                         {
                           <p.PlasmicLink
-                            data-plasmic-name={"link"}
-                            data-plasmic-override={overrides.link}
                             className={classNames(
                               projectcss.all,
                               projectcss.a,
                               projectcss.__wab_text,
                               projectcss.plasmic_default__inline,
-                              sty.link
+                              sty.link___5VqZy
                             )}
                             component={Link}
                             href={"https://www.glif.io/" as const}
@@ -279,9 +276,30 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.h4__swswl
                       )}
                     >
-                      {
-                        "The Arcological Association (ASA) supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological’s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
-                      }
+                      <React.Fragment>
+                        <React.Fragment>{"The "}</React.Fragment>
+                        {
+                          <p.PlasmicLink
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              projectcss.__wab_text,
+                              projectcss.plasmic_default__inline,
+                              sty.link___00Yio
+                            )}
+                            component={Link}
+                            href={"https://arcological.xyz" as const}
+                            platform={"nextjs"}
+                          >
+                            {"Arcological Association (ASA)"}
+                          </p.PlasmicLink>
+                        }
+                        <React.Fragment>
+                          {
+                            " supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological’s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
+                          }
+                        </React.Fragment>
+                      </React.Fragment>
                     </h4>
                   </p.Stack>
                 ) : null}
@@ -300,10 +318,9 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "h1", "link", "footer"],
+  root: ["root", "header", "h1", "footer"],
   header: ["header"],
   h1: ["h1"],
-  link: ["link"],
   footer: ["footer"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -313,7 +330,6 @@ type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
   h1: "h1";
-  link: "a";
   footer: typeof Footer;
 };
 
@@ -379,7 +395,6 @@ export const PlasmicAbout = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
-    link: makeNodeComponent("link"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicAbout

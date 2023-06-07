@@ -196,34 +196,16 @@ function PlasmicFaQs__RenderFunc(props: {
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__xpMm7
+                            sty.freeBox__yPPoI
                           )}
                         >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__gJbCe)}
-                            displayHeight={"auto" as const}
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"100%" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={"8px" as const}
-                            loading={"lazy" as const}
-                            src={{
-                              src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                              fullWidth: 1,
-                              fullHeight: 150,
-                              aspectRatio: 0.004498,
-                            }}
-                          />
-
                           {true ? (
                             <p.Stack
                               as={"div"}
                               hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__c8UnI
+                                sty.freeBox__ih7Ze
                               )}
                             >
                               {true ? (
@@ -232,7 +214,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                   hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__jDa93
+                                    sty.freeBox___5Hrgw
                                   )}
                                 >
                                   <h2
@@ -240,7 +222,142 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h2,
                                       projectcss.__wab_text,
-                                      sty.h2__riewJ
+                                      sty.h2___6Rx5D
+                                    )}
+                                  >
+                                    {"What is Public Goods (PG) Leasing?"}
+                                  </h2>
+                                  <h4
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h4,
+                                      projectcss.__wab_text,
+                                      sty.h4___5EQ9C
+                                    )}
+                                  >
+                                    {
+                                      "PG staking “Leasing” is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
+                                    }
+                                  </h4>
+                                  <p.PlasmicImg
+                                    alt={""}
+                                    className={classNames(sty.img__l88Vb)}
+                                    displayHeight={"auto" as const}
+                                    displayMaxHeight={"none" as const}
+                                    displayMaxWidth={"100%" as const}
+                                    displayMinHeight={"0" as const}
+                                    displayMinWidth={"0" as const}
+                                    displayWidth={"auto" as const}
+                                    loading={"lazy" as const}
+                                    src={{
+                                      src: "/plasmic/pg_staking/images/glifBlogpost1Png2.png",
+                                      fullWidth: 532,
+                                      fullHeight: 379,
+                                      aspectRatio: undefined,
+                                    }}
+                                  />
+                                </p.Stack>
+                              ) : null}
+                              {true ? (
+                                <p.Stack
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__qJqHx
+                                  )}
+                                >
+                                  <h2
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h2,
+                                      projectcss.__wab_text,
+                                      sty.h2__erPl
+                                    )}
+                                  >
+                                    {"Why do this on chain?"}
+                                  </h2>
+                                  <h4
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h4,
+                                      projectcss.__wab_text,
+                                      sty.h4__rppUs
+                                    )}
+                                  >
+                                    {
+                                      "Traditional off chain models for funding include grants and funding allocation channels like crowdfunding, foundations and developer awards. These often lack transparency and are decided by a central entity. Payment times can vary from a few weeks to several months or even years. Community and ecosystem developers do not typically have access to the tracing or transparency of funding or what teams are allocated how much and when. The thesis of restructuring funding to onchain mechanism means that much of these delays and lack of transparency are theoretically eliminated. Once a voting round closes, team allocations are automatically done- this means that payments happen faster, teams can accelerate and scale accordingly without dependency on additional parties. "
+                                    }
+                                  </h4>
+                                </p.Stack>
+                              ) : null}
+                              {true ? (
+                                <p.Stack
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__oFakw
+                                  )}
+                                >
+                                  <h2
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h2,
+                                      projectcss.__wab_text,
+                                      sty.h2__oA5Mb
+                                    )}
+                                  >
+                                    {"What is iFil?"}
+                                  </h2>
+                                  <h4
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h4,
+                                      projectcss.__wab_text,
+                                      sty.h4__qQF
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <React.Fragment>
+                                        {
+                                          "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     "
+                                        }
+                                      </React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ fontWeight: 700 }}
+                                      >
+                                        {
+                                          "iFIL received = FIL stake / current iFIL price"
+                                        }
+                                      </span>
+                                      <React.Fragment>
+                                        {
+                                          " \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
+                                        }
+                                      </React.Fragment>
+                                    </React.Fragment>
+                                  </h4>
+                                </p.Stack>
+                              ) : null}
+                              {true ? (
+                                <p.Stack
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___9Akpu
+                                  )}
+                                >
+                                  <h2
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h2,
+                                      projectcss.__wab_text,
+                                      sty.h2__oOqLg
                                     )}
                                   >
                                     {"Process Description"}
@@ -251,12 +368,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__bpnjp
+                                        sty.freeBox___2RRta
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img__arr6K)}
+                                        className={classNames(sty.img__vZsxt)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -277,7 +394,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4__aQ2Ax
+                                          sty.h4__dpLpV
                                         )}
                                       >
                                         {
@@ -292,12 +409,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__joOhA
+                                        sty.freeBox__sgLan
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img___8SjNu)}
+                                        className={classNames(sty.img__uleRh)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -318,7 +435,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4__xe5Ue
+                                          sty.h4___7EySo
                                         )}
                                       >
                                         {
@@ -333,12 +450,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__qfHOh
+                                        sty.freeBox__vOdsI
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img__kdo57)}
+                                        className={classNames(sty.img__ceVdH)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -359,7 +476,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4__kfwYp
+                                          sty.h4__rklre
                                         )}
                                       >
                                         {
@@ -374,12 +491,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__sT3V1
+                                        sty.freeBox__ltjfA
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img__yCSo4)}
+                                        className={classNames(sty.img__eQ3IF)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -400,7 +517,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4___74WTy
+                                          sty.h4__jngxY
                                         )}
                                       >
                                         {
@@ -417,7 +534,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                   hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__nOiH2
+                                    sty.freeBox__wd3Q3
                                   )}
                                 >
                                   <h2
@@ -425,7 +542,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h2,
                                       projectcss.__wab_text,
-                                      sty.h2__r36Wm
+                                      sty.h2__dwrE
                                     )}
                                   >
                                     {"How do I participate?"}
@@ -436,12 +553,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__f27Wm
+                                        sty.freeBox___5DaY6
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img__ur3CD)}
+                                        className={classNames(sty.img__hXdCs)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -462,7 +579,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4___3B2Sr
+                                          sty.h4__a66ID
                                         )}
                                       >
                                         {
@@ -477,12 +594,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox___9OW4C
+                                        sty.freeBox__kKwUw
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img___1TZu2)}
+                                        className={classNames(sty.img__aHBa1)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -503,7 +620,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4__qd1U8
+                                          sty.h4__ndrYe
                                         )}
                                       >
                                         {"Your FIL will enter the staking pool"}
@@ -516,12 +633,12 @@ function PlasmicFaQs__RenderFunc(props: {
                                       hasGap={true}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox___5JAdp
+                                        sty.freeBox__rUyjb
                                       )}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
-                                        className={classNames(sty.img__hOSta)}
+                                        className={classNames(sty.img___2EeXk)}
                                         displayHeight={"auto" as const}
                                         displayMaxHeight={"none" as const}
                                         displayMaxWidth={"none" as const}
@@ -542,7 +659,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           projectcss.all,
                                           projectcss.h4,
                                           projectcss.__wab_text,
-                                          sty.h4__u8Pez
+                                          sty.h4__oEdnl
                                         )}
                                       >
                                         {"Earn FIL for PG and yourself"}
@@ -557,7 +674,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                   hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___4P1C9
+                                    sty.freeBox__jchGy
                                   )}
                                 >
                                   <h2
@@ -565,7 +682,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h2,
                                       projectcss.__wab_text,
-                                      sty.h2___97TEh
+                                      sty.h2__fvsCb
                                     )}
                                   >
                                     {"How and where can I track this on-chain?"}
@@ -575,7 +692,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h4,
                                       projectcss.__wab_text,
-                                      sty.h4__etEz8
+                                      sty.h4__sngks
                                     )}
                                   >
                                     <React.Fragment>
@@ -591,7 +708,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                             projectcss.a,
                                             projectcss.__wab_text,
                                             projectcss.plasmic_default__inline,
-                                            sty.link__c44Cq
+                                            sty.link__brzcl
                                           )}
                                           component={Link}
                                           href={
@@ -612,7 +729,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           className={classNames(
                                             projectcss.all,
                                             projectcss.ul,
-                                            sty.ul__kvSez
+                                            sty.ul__suV5M
                                           )}
                                         >
                                           <li
@@ -620,7 +737,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__e55Gx
+                                              sty.li___1Eb4V
                                             )}
                                           >
                                             {"Impact Evaluator"}
@@ -630,7 +747,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__jqBq0
+                                              sty.li__yWnng
                                             )}
                                           >
                                             {"IPFS PG impact fund"}
@@ -640,7 +757,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__uq601
+                                              sty.li__yxrek
                                             )}
                                           >
                                             {"Private Retrieval PG Impact Fund"}
@@ -655,7 +772,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                           className={classNames(
                                             projectcss.all,
                                             projectcss.ul,
-                                            sty.ul__ofK9N
+                                            sty.ul__lhEso
                                           )}
                                         >
                                           <li
@@ -663,7 +780,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__dH1Gw
+                                              sty.li__eXoTn
                                             )}
                                           >
                                             {"Community QV"}
@@ -673,7 +790,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__j8Pp0
+                                              sty.li__aPUxb
                                             )}
                                           >
                                             {
@@ -685,7 +802,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                               projectcss.all,
                                               projectcss.li,
                                               projectcss.__wab_text,
-                                              sty.li__twWhz
+                                              sty.li__dpaq9
                                             )}
                                           >
                                             {"S-curve funding "}
@@ -703,7 +820,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                   hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___6NRf4
+                                    sty.freeBox__e47Xg
                                   )}
                                 >
                                   <h2
@@ -711,38 +828,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h2,
                                       projectcss.__wab_text,
-                                      sty.h2___6Bvc2
-                                    )}
-                                  >
-                                    {"What is the roadmap for the future?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4___3VKvr
-                                    )}
-                                  >
-                                    {"[copy here]"}
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___4WiSm
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__y5WDt
+                                      sty.h2___9Imjd
                                     )}
                                   >
                                     {"How can I get involved?"}
@@ -752,7 +838,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       projectcss.all,
                                       projectcss.h4,
                                       projectcss.__wab_text,
-                                      sty.h4__p33Xp
+                                      sty.h4__jpXLk
                                     )}
                                   >
                                     <React.Fragment>
@@ -768,7 +854,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                             projectcss.a,
                                             projectcss.__wab_text,
                                             projectcss.plasmic_default__inline,
-                                            sty.link__mrXdI
+                                            sty.link__ulD6V
                                           )}
                                           component={Link}
                                           href={
@@ -792,192 +878,6 @@ function PlasmicFaQs__RenderFunc(props: {
                       ) : null}
                     </div>
                   ) : null}
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.column__lyFjx)}
-                  >
-                    {true ? (
-                      <p.Stack
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__yPPoI
-                        )}
-                      >
-                        {(
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? true
-                            : true
-                        ) ? (
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__eicS)}
-                            displayHeight={"auto" as const}
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"100%" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={"8px" as const}
-                            loading={"lazy" as const}
-                            src={{
-                              src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                              fullWidth: 1,
-                              fullHeight: 150,
-                              aspectRatio: 0.004498,
-                            }}
-                          />
-                        ) : null}
-                        {true ? (
-                          <p.Stack
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ih7Ze
-                            )}
-                          >
-                            {true ? (
-                              <p.Stack
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___5Hrgw
-                                )}
-                              >
-                                <h2
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h2,
-                                    projectcss.__wab_text,
-                                    sty.h2___6Rx5D
-                                  )}
-                                >
-                                  {"What is Public Goods (PG) Leasing?"}
-                                </h2>
-                                <h4
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h4,
-                                    projectcss.__wab_text,
-                                    sty.h4___5EQ9C
-                                  )}
-                                >
-                                  {
-                                    "PG staking “Leasing” is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
-                                  }
-                                </h4>
-                                <p.PlasmicImg
-                                  alt={""}
-                                  className={classNames(sty.img__l88Vb)}
-                                  displayHeight={"auto" as const}
-                                  displayMaxHeight={"none" as const}
-                                  displayMaxWidth={"100%" as const}
-                                  displayMinHeight={"0" as const}
-                                  displayMinWidth={"0" as const}
-                                  displayWidth={"auto" as const}
-                                  loading={"lazy" as const}
-                                  src={{
-                                    src: "/plasmic/pg_staking/images/glifBlogpost1Png2.png",
-                                    fullWidth: 532,
-                                    fullHeight: 379,
-                                    aspectRatio: undefined,
-                                  }}
-                                />
-                              </p.Stack>
-                            ) : null}
-                            {true ? (
-                              <p.Stack
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__qJqHx
-                                )}
-                              >
-                                <h2
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h2,
-                                    projectcss.__wab_text,
-                                    sty.h2__erPl
-                                  )}
-                                >
-                                  {"Why do this on chain?"}
-                                </h2>
-                                <h4
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h4,
-                                    projectcss.__wab_text,
-                                    sty.h4__rppUs
-                                  )}
-                                >
-                                  {
-                                    "Traditional off chain models for funding include grants and funding allocation channels like crowdfunding, foundations and developer awards. These often lack transparency and are decided by a central entity. Payment times can vary from a few weeks to several months or even years. Community and ecosystem developers do not typically have access to the tracing or transparency of funding or what teams are allocated how much and when. The thesis of restructuring funding to onchain mechanism means that much of these delays and lack of transparency are theoretically eliminated. Once a voting round closes, team allocations are automatically done- this means that payments happen faster, teams can accelerate and scale accordingly without dependency on additional parties. "
-                                  }
-                                </h4>
-                              </p.Stack>
-                            ) : null}
-                            {true ? (
-                              <p.Stack
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__oFakw
-                                )}
-                              >
-                                <h2
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h2,
-                                    projectcss.__wab_text,
-                                    sty.h2__oA5Mb
-                                  )}
-                                >
-                                  {"What is iFil?"}
-                                </h2>
-                                <h4
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h4,
-                                    projectcss.__wab_text,
-                                    sty.h4__qQF
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    <React.Fragment>
-                                      {
-                                        "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     "
-                                      }
-                                    </React.Fragment>
-                                    <span
-                                      className={
-                                        "plasmic_default__all plasmic_default__span"
-                                      }
-                                      style={{ fontWeight: 700 }}
-                                    >
-                                      {
-                                        "iFIL received = FIL stake / current iFIL price"
-                                      }
-                                    </span>
-                                    <React.Fragment>
-                                      {
-                                        " \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
-                                      }
-                                    </React.Fragment>
-                                  </React.Fragment>
-                                </h4>
-                              </p.Stack>
-                            ) : null}
-                          </p.Stack>
-                        ) : null}
-                      </p.Stack>
-                    ) : null}
-                  </p.Stack>
                 </p.Stack>
                 {(
                   hasVariant(globalVariants, "screen", "mobileOnly")

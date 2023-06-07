@@ -411,23 +411,26 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.h3___8Xkl9
                             )}
                           >
-                            {(() => {
-                              try {
-                                return `${
-                                  $ctx.totalStakedValue
-                                    ? $ctx.totalStakedValue
-                                    : "XXX"
-                                } FIL deposited`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "XXX FIL deposited";
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return `${
+                                    $ctx.totalStakedValue
+                                      ? $ctx.totalStakedValue
+                                      : "XXX"
+                                  } FIL deposited`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "XXX FIL deposited";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
+                              })()}
+                            </React.Fragment>
                           </h3>
                         )}
                       </ph.DataCtxReader>
