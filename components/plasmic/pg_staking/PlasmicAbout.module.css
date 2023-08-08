@@ -8,12 +8,12 @@
   min-width: 0;
   min-height: 0;
   grid-template-columns:
-    1fr minmax(0, var(--plsmc-wide-chunk)) var(--plsmc-viewport-gap)
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
       var(--plsmc-standard-width),
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
-    var(--plsmc-viewport-gap) minmax(0, var(--plsmc-wide-chunk)) 1fr;
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
   padding: 0px;
 }
 :where(.root > *) {

@@ -46,6 +46,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicAbout.module.css"; // plasmic-import: 2E9DZPjHuax/css
 
+createPlasmicElementProxy;
+
 export type PlasmicAbout__VariantMembers = {};
 export type PlasmicAbout__VariantsArgs = {};
 type VariantPropType = keyof PlasmicAbout__VariantsArgs;
@@ -246,7 +248,7 @@ function PlasmicAbout__RenderFunc(props: {
                           </p.PlasmicLink>
                         }
                         <React.Fragment>
-                          {" is Filecoin’s premier staking protocol."}
+                          {" is Filecoin\u2019s premier staking protocol."}
                         </React.Fragment>
                       </React.Fragment>
                     </h4>
@@ -296,7 +298,7 @@ function PlasmicAbout__RenderFunc(props: {
                         }
                         <React.Fragment>
                           {
-                            " supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological’s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
+                            " supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological\u2019s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
                           }
                         </React.Fragment>
                       </React.Fragment>

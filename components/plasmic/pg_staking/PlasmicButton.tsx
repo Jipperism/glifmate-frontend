@@ -46,6 +46,8 @@ import sty from "./PlasmicButton.module.css"; // plasmic-import: KZiUfPVLwuq/css
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ZJynSTynHR8/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: HpWGKnw3ZpM/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicButton__VariantMembers = {
   showStartIcon: "showStartIcon";
   showEndIcon: "showEndIcon";
@@ -222,9 +224,14 @@ function PlasmicButton__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.color,
       },
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs,
+  });
 
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {

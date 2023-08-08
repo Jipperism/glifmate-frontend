@@ -114,7 +114,7 @@
           "projectId": "rLycm7fJPyjpC5eVgPhFFv",
           "renderModuleFilePath": "plasmic/pg_staking/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../pages/home.tsx"
+            "modulePath": "../pages/index.tsx"
           },
           "cssFilePath": "plasmic/pg_staking/PlasmicHomepage.module.css",
           "scheme": "blackbox",

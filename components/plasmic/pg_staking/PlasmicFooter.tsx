@@ -44,6 +44,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: kLiRdGmg5zv/css
 
+createPlasmicElementProxy;
+
 export type PlasmicFooter__VariantMembers = {};
 export type PlasmicFooter__VariantsArgs = {};
 type VariantPropType = keyof PlasmicFooter__VariantsArgs;
@@ -210,7 +212,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFooter__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -45,6 +45,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicNav.module.css"; // plasmic-import: DVQmJDwc4r/css
 
+createPlasmicElementProxy;
+
 export type PlasmicNav__VariantMembers = {
   activeUrl: "faQs" | "about" | "home";
 };
@@ -115,9 +117,14 @@ function PlasmicNav__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.activeUrl,
       },
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs,
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqqPMw8O9H4JqN(),
@@ -162,7 +169,7 @@ function PlasmicNav__RenderFunc(props: {
               }
             )}
             component={Link}
-            href={`/home`}
+            href={`/`}
             platform={"nextjs"}
           >
             <p.PlasmicImg

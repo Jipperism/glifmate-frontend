@@ -60,6 +60,8 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: OeFBFuO34W6D/
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ZJynSTynHR8/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: HpWGKnw3ZpM/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicHomepage__VariantMembers = {};
 export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
@@ -220,8 +222,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉"
-                                : "◉"}
+                                ? "\u25c9"
+                                : "\u25c9"}
                             </span>
                           }
                           <React.Fragment>{" Glif\n"}</React.Fragment>
@@ -240,8 +242,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉"
-                                : "◉"}
+                                ? "\u25c9"
+                                : "\u25c9"}
                             </span>
                           }
                           <React.Fragment>{" Protocol Labs\n"}</React.Fragment>
@@ -260,12 +262,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉ "
-                                : "◉ "}
+                                ? "\u25c9 "
+                                : "\u25c9 "}
                             </span>
                           }
                           <React.Fragment>
-                            {"Acrological Association"}
+                            {"Arcological Association"}
                           </React.Fragment>
                         </React.Fragment>
                       ) : (
@@ -286,8 +288,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉"
-                                : "◉"}
+                                ? "\u25c9"
+                                : "\u25c9"}
                             </span>
                           }
                           <React.Fragment>{" Glif "}</React.Fragment>
@@ -306,8 +308,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉"
-                                : "◉"}
+                                ? "\u25c9"
+                                : "\u25c9"}
                             </span>
                           }
                           <React.Fragment>{" Protocol Labs "}</React.Fragment>
@@ -326,12 +328,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "screen",
                                 "mobileOnly"
                               )
-                                ? "◉ "
-                                : "◉ "}
+                                ? "\u25c9 "
+                                : "\u25c9 "}
                             </span>
                           }
                           <React.Fragment>
-                            {"Acrological Association"}
+                            {"Arcological Association"}
                           </React.Fragment>
                         </React.Fragment>
                       )}
@@ -373,7 +375,9 @@ function PlasmicHomepage__RenderFunc(props: {
                               >
                                 {"Deposit"}
                               </span>
-                              <React.Fragment>{"  🚀"}</React.Fragment>
+                              <React.Fragment>
+                                {"  \ud83d\ude80"}
+                              </React.Fragment>
                             </React.Fragment>
                           ) : (
                             <React.Fragment>
@@ -386,7 +390,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 {"Deposit"}
                               </span>
                               <React.Fragment>
-                                {" to public goods 🚀"}
+                                {" to public goods \ud83d\ude80"}
                               </React.Fragment>
                             </React.Fragment>
                           )}

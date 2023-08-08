@@ -46,6 +46,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicNavResponsive.module.css"; // plasmic-import: _B4LOOIRh-/css
 
+createPlasmicElementProxy;
+
 export type PlasmicNavResponsive__VariantMembers = {};
 export type PlasmicNavResponsive__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNavResponsive__VariantsArgs;
@@ -133,7 +135,7 @@ function PlasmicNavResponsive__RenderFunc(props: {
             data-plasmic-override={overrides.link}
             className={classNames(projectcss.all, projectcss.a, sty.link)}
             component={Link}
-            href={`/home`}
+            href={`/`}
             platform={"nextjs"}
           >
             <p.PlasmicImg

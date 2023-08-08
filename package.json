@@ -15,7 +15,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@plasmicapp/loader-nextjs": "^1.0.283",
-    "@plasmicapp/react-web": "^0.2.221",
+    "@plasmicapp/react-web": "^0.2.244",
     "@plasmicpkgs/plasmic-nav": "^0.0.111",
     "@rainbow-me/rainbowkit": "^1.0.0",
     "@types/node": "20.2.1",

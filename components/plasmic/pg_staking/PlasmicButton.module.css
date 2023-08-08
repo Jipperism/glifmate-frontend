@@ -32,47 +32,8 @@
 .rootshowStartIcon {
   padding-left: 16px;
 }
-.rootcolor_blue {
-  background: #0091ff;
-}
-.rootcolor_green {
-  background: #30a46c;
-}
-.rootcolor_yellow {
-  background: #f5d90a;
-}
-.rootcolor_red {
-  background: #e54d2e;
-}
-.rootcolor_sand {
-  background: #717069;
-}
-.rootcolor_white {
-  background: #ffffff;
-}
-.rootcolor_softBlue {
-  background: #edf6ff;
-}
-.rootcolor_softGreen {
-  background: #e9f9ee;
-}
-.rootcolor_softYellow {
-  background: #fffbd1;
-}
-.rootcolor_softRed {
-  background: #fff0ee;
-}
 .rootshowEndIcon {
   padding-right: 16px;
-}
-.rootcolor_softSand {
-  background: #eeeeec;
-}
-.rootcolor_clear {
-  background: #ffffff00;
-}
-.rootcolor_link {
-  background: #ffffff00;
 }
 .rootisDisabled {
   cursor: not-allowed;
@@ -105,14 +66,53 @@
   border-radius: 12px;
   padding: 12px;
 }
-.rootshape_round_size_compact {
-  padding: 6px;
+.rootcolor_blue {
+  background: #0091ff;
+}
+.rootcolor_green {
+  background: #30a46c;
+}
+.rootcolor_yellow {
+  background: #f5d90a;
+}
+.rootcolor_red {
+  background: #e54d2e;
+}
+.rootcolor_sand {
+  background: #717069;
+}
+.rootcolor_white {
+  background: #ffffff;
+}
+.rootcolor_softBlue {
+  background: #edf6ff;
+}
+.rootcolor_softGreen {
+  background: #e9f9ee;
+}
+.rootcolor_softYellow {
+  background: #fffbd1;
+}
+.rootcolor_softRed {
+  background: #fff0ee;
+}
+.rootcolor_softSand {
+  background: #eeeeec;
+}
+.rootcolor_clear {
+  background: #ffffff00;
+}
+.rootcolor_link {
+  background: #ffffff00;
 }
 .rootshape_rounded_showStartIcon {
   padding-left: 16px;
 }
 .rootshowEndIcon_shape_rounded {
   padding-right: 16px;
+}
+.rootshape_round_size_compact {
+  padding: 6px;
 }
 .root:hover {
   background: #282826;
@@ -275,6 +275,9 @@
   white-space: pre;
   font-size: 50px;
 }
+.slotTargetChildrensize_small {
+  font-size: 18px;
+}
 .slotTargetChildrencolor_blue {
   color: #ffffff;
 }
@@ -313,9 +316,6 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
-}
-.slotTargetChildrensize_small {
-  font-size: 18px;
 }
 .rootcolor_link:hover .slotTargetChildrencolor_link {
   color: #0081f1;

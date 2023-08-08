@@ -45,6 +45,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicHeader.module.css"; // plasmic-import: lTFHprYmdK/css
 
+createPlasmicElementProxy;
+
 export type PlasmicHeader__VariantMembers = {
   activeUrl: "home" | "about" | "faQs";
 };
@@ -116,9 +118,14 @@ function PlasmicHeader__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.activeUrl,
       },
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs,
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqqPMw8O9H4JqN(),
@@ -144,7 +151,7 @@ function PlasmicHeader__RenderFunc(props: {
         <p.PlasmicLink
           className={classNames(projectcss.all, projectcss.a, sty.link__ny3Tn)}
           component={Link}
-          href={`/home`}
+          href={`/`}
           platform={"nextjs"}
         >
           <p.PlasmicImg

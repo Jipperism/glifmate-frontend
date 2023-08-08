@@ -43,6 +43,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicDepositModalContent.module.css"; // plasmic-import: LRxRpZH-jJ/css
 
+createPlasmicElementProxy;
+
 export type PlasmicDepositModalContent__VariantMembers = {
   depositClicked2: "depositClicked2";
 };
@@ -116,9 +118,14 @@ function PlasmicDepositModalContent__RenderFunc(props: {
           $props.depositClicked2,
       },
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs,
+  });
 
   return (
     (hasVariant($state, "depositClicked2", "depositClicked2") ? true : true) ? (

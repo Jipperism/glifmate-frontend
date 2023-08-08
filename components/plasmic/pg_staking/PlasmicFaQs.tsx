@@ -46,6 +46,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_pg_staking.module.css"; // plasmic-import: rLycm7fJPyjpC5eVgPhFFv/projectcss
 import sty from "./PlasmicFaQs.module.css"; // plasmic-import: hDCtDazGctA/css
 
+createPlasmicElementProxy;
+
 export type PlasmicFaQs__VariantMembers = {};
 export type PlasmicFaQs__VariantsArgs = {};
 type VariantPropType = keyof PlasmicFaQs__VariantsArgs;
@@ -236,7 +238,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                     )}
                                   >
                                     {
-                                      "PG staking “Leasing” is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
+                                      "PG staking \u201cLeasing\u201d is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
                                     }
                                   </h4>
                                   <p.PlasmicImg
@@ -1575,7 +1577,7 @@ function PlasmicFaQs__RenderFunc(props: {
                                       )}
                                     >
                                       {
-                                        "PG staking “Leasing” is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
+                                        "PG staking \u201cLeasing\u201d is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
                                       }
                                     </h4>
                                     <p.PlasmicImg
