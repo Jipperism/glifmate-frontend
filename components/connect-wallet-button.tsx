@@ -43,12 +43,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
             {(() => {
               if (!connected) {
                 return (
-                  <Button
-                    onClick={openConnectModal}
-                    type="button"
-                    color="blue"
-                    size="small"
-                  >
+                  <Button onClick={openConnectModal} type="button" size="small">
                     Connect Wallet
                   </Button>
                 );
@@ -56,12 +51,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
 
               if (chain.unsupported) {
                 return (
-                  <Button
-                    onClick={openChainModal}
-                    type="button"
-                    color="blue"
-                    size="small"
-                  >
+                  <Button onClick={openChainModal} type="button" size="small">
                     Wrong network
                   </Button>
                 );
@@ -79,7 +69,6 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
                     onClick={openChainModal}
                     style={{ display: "flex", alignItems: "center" }}
                     type="button"
-                    color="blue"
                     size="small"
                   >
                     {chain.hasIcon && (
@@ -105,12 +94,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
                     {chain.name}
                   </Button>
 
-                  <Button
-                    onClick={openAccountModal}
-                    type="button"
-                    color="blue"
-                    size="small"
-                  >
+                  <Button onClick={openAccountModal} type="button" size="small">
                     {account.displayName}
                     {account.displayBalance
                       ? ` (${account.displayBalance})`

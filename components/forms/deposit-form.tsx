@@ -283,7 +283,6 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                 onClick={() => onDeposit()}
                 size="small"
                 style={{ width: "100%" }}
-                color="blue"
               >
                 Send
               </Button>
