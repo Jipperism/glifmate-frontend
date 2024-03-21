@@ -1,21 +1,13 @@
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import {
-  // mainnet,
-  // polygon,
-  // optimism,
-  // arbitrum,
-  // localhost,
-  filecoinHyperspace,
-  filecoin,
-} from "wagmi/chains";
+import { filecoin, filecoinCalibration } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import React from "react";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
-import { RPC_HYPERSPACE, RPC_MAINNET } from "@/constants";
+import { RPC_FILECOIN_CALIBRATION, RPC_MAINNET } from "@/constants";
 
 const { chains, publicClient } = configureChains(
-  [filecoin, filecoinHyperspace],
+  [filecoin, filecoinCalibration],
   [
     jsonRpcProvider({
       rpc: (chain) => {
@@ -25,10 +17,10 @@ const { chains, publicClient } = configureChains(
             webSocket: "wss://wss.node.glif.io/apigw/lotus/rpc/v1",
           };
         }
-        if (chain.id === filecoinHyperspace.id) {
+        if (chain.id === filecoinCalibration.id) {
           return {
-            http: RPC_HYPERSPACE,
-            webSocket: "wss://api.hyperspace.node.glif.io/rpc/v1/ws",
+            http: RPC_FILECOIN_CALIBRATION,
+            webSocket: "wss://filecoin-calibration.chainup.net/rpc/v1",
           };
         }
         throw new Error("Unsupported chain!");

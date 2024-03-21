@@ -1,4 +1,4 @@
-import { useAccount, useChainId } from "wagmi";
+import { useChainId } from "wagmi";
 import {
   PUBLIC_GOODS_ADDRESS_HYPERSPACE,
   PRESTAKE_ADDRESS_HYPERSPACE,
@@ -13,6 +13,9 @@ export const getNetworkNameByChainId = (chainId: number) => {
     }
     case 3141: {
       return "hyperspace";
+    }
+    case 314159: {
+      return "calibration";
     }
     default: {
       return undefined;
@@ -31,6 +34,11 @@ export const getAddresses = (chainId: number) => {
     case "hyperspace":
       return {
         PRESTAKE: PRESTAKE_ADDRESS_HYPERSPACE,
+        PUBLIC_GOODS: PUBLIC_GOODS_ADDRESS_HYPERSPACE,
+      };
+    case "calibration":
+      return {
+        PRESTAKE: PRESTAKE_ADDRESS_MAINNET,
         PUBLIC_GOODS: PUBLIC_GOODS_ADDRESS_HYPERSPACE,
       };
     default:

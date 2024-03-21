@@ -9,6 +9,7 @@ export const PUBLIC_GOODS_ADDRESS_HYPERSPACE =
 
 export const DEFAULT_CHAIN_ID = 3141;
 
-export const RPC_HYPERSPACE = "https://api.hyperspace.node.glif.io/rpc/v1";
-
 export const RPC_MAINNET = "https://api.node.glif.io/rpc/v1";
+
+export const RPC_FILECOIN_CALIBRATION =
+  "https://filecoin-calibration.chainup.net/rpc/v1";
