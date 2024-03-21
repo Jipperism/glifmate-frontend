@@ -201,7 +201,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                   <SliderTrack>
                     <SliderFilledTrack
                       background={
-                        "linear-gradient(270deg, #000000 0%, #963D97 4%, #E03A3E 32%, #963D97 62%, #56B9FF 89%)"
+                        "linear-gradient(270deg, #cdc7b6 0%, #a89f86 4%, #E03A3E 32%, #a89f86 62%, #5c5b57 89%)"
                       }
                     />
                   </SliderTrack>
