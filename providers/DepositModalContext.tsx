@@ -42,6 +42,8 @@ export const DepositModalProvider = ({ children }: PropsWithChildren) => {
           },
         }}
       >
+        {/*
+        // @ts-ignore */}
         <PlasmicComponent component="DepositModalContent" />
       </ReactModal>
     </DepositModalContext.Provider>
