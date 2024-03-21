@@ -40,9 +40,6 @@
 .img__knpep > picture > img {
   object-fit: cover;
 }
-.img__knpep > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .img___4Ceh4 {
   object-fit: cover;
   height: 36px;
@@ -50,17 +47,11 @@
 .img___4Ceh4 > picture > img {
   object-fit: cover;
 }
-.img___4Ceh4 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .img__cF2Fl {
   object-fit: cover;
   height: 36px;
 }
 .img__cF2Fl > picture > img {
-  object-fit: cover;
-}
-.img__cF2Fl > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .about {

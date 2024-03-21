@@ -158,6 +158,34 @@
           "cssFilePath": "plasmic/pg_staking/PlasmicHeader.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "QshPVMO6JzXS",
+          "name": "DonationTermsConditions",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicDonationTermsConditions.tsx",
+          "importSpec": {
+            "modulePath": "../pages/terms-and-conditions.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicDonationTermsConditions.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/terms-and-conditions"
+        },
+        {
+          "id": "c46YdyjyLhye",
+          "name": "PrivacyPolicy",
+          "type": "managed",
+          "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+          "renderModuleFilePath": "plasmic/pg_staking/PlasmicPrivacyPolicy.tsx",
+          "importSpec": {
+            "modulePath": "../pages/privacy-policy.tsx"
+          },
+          "cssFilePath": "plasmic/pg_staking/PlasmicPrivacyPolicy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/privacy-policy"
         }
       ],
       "icons": [
@@ -267,6 +295,56 @@
           "id": "VQPdsxeqBz",
           "name": "glif-logo-black-85.svg",
           "filePath": "../public/plasmic/pg_staking/images/glifLogoBlack85Svg.svg"
+        },
+        {
+          "id": "2RuxTmbA8bMY",
+          "name": "1.svg 2",
+          "filePath": "../public/plasmic/pg_staking/images/_1Svg2.svg"
+        },
+        {
+          "id": "CWf92_XqyAxZ",
+          "name": "2.png",
+          "filePath": "../public/plasmic/pg_staking/images/_2Png.png"
+        },
+        {
+          "id": "0ekVVeut_Vg1",
+          "name": "3.png",
+          "filePath": "../public/plasmic/pg_staking/images/_3Png.png"
+        },
+        {
+          "id": "efWdCOIbiehO",
+          "name": "1.svg 3",
+          "filePath": "../public/plasmic/pg_staking/images/_1Svg3.svg"
+        },
+        {
+          "id": "wBOWZdFI8RHD",
+          "name": "Frame 1.png",
+          "filePath": "../public/plasmic/pg_staking/images/frame1Png.png"
+        },
+        {
+          "id": "E5vyWj2ESOAF",
+          "name": "Frame 2.png",
+          "filePath": "../public/plasmic/pg_staking/images/frame2Png.png"
+        },
+        {
+          "id": "aJPNu5PM2Jtu",
+          "name": "Frame 3.png",
+          "filePath": "../public/plasmic/pg_staking/images/frame3Png.png"
+        },
+        {
+          "id": "lJ5F7cLVb1Bp",
+          "name": "Frame 4.png",
+          "filePath": "../public/plasmic/pg_staking/images/frame4Png.png"
+        },
+        {
+          "id": "AMYDZBeGdoio",
+          "name": "OIF Emblem.svg",
+          "filePath": "../public/plasmic/pg_staking/images/oifEmblemsvg.svg"
+        },
+        {
+          "id": "Gxa6vv2VNt-I",
+          "name": "Line 3.svg",
+          "filePath": "../public/plasmic/pg_staking/images/line3Svg.svg"
         }
       ],
       "indirect": false,
@@ -275,49 +353,60 @@
         {
           "id": "anz0E9shXpLi1",
           "name": "PlasmicHead",
+          "displayName": "hostless-plasmic-head",
           "componentImportPath": "@plasmicapp/react-web"
         },
         {
           "id": "9zDqG16aU0zLP",
           "name": "Fetcher",
+          "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         },
         {
           "id": "aYoYQSYoB7",
           "name": "ConnectWalletButton",
+          "displayName": "ConnectWalletButton",
           "componentImportPath": "@/components/connect-wallet-button"
         },
         {
           "id": "jzMDyQ-x2A",
           "name": "DepositForm",
+          "displayName": "DepositForm",
           "componentImportPath": "@/components/forms/deposit-form"
         },
         {
           "id": "KVJO-MO5ld",
           "name": "TotalStakedValueProvider",
+          "displayName": "TotalStakedValueProvider",
           "componentImportPath": "@/components/data-providers/TotalStakedValueProvider"
         },
         {
           "id": "QBovGxWYvU",
           "name": "WalletDataProvider",
+          "displayName": "WalletDataProvider",
           "componentImportPath": "@/components/data-providers/WalletDataProvider"
         },
         {
           "id": "x9FAUK0Cl_",
           "name": "HideIfWalletConnected",
+          "displayName": "HideIfWalletConnected",
           "componentImportPath": "@/components/HideIfWalletConnected"
         },
         {
           "id": "Hdz9yyGLjX",
           "name": "OnClickOpenDepositModal",
+          "displayName": "OnClickOpenDepositModal",
           "componentImportPath": "@/components/deposit-modal-button"
         },
         {
           "id": "aqgnBIGoRl",
           "name": "NavigationResponsive",
+          "displayName": "NavigationResponsive",
           "componentImportPath": "@/components/navigation-responsive"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -334,9 +423,12 @@
         {
           "id": "jGx9tiKJoex",
           "name": "NavigationBar",
+          "displayName": "hostless-plasmic-navigation-bar",
           "componentImportPath": "@plasmicpkgs/plasmic-nav"
         }
       ],
+      "splitsProviderFilePath": "",
+      "customFunctions": [],
       "jsBundleThemes": []
     }
   ],
@@ -360,6 +452,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.285",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.285/dist/plasmic.schema.json"
+  "cliVersion": "0.1.327",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.327/dist/plasmic.schema.json"
 }

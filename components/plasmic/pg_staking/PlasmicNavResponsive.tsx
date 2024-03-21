@@ -17,26 +17,49 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
-import { NavigationBar } from "@plasmicpkgs/plasmic-nav"; // plasmic-import: jGx9tiKJoex/codeComponent
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import { NavigationBar } from "@plasmicpkgs/plasmic-nav";
 import { ConnectWalletButton } from "@/components/connect-wallet-button"; // plasmic-import: aYoYQSYoB7/codeComponent
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
@@ -58,25 +81,19 @@ type ArgPropType = keyof PlasmicNavResponsive__ArgsType;
 export const PlasmicNavResponsive__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNavResponsive__OverridesType = {
-  root?: p.Flex<"div">;
-  navigationBar?: p.Flex<typeof NavigationBar>;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
-  about?: p.Flex<"a"> & Partial<LinkProps>;
-  faQs?: p.Flex<"a"> & Partial<LinkProps>;
-  connectWalletButton?: p.Flex<typeof ConnectWalletButton>;
+  root?: Flex__<"div">;
+  navigationBar?: Flex__<typeof NavigationBar>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
+  about?: Flex__<"a"> & Partial<LinkProps>;
+  faQs?: Flex__<"a"> & Partial<LinkProps>;
+  connectWalletButton?: Flex__<typeof ConnectWalletButton>;
 };
 
 export interface DefaultNavResponsiveProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -92,23 +109,23 @@ function PlasmicNavResponsive__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
@@ -130,7 +147,7 @@ function PlasmicNavResponsive__RenderFunc(props: {
         data-plasmic-name={"navigationBar"}
         data-plasmic-override={overrides.navigationBar}
         brand={
-          <p.PlasmicLink
+          <PlasmicLink__
             data-plasmic-name={"link"}
             data-plasmic-override={overrides.link}
             className={classNames(projectcss.all, projectcss.a, sty.link)}
@@ -138,43 +155,43 @@ function PlasmicNavResponsive__RenderFunc(props: {
             href={`/`}
             platform={"nextjs"}
           >
-            <p.PlasmicImg
+            <PlasmicImg__
               alt={""}
               className={classNames(sty.img__knpep)}
-              displayHeight={"50px" as const}
-              displayMaxHeight={"none" as const}
-              displayMaxWidth={"none" as const}
-              displayMinHeight={"0" as const}
-              displayMinWidth={"0" as const}
-              displayWidth={"auto" as const}
+              displayHeight={"50px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"none"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"auto"}
               src={{
                 src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
                 fullWidth: 110,
                 fullHeight: 150,
-                aspectRatio: 0.732394,
+                aspectRatio: 0.732394
               }}
             />
-          </p.PlasmicLink>
+          </PlasmicLink__>
         }
         className={classNames("__wab_instance", sty.navigationBar)}
         closeButton={
-          <p.PlasmicImg
+          <PlasmicImg__
             alt={""}
             className={classNames(sty.img__cF2Fl)}
-            displayHeight={"36px" as const}
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"none" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={"auto" as const}
-            src={"https://static1.plasmic.app/close.svg" as const}
+            displayHeight={"36px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"none"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            src={"https://static1.plasmic.app/close.svg"}
           />
         }
         forceOpenMenu={true}
-        itemsGap={24 as const}
+        itemsGap={24}
         menuItems={
           <React.Fragment>
-            <p.PlasmicLink
+            <PlasmicLink__
               data-plasmic-name={"about"}
               data-plasmic-override={overrides.about}
               className={classNames(
@@ -188,8 +205,8 @@ function PlasmicNavResponsive__RenderFunc(props: {
               platform={"nextjs"}
             >
               {"ABOUT"}
-            </p.PlasmicLink>
-            <p.PlasmicLink
+            </PlasmicLink__>
+            <PlasmicLink__
               data-plasmic-name={"faQs"}
               data-plasmic-override={overrides.faQs}
               className={classNames(
@@ -203,7 +220,7 @@ function PlasmicNavResponsive__RenderFunc(props: {
               platform={"nextjs"}
             >
               {"FAQs"}
-            </p.PlasmicLink>
+            </PlasmicLink__>
             <ConnectWalletButton
               data-plasmic-name={"connectWalletButton"}
               data-plasmic-override={overrides.connectWalletButton}
@@ -212,19 +229,19 @@ function PlasmicNavResponsive__RenderFunc(props: {
           </React.Fragment>
         }
         openButton={
-          <p.PlasmicImg
+          <PlasmicImg__
             alt={""}
             className={classNames(sty.img___4Ceh4)}
-            displayHeight={"36px" as const}
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"none" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={"auto" as const}
-            src={"https://static1.plasmic.app/menu.svg" as const}
+            displayHeight={"36px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"none"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            src={"https://static1.plasmic.app/menu.svg"}
           />
         }
-        responsiveBreakpoint={768 as const}
+        responsiveBreakpoint={768}
       />
     </div>
   ) as React.ReactElement | null;
@@ -237,19 +254,19 @@ const PlasmicDescendants = {
     "link",
     "about",
     "faQs",
-    "connectWalletButton",
+    "connectWalletButton"
   ],
   navigationBar: [
     "navigationBar",
     "link",
     "about",
     "faQs",
-    "connectWalletButton",
+    "connectWalletButton"
   ],
   link: ["link"],
   about: ["about"],
   faQs: ["faQs"],
-  connectWalletButton: ["connectWalletButton"],
+  connectWalletButton: ["connectWalletButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -297,9 +314,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicNavResponsive__ArgProps,
-          internalVariantPropNames: PlasmicNavResponsive__VariantProps,
+          internalVariantPropNames: PlasmicNavResponsive__VariantProps
         }),
       [props, nodeName]
     );
@@ -307,7 +324,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -331,7 +348,7 @@ export const PlasmicNavResponsive = Object.assign(
 
     // Metadata about props expected for PlasmicNavResponsive
     internalVariantProps: PlasmicNavResponsive__VariantProps,
-    internalArgProps: PlasmicNavResponsive__ArgProps,
+    internalArgProps: PlasmicNavResponsive__ArgProps
   }
 );
 

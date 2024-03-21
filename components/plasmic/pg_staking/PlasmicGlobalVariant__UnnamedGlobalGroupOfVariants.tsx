@@ -4,7 +4,7 @@
 /* prettier-ignore-start */
 
 import * as React from "react";
-import * as p from "@plasmicapp/react-web";
+import { createUseScreenVariants } from "@plasmicapp/react-web";
 
 export type UnnamedGlobalGroupOfVariantsValue = "unnamedVariant";
 export const UnnamedGlobalGroupOfVariantsContext = React.createContext<

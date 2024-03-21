@@ -17,26 +17,51 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
-import * as pp from "@plasmicapp/react-web";
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import * as pp from "@plasmicapp/react-web";
+
+import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -120,10 +145,10 @@ export const PlasmicButton__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicButton__OverridesType = {
-  root?: p.Flex<"button">;
-  startIconContainer?: p.Flex<"div">;
-  contentContainer?: p.Flex<"div">;
-  endIconContainer?: p.Flex<"div">;
+  root?: Flex__<"button">;
+  startIconContainer?: Flex__<"div">;
+  contentContainer?: Flex__<"div">;
+  endIconContainer?: Flex__<"div">;
 };
 
 export interface DefaultButtonProps extends pp.BaseButtonProps {
@@ -148,13 +173,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   >;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -170,79 +189,83 @@ function PlasmicButton__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "showStartIcon",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.showStartIcon,
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.showStartIcon
       },
       {
         path: "showEndIcon",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.showEndIcon,
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.showEndIcon
       },
       {
         path: "isDisabled",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isDisabled,
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isDisabled
       },
       {
         path: "shape",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shape,
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shape
       },
       {
         path: "size",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size,
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       },
       {
         path: "color",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color,
-      },
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+      }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries,
-    $refs,
+    $queries: {},
+    $refs
   });
 
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
-      isTextInput: false,
+      isTextInput: false
     });
   const triggers = {
-    focusVisibleWithin_root: isRootFocusVisibleWithin,
+    focusVisibleWithin_root: isRootFocusVisibleWithin
   };
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqqPMw8O9H4JqN()
+  });
+
   return (
-    <p.Stack
+    <Stack__
       as={"button"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
@@ -313,7 +336,7 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootsize_minimal_color_link]:
             hasVariant($state, "color", "link") &&
             hasVariant($state, "size", "minimal"),
-          [sty.rootsize_small]: hasVariant($state, "size", "small"),
+          [sty.rootsize_small]: hasVariant($state, "size", "small")
         }
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
@@ -335,10 +358,10 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "showStartIcon",
               "showStartIcon"
-            ),
+            )
           })}
         >
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: (
               <ChecksvgIcon
                 className={classNames(projectcss.all, sty.svg__cv4Qj)}
@@ -402,8 +425,8 @@ function PlasmicButton__RenderFunc(props: {
                 $state,
                 "showStartIcon",
                 "showStartIcon"
-              ),
-            }),
+              )
+            })
           })}
         </div>
       ) : null}
@@ -427,10 +450,10 @@ function PlasmicButton__RenderFunc(props: {
             $state,
             "showEndIcon",
             "showEndIcon"
-          ),
+          )
         })}
       >
-        {p.renderPlasmicSlot({
+        {renderPlasmicSlot({
           defaultContents: "Button",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
@@ -533,8 +556,8 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "size",
               "small"
-            ),
-          }),
+            )
+          })
         })}
       </div>
       {(hasVariant($state, "showEndIcon", "showEndIcon") ? true : false) ? (
@@ -556,10 +579,10 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "showEndIcon",
               "showEndIcon"
-            ),
+            )
           })}
         >
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: (
               <IconIcon
                 className={classNames(projectcss.all, sty.svg__fIIls)}
@@ -618,12 +641,12 @@ function PlasmicButton__RenderFunc(props: {
                 $state,
                 "showEndIcon",
                 "showEndIcon"
-              ),
-            }),
+              )
+            })
           })}
         </div>
       ) : null}
-    </p.Stack>
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
@@ -637,19 +660,19 @@ function useBehavior<P extends pp.PlumeButtonProps>(
     {
       showStartIconVariant: {
         group: "showStartIcon",
-        variant: "showStartIcon",
+        variant: "showStartIcon"
       },
       showEndIconVariant: { group: "showEndIcon", variant: "showEndIcon" },
       isDisabledVariant: { group: "isDisabled", variant: "isDisabled" },
       contentSlot: "children",
       startIconSlot: "startIcon",
       endIconSlot: "endIcon",
-      root: "root",
+      root: "root"
     },
     ref
   );
   if (b.plasmicProps.overrides.root.as === "a") {
-    b.plasmicProps.overrides.root.as = p.PlasmicLink;
+    b.plasmicProps.overrides.root.as = PlasmicLink__;
     b.plasmicProps.overrides.root.props.component = Link;
     b.plasmicProps.overrides.root.props.platform = "nextjs";
   }
@@ -660,7 +683,7 @@ const PlasmicDescendants = {
   root: ["root", "startIconContainer", "contentContainer", "endIconContainer"],
   startIconContainer: ["startIconContainer"],
   contentContainer: ["contentContainer"],
-  endIconContainer: ["endIconContainer"],
+  endIconContainer: ["endIconContainer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -706,9 +729,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicButton__ArgProps,
-          internalVariantPropNames: PlasmicButton__VariantProps,
+          internalVariantPropNames: PlasmicButton__VariantProps
         }),
       [props, nodeName]
     );
@@ -716,7 +739,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -740,7 +763,7 @@ export const PlasmicButton = Object.assign(
     internalVariantProps: PlasmicButton__VariantProps,
     internalArgProps: PlasmicButton__ArgProps,
 
-    useBehavior,
+    useBehavior
   }
 );
 

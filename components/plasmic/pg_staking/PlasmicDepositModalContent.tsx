@@ -17,26 +17,51 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { DepositForm } from "@/components/forms/deposit-form"; // plasmic-import: jzMDyQ-x2A/codeComponent
+
+import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -60,10 +85,10 @@ type ArgPropType = keyof PlasmicDepositModalContent__ArgsType;
 export const PlasmicDepositModalContent__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicDepositModalContent__OverridesType = {
-  root?: p.Flex<"div">;
-  h3?: p.Flex<"h3">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  depositForm?: p.Flex<typeof DepositForm>;
+  root?: Flex__<"div">;
+  h3?: Flex__<"h3">;
+  img?: Flex__<typeof PlasmicImg__>;
+  depositForm?: Flex__<typeof DepositForm>;
 };
 
 export interface DefaultDepositModalContentProps {
@@ -71,13 +96,7 @@ export interface DefaultDepositModalContentProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -93,152 +112,175 @@ function PlasmicDepositModalContent__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "depositClicked2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          $props.depositClicked2,
-      },
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.depositClicked2
+      }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries,
-    $refs,
+    $queries: {},
+    $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
-    (hasVariant($state, "depositClicked2", "depositClicked2") ? true : true) ? (
-      <p.Stack
-        as={"div"}
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        hasGap={true}
+    <Stack__
+      as={"div"}
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      hasGap={true}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootdepositClicked2]: hasVariant(
+            $state,
+            "depositClicked2",
+            "depositClicked2"
+          )
+        }
+      )}
+    >
+      <div
+        className={classNames(projectcss.all, sty.freeBox__aCedf, {
+          [sty.freeBoxdepositClicked2__aCedfDEzGr]: hasVariant(
+            $state,
+            "depositClicked2",
+            "depositClicked2"
+          )
+        })}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__hgbX)}>
+          <h3
+            data-plasmic-name={"h3"}
+            data-plasmic-override={overrides.h3}
+            className={classNames(
+              projectcss.all,
+              projectcss.h3,
+              projectcss.__wab_text,
+              sty.h3,
+              {
+                [sty.h3depositClicked2]: hasVariant(
+                  $state,
+                  "depositClicked2",
+                  "depositClicked2"
+                )
+              }
+            )}
+          >
+            {"Stake early"}
+          </h3>
+          <h6
+            className={classNames(
+              projectcss.all,
+              projectcss.h6,
+              projectcss.__wab_text,
+              sty.h6___00PTf
+            )}
+          >
+            {"Please enter the details of your transaction below."}
+          </h6>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox___9DWcm)}>
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, {
+              [sty.imgdepositClicked2]: hasVariant(
+                $state,
+                "depositClicked2",
+                "depositClicked2"
+              )
+            })}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100px"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={
+              hasVariant($state, "depositClicked2", "depositClicked2")
+                ? {
+                    src: "/plasmic/pg_staking/images/oifEmblemsvg.svg",
+                    fullWidth: 300,
+                    fullHeight: 136,
+                    aspectRatio: 2.2
+                  }
+                : {
+                    src: "/plasmic/pg_staking/images/oifEmblemsvg.svg",
+                    fullWidth: 300,
+                    fullHeight: 136,
+                    aspectRatio: 2.2
+                  }
+            }
+          />
+        </div>
+      </div>
+      <h6
         className={classNames(
           projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          sty.root,
+          projectcss.h6,
+          projectcss.__wab_text,
+          sty.h6__bdIcm,
           {
-            [sty.rootdepositClicked2]: hasVariant(
+            [sty.h6depositClicked2__bdIcmDEzGr]: hasVariant(
               $state,
               "depositClicked2",
               "depositClicked2"
-            ),
+            )
           }
         )}
       >
-        {(
-          hasVariant($state, "depositClicked2", "depositClicked2") ? true : true
-        ) ? (
-          <div
-            className={classNames(projectcss.all, sty.freeBox__aCedf, {
-              [sty.freeBoxdepositClicked2__aCedfDEzGr]: hasVariant(
-                $state,
-                "depositClicked2",
-                "depositClicked2"
-              ),
-            })}
-          >
-            {true ? (
-              <div className={classNames(projectcss.all, sty.freeBox__hgbX)}>
-                <h3
-                  data-plasmic-name={"h3"}
-                  data-plasmic-override={overrides.h3}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h3,
-                    projectcss.__wab_text,
-                    sty.h3
-                  )}
-                >
-                  {"Stake early"}
-                </h3>
-                <h6
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h6,
-                    projectcss.__wab_text,
-                    sty.h6___00PTf
-                  )}
-                >
-                  {"Please enter the details of your transaction below."}
-                </h6>
-              </div>
-            ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox___9DWcm)}>
-              <p.PlasmicImg
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
-                alt={""}
-                className={classNames(sty.img)}
-                displayHeight={"auto" as const}
-                displayMaxHeight={"none" as const}
-                displayMaxWidth={"100px" as const}
-                displayMinHeight={"0" as const}
-                displayMinWidth={"0" as const}
-                displayWidth={"auto" as const}
-                loading={"lazy" as const}
-                src={{
-                  src: "/plasmic/pg_staking/images/arcoPrimaryColorsvg.svg",
-                  fullWidth: 216,
-                  fullHeight: 150,
-                  aspectRatio: 1.440994,
-                }}
-              />
-            </div>
-          </div>
-        ) : null}
-        <h6
-          className={classNames(
-            projectcss.all,
-            projectcss.h6,
-            projectcss.__wab_text,
-            sty.h6__bdIcm,
-            {
-              [sty.h6depositClicked2__bdIcmDEzGr]: hasVariant(
-                $state,
-                "depositClicked2",
-                "depositClicked2"
-              ),
-            }
-          )}
-        >
-          {hasVariant($state, "depositClicked2", "depositClicked2")
-            ? "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"
-            : "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"}
-        </h6>
-        <DepositForm
-          data-plasmic-name={"depositForm"}
-          data-plasmic-override={overrides.depositForm}
-          className={classNames("__wab_instance", sty.depositForm)}
-        />
-      </p.Stack>
-    ) : null
+        {hasVariant($state, "depositClicked2", "depositClicked2")
+          ? "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"
+          : "Until the offramp is enabled and secondary markets exist, staking FIL for iFIL is a one-way transaction"}
+      </h6>
+      <DepositForm
+        data-plasmic-name={"depositForm"}
+        data-plasmic-override={overrides.depositForm}
+        className={classNames("__wab_instance", sty.depositForm, {
+          [sty.depositFormdepositClicked2]: hasVariant(
+            $state,
+            "depositClicked2",
+            "depositClicked2"
+          )
+        })}
+      />
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
@@ -246,7 +288,7 @@ const PlasmicDescendants = {
   root: ["root", "h3", "img", "depositForm"],
   h3: ["h3"],
   img: ["img"],
-  depositForm: ["depositForm"],
+  depositForm: ["depositForm"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -254,7 +296,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   h3: "h3";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   depositForm: typeof DepositForm;
 };
 
@@ -292,9 +334,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicDepositModalContent__ArgProps,
-          internalVariantPropNames: PlasmicDepositModalContent__VariantProps,
+          internalVariantPropNames: PlasmicDepositModalContent__VariantProps
         }),
       [props, nodeName]
     );
@@ -302,7 +344,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -324,7 +366,7 @@ export const PlasmicDepositModalContent = Object.assign(
 
     // Metadata about props expected for PlasmicDepositModalContent
     internalVariantProps: PlasmicDepositModalContent__VariantProps,
-    internalArgProps: PlasmicDepositModalContent__ArgProps,
+    internalArgProps: PlasmicDepositModalContent__ArgProps
   }
 );
 

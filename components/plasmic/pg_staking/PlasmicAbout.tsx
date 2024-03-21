@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 
@@ -58,21 +81,17 @@ type ArgPropType = keyof PlasmicAbout__ArgsType;
 export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
-  root?: p.Flex<"div">;
-  header?: p.Flex<typeof Header>;
-  h1?: p.Flex<"h1">;
-  footer?: p.Flex<typeof Footer>;
+  root?: Flex__<"div">;
+  header?: Flex__<typeof Header>;
+  h1?: Flex__<"h1">;
+  h3?: Flex__<"h3">;
+  h4?: Flex__<"h4">;
+  footer?: Flex__<typeof Footer>;
 };
 
 export interface DefaultAboutProps {}
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -88,23 +107,23 @@ function PlasmicAbout__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
@@ -149,163 +168,61 @@ function PlasmicAbout__RenderFunc(props: {
             <Header
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
-              activeUrl={"about" as const}
+              activeUrl={"about"}
               className={classNames("__wab_instance", sty.header)}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__p2X1)}>
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__bqsl7)}
               >
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__anqZa)}
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__anqZa)}
+                >
+                  <h1
+                    data-plasmic-name={"h1"}
+                    data-plasmic-override={overrides.h1}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1
+                    )}
                   >
-                    <h1
-                      data-plasmic-name={"h1"}
-                      data-plasmic-override={overrides.h1}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h1,
-                        projectcss.__wab_text,
-                        sty.h1
-                      )}
-                    >
-                      {"Public Goods Staking"}
-                    </h1>
-                    <h3
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h3,
-                        projectcss.__wab_text,
-                        sty.h3___5SIxX
-                      )}
-                    >
-                      {"brought to you by Arcological Association and Glif "}
-                    </h3>
-                  </p.Stack>
-                ) : null}
+                    {"Public Goods Staking"}
+                  </h1>
+                  <h3
+                    data-plasmic-name={"h3"}
+                    data-plasmic-override={overrides.h3}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h3,
+                      projectcss.__wab_text,
+                      sty.h3
+                    )}
+                  >
+                    {"brought to you by GLIF and Open Impact Foundation "}
+                  </h3>
+                </Stack__>
                 <h4
+                  data-plasmic-name={"h4"}
+                  data-plasmic-override={overrides.h4}
                   className={classNames(
                     projectcss.all,
                     projectcss.h4,
                     projectcss.__wab_text,
-                    sty.h4__oIg2I
+                    sty.h4
                   )}
                 >
                   {
-                    "By leasing/staking FIL, you get a return on your bags and you have the opportunity to support the funding of core infrastructure, tooling and implementations with zero loss of your initial funds. By giving a percentage of awards away we create a network effect- by funding core projects, the ecosystem gains more developers accelerating development, this brings in more apps and more users- and we attract more developers (and more external funders) and the cycle expands. "
+                    "Public Goods Staking is a way to donate a part of your FIL allocation towards the advancement and enhancement of digital public goods.\n\nGLIF is a Filecoinstaking protocol. Simply decide how many FIL you want to stake and how much you want to donate to public goods. Deposit FIL, receive iFIL and watch the efforts about public goods grow.\n\nThe donated rewards will benefit the work of Open Impact Foundation PCC,with the aim to support digital public goods for a better tomorrow."
                   }
                 </h4>
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__p2DXj)}
-                  >
-                    <h3
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h3,
-                        projectcss.__wab_text,
-                        sty.h3__pmUvj
-                      )}
-                    >
-                      {"Glif"}
-                    </h3>
-                    <h4
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h4,
-                        projectcss.__wab_text,
-                        sty.h4__dVGu
-                      )}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "The Swiss Army Knife of Filecoin DeFi community, PG staking was co-developed with GLIF Pools. "
-                          }
-                        </React.Fragment>
-                        {
-                          <p.PlasmicLink
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.link___5VqZy
-                            )}
-                            component={Link}
-                            href={"https://www.glif.io/" as const}
-                            platform={"nextjs"}
-                          >
-                            {"GLIF"}
-                          </p.PlasmicLink>
-                        }
-                        <React.Fragment>
-                          {" is Filecoin\u2019s premier staking protocol."}
-                        </React.Fragment>
-                      </React.Fragment>
-                    </h4>
-                  </p.Stack>
-                ) : null}
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox___8Jdkg)}
-                  >
-                    <h3
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h3,
-                        projectcss.__wab_text,
-                        sty.h3__uiHvU
-                      )}
-                    >
-                      {"Arcological Association"}
-                    </h3>
-                    <h4
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h4,
-                        projectcss.__wab_text,
-                        sty.h4__swswl
-                      )}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>{"The "}</React.Fragment>
-                        {
-                          <p.PlasmicLink
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
-                              projectcss.plasmic_default__inline,
-                              sty.link___00Yio
-                            )}
-                            component={Link}
-                            href={"https://arcological.xyz" as const}
-                            platform={"nextjs"}
-                          >
-                            {"Arcological Association (ASA)"}
-                          </p.PlasmicLink>
-                        }
-                        <React.Fragment>
-                          {
-                            " supports the regenerative growth of research, development and novel tooling for public goods in web3. We are defining new models to massively accelerate research and development at the infrastructure layer. Arcological\u2019s near-term focus is creating a new models and mechanisms for funding early and mid-stage web3 commons."
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
-                    </h4>
-                  </p.Stack>
-                ) : null}
-              </p.Stack>
+              </Stack__>
             </div>
             <Footer
               data-plasmic-name={"footer"}
@@ -320,10 +237,12 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "h1", "footer"],
+  root: ["root", "header", "h1", "h3", "h4", "footer"],
   header: ["header"],
   h1: ["h1"],
-  footer: ["footer"],
+  h3: ["h3"],
+  h4: ["h4"],
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -332,6 +251,8 @@ type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
   h1: "h1";
+  h3: "h3";
+  h4: "h4";
   footer: typeof Footer;
 };
 
@@ -369,9 +290,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicAbout__ArgProps,
-          internalVariantPropNames: PlasmicAbout__VariantProps,
+          internalVariantPropNames: PlasmicAbout__VariantProps
         }),
       [props, nodeName]
     );
@@ -379,7 +300,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -397,6 +318,8 @@ export const PlasmicAbout = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
+    h3: makeNodeComponent("h3"),
+    h4: makeNodeComponent("h4"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicAbout
@@ -408,8 +331,8 @@ export const PlasmicAbout = Object.assign(
       title: "Public Goods Funding - About",
       description: "",
       ogImageSrc: "",
-      canonical: "",
-    },
+      canonical: ""
+    }
   }
 );
 

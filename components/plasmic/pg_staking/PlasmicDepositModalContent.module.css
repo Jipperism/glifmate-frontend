@@ -1,5 +1,5 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   width: auto;
   height: auto;
@@ -20,9 +20,6 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 15px;
 }
-.rootdepositClicked2 {
-  display: flex;
-}
 .freeBox__aCedf {
   display: flex;
   position: relative;
@@ -34,9 +31,6 @@
   max-width: 100%;
   min-width: 0;
   padding: 8px 8px 8px 0px;
-}
-.freeBoxdepositClicked2__aCedfDEzGr {
-  display: flex;
 }
 .freeBox__hgbX {
   display: flex;
@@ -54,6 +48,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  font-size: var(--token-8nbRbOL4D);
 }
 .h6___00PTf {
   width: 100%;
@@ -82,9 +77,6 @@
 .img > picture > img {
   object-fit: cover;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .h6__bdIcm {
   position: relative;
   width: 959px;
@@ -92,9 +84,13 @@
   max-width: 100%;
   font-weight: 400;
   font-size: 20px;
-  background: #7d7d7d80;
+  background: #5c5b57bf;
   border-radius: 10px;
   padding: 10px;
+}
+.h6depositClicked2__bdIcmDEzGr {
+  background: #5c5b57bf;
+  font-size: var(--token-b-YX1IU6q);
 }
 .depositForm:global(.__wab_instance) {
   max-width: 100%;

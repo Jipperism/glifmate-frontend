@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { NavigationResponsive } from "@/components/navigation-responsive"; // plasmic-import: aqgnBIGoRl/codeComponent
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
@@ -63,8 +86,8 @@ type ArgPropType = keyof PlasmicHeader__ArgsType;
 export const PlasmicHeader__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHeader__OverridesType = {
-  root?: p.Flex<typeof NavigationResponsive>;
-  img?: p.Flex<typeof p.PlasmicImg>;
+  root?: Flex__<typeof NavigationResponsive>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultHeaderProps {
@@ -72,13 +95,7 @@ export interface DefaultHeaderProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -94,41 +111,41 @@ function PlasmicHeader__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "activeUrl",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.activeUrl,
-      },
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.activeUrl
+      }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries,
-    $refs,
+    $queries: {},
+    $refs
   });
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
@@ -137,7 +154,7 @@ function PlasmicHeader__RenderFunc(props: {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      breakpoint={768 as const}
+      breakpoint={768}
       className={classNames(
         "__wab_instance",
         projectcss.root_reset,
@@ -148,13 +165,13 @@ function PlasmicHeader__RenderFunc(props: {
         { [sty.rootactiveUrl_home]: hasVariant($state, "activeUrl", "home") }
       )}
       logo={
-        <p.PlasmicLink
+        <PlasmicLink__
           className={classNames(projectcss.all, projectcss.a, sty.link__ny3Tn)}
           component={Link}
           href={`/`}
           platform={"nextjs"}
         >
-          <p.PlasmicImg
+          <PlasmicImg__
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
             alt={""}
@@ -164,43 +181,43 @@ function PlasmicHeader__RenderFunc(props: {
                 "activeUrl",
                 "about"
               ),
-              [sty.imgactiveUrl_faQs]: hasVariant($state, "activeUrl", "faQs"),
+              [sty.imgactiveUrl_faQs]: hasVariant($state, "activeUrl", "faQs")
             })}
-            displayHeight={"50px" as const}
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"100%" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={"auto" as const}
-            loading={"lazy" as const}
+            displayHeight={"50px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
             src={
               hasVariant($state, "activeUrl", "faQs")
                 ? {
                     src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
                     fullWidth: 110,
                     fullHeight: 150,
-                    aspectRatio: 0.732394,
+                    aspectRatio: 0.732394
                   }
                 : hasVariant($state, "activeUrl", "about")
                 ? {
                     src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
                     fullWidth: 110,
                     fullHeight: 150,
-                    aspectRatio: 0.732394,
+                    aspectRatio: 0.732394
                   }
                 : {
-                    src: "/plasmic/pg_staking/images/glifLogoWhitesvg.svg",
+                    src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
                     fullWidth: 110,
                     fullHeight: 150,
-                    aspectRatio: 0.732394,
+                    aspectRatio: 0.732394
                   }
             }
           />
-        </p.PlasmicLink>
+        </PlasmicLink__>
       }
       urls={
         <React.Fragment>
-          <p.PlasmicLink
+          <PlasmicLink__
             className={classNames(
               projectcss.all,
               projectcss.a,
@@ -211,7 +228,7 @@ function PlasmicHeader__RenderFunc(props: {
                   $state,
                   "activeUrl",
                   "about"
-                ),
+                )
               }
             )}
             component={Link}
@@ -219,8 +236,8 @@ function PlasmicHeader__RenderFunc(props: {
             platform={"nextjs"}
           >
             {"About"}
-          </p.PlasmicLink>
-          <p.PlasmicLink
+          </PlasmicLink__>
+          <PlasmicLink__
             className={classNames(
               projectcss.all,
               projectcss.a,
@@ -236,7 +253,7 @@ function PlasmicHeader__RenderFunc(props: {
                   $state,
                   "activeUrl",
                   "home"
-                ),
+                )
               }
             )}
             component={Link}
@@ -244,7 +261,7 @@ function PlasmicHeader__RenderFunc(props: {
             platform={"nextjs"}
           >
             {"FAQs"}
-          </p.PlasmicLink>
+          </PlasmicLink__>
         </React.Fragment>
       }
     />
@@ -253,14 +270,14 @@ function PlasmicHeader__RenderFunc(props: {
 
 const PlasmicDescendants = {
   root: ["root", "img"],
-  img: ["img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: typeof NavigationResponsive;
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -297,9 +314,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicHeader__ArgProps,
-          internalVariantPropNames: PlasmicHeader__VariantProps,
+          internalVariantPropNames: PlasmicHeader__VariantProps
         }),
       [props, nodeName]
     );
@@ -307,7 +324,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -327,7 +344,7 @@ export const PlasmicHeader = Object.assign(
 
     // Metadata about props expected for PlasmicHeader
     internalVariantProps: PlasmicHeader__VariantProps,
-    internalArgProps: PlasmicHeader__ArgProps,
+    internalArgProps: PlasmicHeader__ArgProps
   }
 );
 

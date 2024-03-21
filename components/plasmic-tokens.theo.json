@@ -13,11 +13,21 @@
     {
       "name": "Medium",
       "type": "fontsize",
-      "value": "30px",
+      "value": "16px",
       "category": "fontsize",
       "meta": {
         "projectId": "rLycm7fJPyjpC5eVgPhFFv",
         "id": "b-YX1IU6q"
+      }
+    },
+    {
+      "name": "Unnamed Style Token",
+      "type": "color",
+      "value": "#000000BF",
+      "category": "color",
+      "meta": {
+        "projectId": "rLycm7fJPyjpC5eVgPhFFv",
+        "id": "AxgfFnBX01PP"
       }
     },
     {

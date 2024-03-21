@@ -121,9 +121,6 @@
 .img > picture > img {
   object-fit: fill;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: fill;
-}
 .imgactiveUrl_home {
   transform: translateX(0px) translateY(0px) translateZ(0px);
 }

@@ -4,6 +4,7 @@
   width: 100%;
   position: relative;
   height: auto;
+  color: #edf1f4;
   min-width: 0;
   padding: 20px 40px;
 }
@@ -31,22 +32,21 @@
 .img > picture > img {
   object-fit: cover;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .link___2AKr {
-  font-size: var(--token-8nbRbOL4D);
+  font-size: var(--token-b-YX1IU6q);
   font-weight: 700;
   color: #000000;
 }
 .linkactiveUrl_about___2AKr42K22 {
-  background: #ffffff;
+  background: #edf1f4;
+  padding: 9px;
 }
 .link__klvf8 {
-  font-size: var(--token-8nbRbOL4D);
+  font-size: var(--token-b-YX1IU6q);
   font-weight: 700;
   color: #000000;
 }
 .linkactiveUrl_faQs__klvf8WmyX1 {
-  background: #ffffff;
+  background: #edf1f4;
+  padding: 9px;
 }

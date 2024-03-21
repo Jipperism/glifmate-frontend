@@ -14,7 +14,7 @@
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@plasmicapp/cli": "^0.1.304",
+    "@plasmicapp/cli": "^0.1.327",
     "@plasmicapp/loader-nextjs": "^1.0.363",
     "@plasmicapp/react-web": "^0.2.322",
     "@plasmicpkgs/plasmic-nav": "^0.0.161",

@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Header from "../../Header"; // plasmic-import: lTFHprYmdK/component
 import Footer from "../../Footer"; // plasmic-import: kLiRdGmg5zv/component
 
@@ -58,21 +81,15 @@ type ArgPropType = keyof PlasmicFaQs__ArgsType;
 export const PlasmicFaQs__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaQs__OverridesType = {
-  root?: p.Flex<"div">;
-  header?: p.Flex<typeof Header>;
-  h6?: p.Flex<"h6">;
-  footer?: p.Flex<typeof Footer>;
+  root?: Flex__<"div">;
+  header?: Flex__<typeof Header>;
+  h1?: Flex__<"h1">;
+  footer?: Flex__<typeof Footer>;
 };
 
 export interface DefaultFaQsProps {}
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -88,23 +105,23 @@ function PlasmicFaQs__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
@@ -149,744 +166,289 @@ function PlasmicFaQs__RenderFunc(props: {
             <Header
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
-              activeUrl={"faQs" as const}
+              activeUrl={"faQs"}
               className={classNames("__wab_instance", sty.header)}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox___3YbeX)}>
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__btntn)}
               >
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__j7T5V)}
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__j7T5V)}
+                >
+                  <h1
+                    data-plasmic-name={"h1"}
+                    data-plasmic-override={overrides.h1}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1
+                    )}
                   >
-                    <h6
-                      data-plasmic-name={"h6"}
-                      data-plasmic-override={overrides.h6}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h6,
-                        projectcss.__wab_text,
-                        sty.h6
-                      )}
-                    >
-                      {"FAQs"}
-                    </h6>
-                  </p.Stack>
-                ) : null}
-                <p.Stack
+                    {"FAQs"}
+                  </h1>
+                </Stack__>
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.columns__hfRm)}
                 >
-                  {(
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? true
-                      : true
-                  ) ? (
-                    <div
-                      className={classNames(projectcss.all, sty.column__w2FZz)}
+                  <div
+                    className={classNames(projectcss.all, sty.column__w2FZz)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__yPPoI)}
                     >
-                      {true ? (
-                        <p.Stack
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ih7Ze
+                        )}
+                      >
+                        <Stack__
                           as={"div"}
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__yPPoI
+                            sty.freeBox___5Hrgw
                           )}
                         >
-                          {true ? (
-                            <p.Stack
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ih7Ze
-                              )}
-                            >
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
+                          <h2
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2___6Rx5D
+                            )}
+                          >
+                            {"Who is GLIF?"}
+                          </h2>
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4___5EQ9C
+                            )}
+                          >
+                            {
+                              "GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions."
+                            }
+                          </h4>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___9TwX1
+                          )}
+                        >
+                          <h2
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2__urmDt
+                            )}
+                          >
+                            {"How does public good staking work?"}
+                          </h2>
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4___8ZoMc
+                            )}
+                          >
+                            <React.Fragment>
+                              <React.Fragment>{""}</React.Fragment>
+                              {
+                                <ol
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___5Hrgw
+                                    projectcss.ol,
+                                    sty.ol__paXsB
                                   )}
                                 >
-                                  <h2
+                                  <li
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.h2,
+                                      projectcss.li,
                                       projectcss.__wab_text,
-                                      sty.h2___6Rx5D
-                                    )}
-                                  >
-                                    {"What is Public Goods (PG) Leasing?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4___5EQ9C
+                                      sty.li__iLi6H
                                     )}
                                   >
                                     {
-                                      "PG staking \u201cLeasing\u201d is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
+                                      "Decide how much FIL you want to stake and how much of it you would like to donate to PG's."
                                     }
-                                  </h4>
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__l88Vb)}
-                                    displayHeight={"auto" as const}
-                                    displayMaxHeight={"none" as const}
-                                    displayMaxWidth={"100%" as const}
-                                    displayMinHeight={"0" as const}
-                                    displayMinWidth={"0" as const}
-                                    displayWidth={"auto" as const}
-                                    loading={"lazy" as const}
-                                    src={{
-                                      src: "/plasmic/pg_staking/images/glifBlogpost1Png2.png",
-                                      fullWidth: 532,
-                                      fullHeight: 379,
-                                      aspectRatio: undefined,
-                                    }}
-                                  />
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__qJqHx
-                                  )}
-                                >
-                                  <h2
+                                  </li>
+                                  <li
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.h2,
+                                      projectcss.li,
                                       projectcss.__wab_text,
-                                      sty.h2__erPl
-                                    )}
-                                  >
-                                    {"Why do this on chain?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4__rppUs
+                                      sty.li__lpDul
                                     )}
                                   >
                                     {
-                                      "Traditional off chain models for funding include grants and funding allocation channels like crowdfunding, foundations and developer awards. These often lack transparency and are decided by a central entity. Payment times can vary from a few weeks to several months or even years. Community and ecosystem developers do not typically have access to the tracing or transparency of funding or what teams are allocated how much and when. The thesis of restructuring funding to onchain mechanism means that much of these delays and lack of transparency are theoretically eliminated. Once a voting round closes, team allocations are automatically done- this means that payments happen faster, teams can accelerate and scale accordingly without dependency on additional parties. "
+                                      "Deposit FIL and receive an equivalent amount of iFIL tokens in return"
                                     }
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__oFakw
-                                  )}
-                                >
-                                  <h2
+                                  </li>
+                                  <li
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.h2,
+                                      projectcss.li,
                                       projectcss.__wab_text,
-                                      sty.h2__oA5Mb
+                                      sty.li__loheq
                                     )}
                                   >
-                                    {"What is iFil?"}
-                                  </h2>
-                                  <h4
+                                    {
+                                      "Your donation towards public goods will be secured in a specific multi sig wallet."
+                                    }
+                                  </li>
+                                  <li
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.h4,
+                                      projectcss.li,
                                       projectcss.__wab_text,
-                                      sty.h4__qQF
+                                      sty.li__gSMm
                                     )}
                                   >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {
-                                          "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     "
-                                        }
-                                      </React.Fragment>
-                                      <span
-                                        className={
-                                          "plasmic_default__all plasmic_default__span"
-                                        }
-                                        style={{ fontWeight: 700 }}
-                                      >
-                                        {
-                                          "iFIL received = FIL stake / current iFIL price"
-                                        }
-                                      </span>
-                                      <React.Fragment>
-                                        {
-                                          " \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
-                                        }
-                                      </React.Fragment>
-                                    </React.Fragment>
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___9Akpu
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__oOqLg
-                                    )}
-                                  >
-                                    {"Process Description"}
-                                  </h2>
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox___2RRta
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__vZsxt)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_1Svg.svg",
-                                          fullWidth: 101,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.673077,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__dpLpV
-                                        )}
-                                      >
-                                        {
-                                          "FIL Holders transfer their FIL in a Public Goods Leasing Pool which is an allocation within the GLIF Infinity Pool"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__sgLan
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__uleRh)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_2Svg.svg",
-                                          fullWidth: 109,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.72381,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4___7EySo
-                                        )}
-                                      >
-                                        {
-                                          "FIL will be borrowed to FIlecoin Storage Providers"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__vOdsI
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__ceVdH)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_3Svg.svg",
-                                          fullWidth: 108,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.719626,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__rklre
-                                        )}
-                                      >
-                                        {
-                                          "FIL rewards are paid out and the fee split determined by the holder will happen  automatically at time of distribution"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__ltjfA
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__eQ3IF)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_4Svg.svg",
-                                          fullWidth: 116,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.771429,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__jngxY
-                                        )}
-                                      >
-                                        {
-                                          "On-chain governance or voting by community will allocate funding utilizing Impact Evaluators to projects focusing on public goods on projects elected. To begin: IPFS, FVM and libp2p"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__wd3Q3
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__dwrE
-                                    )}
-                                  >
-                                    {"How do I participate?"}
-                                  </h2>
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox___5DaY6
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__hXdCs)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_1Svg.svg",
-                                          fullWidth: 101,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.673077,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__a66ID
-                                        )}
-                                      >
-                                        {
-                                          "Deposit FIL and receive an equal amount of iFIL tokens in return"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__kKwUw
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__aHBa1)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_2Svg.svg",
-                                          fullWidth: 109,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.72381,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__ndrYe
-                                        )}
-                                      >
-                                        {"Your FIL will enter the staking pool"}
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__rUyjb
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img___2EeXk)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_3Svg.svg",
-                                          fullWidth: 108,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.719626,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__oEdnl
-                                        )}
-                                      >
-                                        {"Earn FIL for PG and yourself"}
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__jchGy
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__fvsCb
-                                    )}
-                                  >
-                                    {"How and where can I track this on-chain?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4__sngks
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {
-                                          "Currently awards accumulate in publicly visible PG wallet/vault. \nThe public goods donation contract can be viewed here: 0x3bc5b7822b3a73a3f5916a590e32488dfc6f3a01 .\nAwards are held by a "
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <p.PlasmicLink
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.a,
-                                            projectcss.__wab_text,
-                                            projectcss.plasmic_default__inline,
-                                            sty.link__brzcl
-                                          )}
-                                          component={Link}
-                                          href={
-                                            "https://explorer.glif.io/address/f2w4np5xfn4rbuebllvm2kzvk4rrbgdddl7ce6hgq/?network=mainnet" as const
-                                          }
-                                          platform={"nextjs"}
-                                        >
-                                          {"multisig"}
-                                        </p.PlasmicLink>
-                                      }
-                                      <React.Fragment>
-                                        {
-                                          ", which can be triggered and distributed in the following ways:\n\nExisting mechanisms:\n"
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <ul
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.ul,
-                                            sty.ul__suV5M
-                                          )}
-                                        >
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li___1Eb4V
-                                            )}
-                                          >
-                                            {"Impact Evaluator"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__yWnng
-                                            )}
-                                          >
-                                            {"IPFS PG impact fund"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__yxrek
-                                            )}
-                                          >
-                                            {"Private Retrieval PG Impact Fund"}
-                                          </li>
-                                        </ul>
-                                      }
-                                      <React.Fragment>
-                                        {"\nMechanisms under development:\n"}
-                                      </React.Fragment>
-                                      {
-                                        <ul
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.ul,
-                                            sty.ul__lhEso
-                                          )}
-                                        >
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__eXoTn
-                                            )}
-                                          >
-                                            {"Community QV"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__aPUxb
-                                            )}
-                                          >
-                                            {
-                                              "Community-driven governance funding"
-                                            }
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__dpaq9
-                                            )}
-                                          >
-                                            {"S-curve funding "}
-                                          </li>
-                                        </ul>
-                                      }
-                                      <React.Fragment>{""}</React.Fragment>
-                                    </React.Fragment>
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__e47Xg
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2___9Imjd
-                                    )}
-                                  >
-                                    {"How can I get involved?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4__jpXLk
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {
-                                          "We are already in discussion and trying to define the future roadmap, new functions, tweaking the UI UX and FAQ in the Glif discord. "
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <p.PlasmicLink
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.a,
-                                            projectcss.__wab_text,
-                                            projectcss.plasmic_default__inline,
-                                            sty.link__ulD6V
-                                          )}
-                                          component={Link}
-                                          href={
-                                            "https://discord.gg/Zx27aVn6FJ" as const
-                                          }
-                                          platform={"nextjs"}
-                                        >
-                                          {"Join us"}
-                                        </p.PlasmicLink>
-                                      }
-                                      <React.Fragment>
-                                        {" in the public-goods-pool channel."}
-                                      </React.Fragment>
-                                    </React.Fragment>
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                            </p.Stack>
-                          ) : null}
-                        </p.Stack>
-                      ) : null}
-                    </div>
-                  ) : null}
-                </p.Stack>
+                                    {"Earn rewards and see the ecosystem grow!"}
+                                  </li>
+                                </ol>
+                              }
+                              <React.Fragment>{""}</React.Fragment>
+                            </React.Fragment>
+                          </h4>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__qJqHx
+                          )}
+                        >
+                          <h2
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2__erPl
+                            )}
+                          >
+                            {"Is the staking pool on-chain?"}
+                          </h2>
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4__rppUs
+                            )}
+                          >
+                            <React.Fragment>
+                              <React.Fragment>
+                                {
+                                  "Yes the staking pool by GLIF is on-chain, and you can verify it with this contract address: "
+                                }
+                              </React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"0x3bc5b7822b3a73a3f5916a590e32488dfc6f3a01"}
+                              </span>
+                            </React.Fragment>
+                          </h4>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__oFakw
+                          )}
+                        >
+                          <h2
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2__oA5Mb
+                            )}
+                          >
+                            {"What is iFil?"}
+                          </h2>
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4__qQF
+                            )}
+                          >
+                            {
+                              "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols."
+                            }
+                          </h4>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__tuu7Z
+                          )}
+                        >
+                          <h2
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h2,
+                              projectcss.__wab_text,
+                              sty.h2__mde0S
+                            )}
+                          >
+                            {"Who is the Open Impact Foundation, PCC?"}
+                          </h2>
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4__hdVPs
+                            )}
+                          >
+                            {
+                              "Open Impact Foundation PCC is a Liechtenstein based charitable Foundation organized as a Protected Cell Company (PCC) and supports various efforts towards the development or creation of digital public goods."
+                            }
+                          </h4>
+                        </Stack__>
+                      </Stack__>
+                    </Stack__>
+                  </div>
+                </Stack__>
                 {(
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? true
                     : false
                 ) ? (
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.columns__mLfNb)}
@@ -894,786 +456,424 @@ function PlasmicFaQs__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.column__yLgP3)}
                     >
-                      {true ? (
-                        <p.Stack
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__oi3Vc
-                          )}
-                        >
-                          {(
-                            hasVariant(globalVariants, "screen", "mobileOnly")
-                              ? true
-                              : true
-                          ) ? (
-                            <p.PlasmicImg
-                              alt={""}
-                              className={classNames(sty.img__aikDz)}
-                              displayHeight={"auto" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"8px" as const}
-                              loading={"lazy" as const}
-                              src={{
-                                src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                                fullWidth: 1,
-                                fullHeight: 150,
-                                aspectRatio: 0.004498,
-                              }}
-                            />
-                          ) : null}
-                          {true ? (
-                            <p.Stack
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__aqnqF
-                              )}
-                            >
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__ip9Uk
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2___1BwtR
-                                    )}
-                                  >
-                                    {"Process Description"}
-                                  </h2>
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__hcaZl
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img___05Nfo)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_1Svg.svg",
-                                          fullWidth: 101,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.673077,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__pKwU6
-                                        )}
-                                      >
-                                        {
-                                          "FIL Holders transfer their FIL in a Public Goods Leasing Pool which is an allocation within the GLIF Infinity Pool"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox___4FEki
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__iflRt)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_2Svg.svg",
-                                          fullWidth: 109,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.72381,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__puGa
-                                        )}
-                                      >
-                                        {
-                                          "FIL will be borrowed to FIlecoin Storage Providers"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__ocklr
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__seO9X)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_3Svg.svg",
-                                          fullWidth: 108,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.719626,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__xc8SX
-                                        )}
-                                      >
-                                        {
-                                          "FIL rewards are paid out and the fee split determined by the holder will happen  automatically at time of distribution"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox___2QCzr
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__wvb3J)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_4Svg.svg",
-                                          fullWidth: 116,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.771429,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__k1X1B
-                                        )}
-                                      >
-                                        {
-                                          "On-chain governance or voting by community will allocate funding utilizing Impact Evaluators to projects focusing on public goods on projects elected. To begin: IPFS, FVM and libp2p"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__nuome
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__rTj4H
-                                    )}
-                                  >
-                                    {"How do I participate?"}
-                                  </h2>
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__bRgEe
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__v1Mdp)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_1Svg.svg",
-                                          fullWidth: 101,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.673077,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__llD1
-                                        )}
-                                      >
-                                        {
-                                          "Deposit FIL and receive an equal amount of iFIL tokens in return"
-                                        }
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__ndU80
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__cw8Gh)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_2Svg.svg",
-                                          fullWidth: 109,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.72381,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4___4Bv4
-                                        )}
-                                      >
-                                        {"Your FIL will enter the staking pool"}
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                  {true ? (
-                                    <p.Stack
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__y1KhL
-                                      )}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img__scXaz)}
-                                        displayHeight={"auto" as const}
-                                        displayMaxHeight={"none" as const}
-                                        displayMaxWidth={"none" as const}
-                                        displayMinHeight={"0" as const}
-                                        displayMinWidth={"0" as const}
-                                        displayWidth={"auto" as const}
-                                        loading={"lazy" as const}
-                                        src={{
-                                          src: "/plasmic/pg_staking/images/_3Svg.svg",
-                                          fullWidth: 108,
-                                          fullHeight: 150,
-                                          aspectRatio: 0.719626,
-                                        }}
-                                      />
-
-                                      <h4
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h4,
-                                          projectcss.__wab_text,
-                                          sty.h4__nadrs
-                                        )}
-                                      >
-                                        {"Earn FIL for PG and yourself"}
-                                      </h4>
-                                    </p.Stack>
-                                  ) : null}
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__meOby
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2___2PR7C
-                                    )}
-                                  >
-                                    {"How and where can I track this on-chain?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4__fxFgT
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {
-                                          "Currently awards accumulate in publicly visible PG wallet/vault. \nThe public goods donation contract can be viewed here: 0x3bc5b7822b3a73a3f5916a590e32488dfc6f3a01 .\nAwards are held by a "
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <p.PlasmicLink
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.a,
-                                            projectcss.__wab_text,
-                                            projectcss.plasmic_default__inline,
-                                            sty.link__aEa3H
-                                          )}
-                                          component={Link}
-                                          href={
-                                            "https://explorer.glif.io/address/f2w4np5xfn4rbuebllvm2kzvk4rrbgdddl7ce6hgq/?network=mainnet" as const
-                                          }
-                                          platform={"nextjs"}
-                                        >
-                                          {"multisig"}
-                                        </p.PlasmicLink>
-                                      }
-                                      <React.Fragment>
-                                        {
-                                          ", which can be triggered and distributed in the following ways:\n\nExisting mechanisms:\n"
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <ul
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.ul,
-                                            sty.ul__js0Rh
-                                          )}
-                                        >
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__qzw56
-                                            )}
-                                          >
-                                            {"Impact Evaluator"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__uvApB
-                                            )}
-                                          >
-                                            {"IPFS PG impact fund"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__qmqI6
-                                            )}
-                                          >
-                                            {"Private Retrieval PG Impact Fund"}
-                                          </li>
-                                        </ul>
-                                      }
-                                      <React.Fragment>
-                                        {"\nMechanisms under development:\n"}
-                                      </React.Fragment>
-                                      {
-                                        <ul
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.ul,
-                                            sty.ul__vcix1
-                                          )}
-                                        >
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li___2U9Zq
-                                            )}
-                                          >
-                                            {"Community QV"}
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__p0Tmp
-                                            )}
-                                          >
-                                            {
-                                              "Community-driven governance funding"
-                                            }
-                                          </li>
-                                          <li
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.li,
-                                              projectcss.__wab_text,
-                                              sty.li__icOi
-                                            )}
-                                          >
-                                            {"S-curve funding "}
-                                          </li>
-                                        </ul>
-                                      }
-                                      <React.Fragment>{""}</React.Fragment>
-                                    </React.Fragment>
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__mHgme
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__h6KGi
-                                    )}
-                                  >
-                                    {"What is the roadmap for the future?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4__aRy3
-                                    )}
-                                  >
-                                    {"[copy here]"}
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                              {true ? (
-                                <p.Stack
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__qUUv
-                                  )}
-                                >
-                                  <h2
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h2,
-                                      projectcss.__wab_text,
-                                      sty.h2__jOoJ
-                                    )}
-                                  >
-                                    {"How can I get involved?"}
-                                  </h2>
-                                  <h4
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h4,
-                                      projectcss.__wab_text,
-                                      sty.h4___9AfKn
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {
-                                          "We are already in discussion and trying to define the future roadmap, new functions, tweaking the UI UX and FAQ in the Glif discord. "
-                                        }
-                                      </React.Fragment>
-                                      {
-                                        <p.PlasmicLink
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.a,
-                                            projectcss.__wab_text,
-                                            projectcss.plasmic_default__inline,
-                                            sty.link__hPznc
-                                          )}
-                                          component={Link}
-                                          href={
-                                            "https://discord.gg/Zx27aVn6FJ" as const
-                                          }
-                                          platform={"nextjs"}
-                                        >
-                                          {"Join us"}
-                                        </p.PlasmicLink>
-                                      }
-                                      <React.Fragment>
-                                        {" in the public-goods-pool channel."}
-                                      </React.Fragment>
-                                    </React.Fragment>
-                                  </h4>
-                                </p.Stack>
-                              ) : null}
-                            </p.Stack>
-                          ) : null}
-                        </p.Stack>
-                      ) : null}
-                    </div>
-                    {(
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? true
-                        : true
-                    ) ? (
-                      <p.Stack
+                      <Stack__
                         as={"div"}
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.column__uzZzc
+                          sty.freeBox__oi3Vc
                         )}
                       >
-                        {true ? (
-                          <p.Stack
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__aikDz)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"8px"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
+                            fullWidth: 1,
+                            fullHeight: 150,
+                            aspectRatio: 0.004498
+                          }}
+                        />
+
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__aqnqF
+                          )}
+                        >
+                          <Stack__
                             as={"div"}
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__qXs0K
+                              sty.freeBox__meOby
                             )}
                           >
-                            <p.PlasmicImg
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2___2PR7C
+                              )}
+                            >
+                              {"Who is GLIF?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__fxFgT
+                              )}
+                            >
+                              {
+                                "GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions."
+                              }
+                            </h4>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___1Ydl7
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2___3Z7C9
+                              )}
+                            >
+                              {"How does public good staking work?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__b2Lk
+                              )}
+                            >
+                              <React.Fragment>
+                                <React.Fragment>{""}</React.Fragment>
+                                {
+                                  <ol
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.ol,
+                                      sty.ol__xs9Gz
+                                    )}
+                                  >
+                                    <li
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.li,
+                                        projectcss.__wab_text,
+                                        sty.li__kinMi
+                                      )}
+                                    >
+                                      {
+                                        "Decide how much FIL you want to stake and how much of it you would like to donate to PG's."
+                                      }
+                                    </li>
+                                    <li
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.li,
+                                        projectcss.__wab_text,
+                                        sty.li__x2Jt1
+                                      )}
+                                    >
+                                      {
+                                        "Deposit FIL and receive an equivalent amount of iFIL tokens in return"
+                                      }
+                                    </li>
+                                    <li
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.li,
+                                        projectcss.__wab_text,
+                                        sty.li___0NAbM
+                                      )}
+                                    >
+                                      {
+                                        "Your donation towards public goods will be secured in a specific multi sig wallet."
+                                      }
+                                    </li>
+                                    <li
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.li,
+                                        projectcss.__wab_text,
+                                        sty.li__v2ItD
+                                      )}
+                                    >
+                                      {
+                                        "Earn rewards and see the ecosystem grow!"
+                                      }
+                                    </li>
+                                  </ol>
+                                }
+                                <React.Fragment>{""}</React.Fragment>
+                              </React.Fragment>
+                            </h4>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__qUUv
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2__jOoJ
+                              )}
+                            >
+                              {"Is the staking pool on-chain?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4___9AfKn
+                              )}
+                            >
+                              <React.Fragment>
+                                <React.Fragment>
+                                  {
+                                    "Yes the staking pool by GLIF, is on-chain and you can verify it with this contract address: "
+                                  }
+                                </React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 700 }}
+                                >
+                                  {"0x3bc5b7822b3a73a3f5916a590e32488dfc6f3a01"}
+                                </span>
+                              </React.Fragment>
+                            </h4>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ro6RX
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2___3A53F
+                              )}
+                            >
+                              {"What is iFil?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__s2Z7V
+                              )}
+                            >
+                              {
+                                "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols."
+                              }
+                            </h4>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__dtrL
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2__rqyDn
+                              )}
+                            >
+                              {"Who is the Open Impact Foundation, PCC?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4___3FGLw
+                              )}
+                            >
+                              {
+                                "Open Impact Foundation PCC is a Liechtenstein based charitable Foundation organized as a Protected Cell Company (PCC) and supports various efforts towards the development or creation of digital public goods."
+                              }
+                            </h4>
+                          </Stack__>
+                        </Stack__>
+                      </Stack__>
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.column__uzZzc)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__qXs0K
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__loxTv)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"8px"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
+                            fullWidth: 1,
+                            fullHeight: 150,
+                            aspectRatio: 0.004498
+                          }}
+                        />
+
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ywDxn
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___9XkKw
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2__dheU4
+                              )}
+                            >
+                              {"What is Public Goods (PG) Leasing?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__cqiuf
+                              )}
+                            >
+                              {
+                                "PG staking \u201cLeasing\u201d is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
+                              }
+                            </h4>
+                            <PlasmicImg__
                               alt={""}
-                              className={classNames(sty.img__loxTv)}
-                              displayHeight={"auto" as const}
-                              displayMaxHeight={"none" as const}
-                              displayMaxWidth={"100%" as const}
-                              displayMinHeight={"0" as const}
-                              displayMinWidth={"0" as const}
-                              displayWidth={"8px" as const}
-                              loading={"lazy" as const}
+                              className={classNames(sty.img___71T30)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              loading={"lazy"}
                               src={{
-                                src: "/plasmic/pg_staking/images/vectorLinesvg3.svg",
-                                fullWidth: 1,
-                                fullHeight: 150,
-                                aspectRatio: 0.004498,
+                                src: "/plasmic/pg_staking/images/glifBlogpost1Png2.png",
+                                fullWidth: 532,
+                                fullHeight: 379,
+                                aspectRatio: undefined
                               }}
                             />
-
-                            {true ? (
-                              <p.Stack
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__ywDxn
-                                )}
-                              >
-                                {true ? (
-                                  <p.Stack
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___9XkKw
-                                    )}
-                                  >
-                                    <h2
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h2,
-                                        projectcss.__wab_text,
-                                        sty.h2__dheU4
-                                      )}
-                                    >
-                                      {"What is Public Goods (PG) Leasing?"}
-                                    </h2>
-                                    <h4
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h4,
-                                        projectcss.__wab_text,
-                                        sty.h4__cqiuf
-                                      )}
-                                    >
-                                      {
-                                        "PG staking \u201cLeasing\u201d is currently running for FIL holders. We utilize GLIF. GLIF is a non-custodial automated leasing pool designed for the Filecoin network. It offers eligible Filecoin Storage Providers a convenient way to borrow FIL up to the value of the collateral they contribute to the pool. Storage Providers will make automated weekly payments back into pools, with payment amounts dynamically determined based on current market conditions. For the Public good pools-  rewards will be allocated to a public goods multisig, in which funding will be allocated by transparent on-chain tooling like Impact Evaluators and other governance tooling in a decentralized and transparent way which encourages active and clear allocation of support.  \n\n\nFollowing is an illustration of the automated Public Goods non-custodial leasing pool setup:"
-                                      }
-                                    </h4>
-                                    <p.PlasmicImg
-                                      alt={""}
-                                      className={classNames(sty.img___71T30)}
-                                      displayHeight={"auto" as const}
-                                      displayMaxHeight={"none" as const}
-                                      displayMaxWidth={"100%" as const}
-                                      displayMinHeight={"0" as const}
-                                      displayMinWidth={"0" as const}
-                                      displayWidth={"auto" as const}
-                                      loading={"lazy" as const}
-                                      src={{
-                                        src: "/plasmic/pg_staking/images/glifBlogpost1Png2.png",
-                                        fullWidth: 532,
-                                        fullHeight: 379,
-                                        aspectRatio: undefined,
-                                      }}
-                                    />
-                                  </p.Stack>
-                                ) : null}
-                                {true ? (
-                                  <p.Stack
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__xkmij
-                                    )}
-                                  >
-                                    <h2
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h2,
-                                        projectcss.__wab_text,
-                                        sty.h2__zwd0Z
-                                      )}
-                                    >
-                                      {"Why do this on chain?"}
-                                    </h2>
-                                    <h4
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h4,
-                                        projectcss.__wab_text,
-                                        sty.h4__z4Ppp
-                                      )}
-                                    >
-                                      {
-                                        "Traditional off chain models for funding include grants and funding allocation channels like crowdfunding, foundations and developer awards. These often lack transparency and are decided by a central entity. Payment times can vary from a few weeks to several months or even years. Community and ecosystem developers do not typically have access to the tracing or transparency of funding or what teams are allocated how much and when. The thesis of restructuring funding to onchain mechanism means that much of these delays and lack of transparency are theoretically eliminated. Once a voting round closes, team allocations are automatically done- this means that payments happen faster, teams can accelerate and scale accordingly without dependency on additional parties. "
-                                      }
-                                    </h4>
-                                  </p.Stack>
-                                ) : null}
-                                {true ? (
-                                  <p.Stack
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__jgaQ5
-                                    )}
-                                  >
-                                    <h2
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h2,
-                                        projectcss.__wab_text,
-                                        sty.h2__cbXtL
-                                      )}
-                                    >
-                                      {"What is iFil?"}
-                                    </h2>
-                                    <h4
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h4,
-                                        projectcss.__wab_text,
-                                        sty.h4__y8W34
-                                      )}
-                                    >
-                                      {
-                                        "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     iFIL received = FIL stake / current iFIL price \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
-                                      }
-                                    </h4>
-                                  </p.Stack>
-                                ) : null}
-                              </p.Stack>
-                            ) : null}
-                          </p.Stack>
-                        ) : null}
-                      </p.Stack>
-                    ) : null}
-                  </p.Stack>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xkmij
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2__zwd0Z
+                              )}
+                            >
+                              {"Why do this on chain?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__z4Ppp
+                              )}
+                            >
+                              {
+                                "Traditional off chain models for funding include grants and funding allocation channels like crowdfunding, foundations and developer awards. These often lack transparency and are decided by a central entity. Payment times can vary from a few weeks to several months or even years. Community and ecosystem developers do not typically have access to the tracing or transparency of funding or what teams are allocated how much and when. The thesis of restructuring funding to onchain mechanism means that much of these delays and lack of transparency are theoretically eliminated. Once a voting round closes, team allocations are automatically done- this means that payments happen faster, teams can accelerate and scale accordingly without dependency on additional parties. "
+                              }
+                            </h4>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__jgaQ5
+                            )}
+                          >
+                            <h2
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2__cbXtL
+                              )}
+                            >
+                              {"What is iFil?"}
+                            </h2>
+                            <h4
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4__y8W34
+                              )}
+                            >
+                              {
+                                "When a FIL token holder deposits FIL into the Infinity Pool, they receive iFIL tokens in return. iFIL is the native liquid staking token for filecoin - iFIL can be transferred to other wallets, traded on secondaries, and used in other DeFi protocols. The price of iFIL is calculated as: \n     iFIL price = Glif Infinity Pool total assets / iFIL circulating supply \n\nThe initial price of iFIL to FIL is 1 : 1, but this will change once the borrowing side of the Infinity Pool opens to SPs. When the Infinity Pool receives its weekly payment from an SP, the Infinity Pool's total assets increase, which increases the value of iFIL in terms of FIL. When a Staker deposits FIL in the pool, they get back a proportionate amount of iFIL determined by the current iFIL price at that point in time:\n     iFIL received = FIL stake / current iFIL price \n\nAs the price of iFIL increases, the amount of iFIL received per FIL stake decreases."
+                              }
+                            </h4>
+                          </Stack__>
+                        </Stack__>
+                      </Stack__>
+                    </Stack__>
+                  </Stack__>
                 ) : null}
-              </p.Stack>
+              </Stack__>
             </div>
             <Footer
               data-plasmic-name={"footer"}
@@ -1688,10 +888,10 @@ function PlasmicFaQs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "h6", "footer"],
+  root: ["root", "header", "h1", "footer"],
   header: ["header"],
-  h6: ["h6"],
-  footer: ["footer"],
+  h1: ["h1"],
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1699,7 +899,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
-  h6: "h6";
+  h1: "h1";
   footer: typeof Footer;
 };
 
@@ -1737,9 +937,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicFaQs__ArgProps,
-          internalVariantPropNames: PlasmicFaQs__VariantProps,
+          internalVariantPropNames: PlasmicFaQs__VariantProps
         }),
       [props, nodeName]
     );
@@ -1747,7 +947,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -1764,7 +964,7 @@ export const PlasmicFaQs = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
-    h6: makeNodeComponent("h6"),
+    h1: makeNodeComponent("h1"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicFaQs
@@ -1776,8 +976,8 @@ export const PlasmicFaQs = Object.assign(
       title: "Public Goods Funding - FAQ",
       description: "",
       ogImageSrc: "",
-      canonical: "",
-    },
+      canonical: ""
+    }
   }
 );
 

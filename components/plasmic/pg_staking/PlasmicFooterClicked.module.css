@@ -170,9 +170,6 @@
 .img > picture > img {
   object-fit: contain;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .column__fQfUs {
   display: flex;
   position: relative;
@@ -222,7 +219,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-gGQoVGJZg);
+  color: var(--token-AxgfFnBX01PP);
 }
 .h5__feTzc {
   position: relative;

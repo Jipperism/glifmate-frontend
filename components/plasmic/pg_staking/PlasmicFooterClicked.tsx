@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { useScreenVariants as useScreenVariantsqqPMw8O9H4JqN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qqPMw8o9H4jqN/globalVariant
 
@@ -56,22 +78,16 @@ type ArgPropType = keyof PlasmicFooterClicked__ArgsType;
 export const PlasmicFooterClicked__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFooterClicked__OverridesType = {
-  root?: p.Flex<"div">;
-  columns?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
+  root?: Flex__<"div">;
+  columns?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultFooterClickedProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -87,23 +103,23 @@ function PlasmicFooterClicked__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
-    ...variants,
+    ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqqPMw8O9H4JqN(),
+    screen: useScreenVariantsqqPMw8O9H4JqN()
   });
 
   return (
@@ -121,12 +137,12 @@ function PlasmicFooterClicked__RenderFunc(props: {
         sty.root
       )}
     >
-      <p.Stack
+      <Stack__
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__prYx8)}
       >
-        <p.Stack
+        <Stack__
           as={"div"}
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
@@ -137,29 +153,29 @@ function PlasmicFooterClicked__RenderFunc(props: {
 
           <div className={classNames(projectcss.all, sty.column__ucr6J)}>
             <div className={classNames(projectcss.all, sty.freeBox__xaiKr)}>
-              <p.PlasmicImg
+              <PlasmicImg__
                 data-plasmic-name={"img"}
                 data-plasmic-override={overrides.img}
                 alt={""}
                 className={classNames(sty.img)}
-                displayHeight={"65px" as const}
-                displayMaxHeight={"none" as const}
-                displayMaxWidth={"100%" as const}
-                displayMinHeight={"0" as const}
-                displayMinWidth={"0" as const}
-                displayWidth={"auto" as const}
-                loading={"lazy" as const}
+                displayHeight={"65px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
                 src={{
                   src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
                   fullWidth: 110,
                   fullHeight: 150,
-                  aspectRatio: 0.732394,
+                  aspectRatio: 0.732394
                 }}
               />
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.column__fQfUs)}>
-            <p.Stack
+            <Stack__
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__qiKg)}
@@ -184,11 +200,11 @@ function PlasmicFooterClicked__RenderFunc(props: {
               >
                 {"Privacy Policy"}
               </h5>
-            </p.Stack>
+            </Stack__>
           </div>
           <div className={classNames(projectcss.all, sty.column__o8Cv6)} />
-        </p.Stack>
-      </p.Stack>
+        </Stack__>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
@@ -196,7 +212,7 @@ function PlasmicFooterClicked__RenderFunc(props: {
 const PlasmicDescendants = {
   root: ["root", "columns", "img"],
   columns: ["columns", "img"],
-  img: ["img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -204,7 +220,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   columns: "div";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -241,9 +257,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicFooterClicked__ArgProps,
-          internalVariantPropNames: PlasmicFooterClicked__VariantProps,
+          internalVariantPropNames: PlasmicFooterClicked__VariantProps
         }),
       [props, nodeName]
     );
@@ -251,7 +267,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       variants,
       args,
       overrides,
-      forNode: nodeName,
+      forNode: nodeName
     });
   };
   if (nodeName === "root") {
@@ -272,7 +288,7 @@ export const PlasmicFooterClicked = Object.assign(
 
     // Metadata about props expected for PlasmicFooterClicked
     internalVariantProps: PlasmicFooterClicked__VariantProps,
-    internalArgProps: PlasmicFooterClicked__ArgProps,
+    internalArgProps: PlasmicFooterClicked__ArgProps
   }
 );
 
