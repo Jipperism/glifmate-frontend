@@ -38,6 +38,7 @@
 .rootisDisabled {
   cursor: not-allowed;
   opacity: 0.6;
+  background: #cfd4dc;
 }
 .rootshape_rounded {
   padding-left: 20px;
@@ -115,10 +116,10 @@
   padding: 6px;
 }
 .root:hover {
-  background: #282826;
+  background: #f5f5ed;
 }
 .rootcolor_blue:hover {
-  background: #369eff;
+  background: #5c5b57;
 }
 .rootcolor_green:hover {
   background: #3cb179;
@@ -157,18 +158,18 @@
   background: #ffffff00;
 }
 .root:focus-within {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
   outline: none;
 }
 .root___focusVisibleWithin {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
   outline: none;
 }
 .root:active {
   background: #2e2e2b;
 }
 .rootcolor_blue:active {
-  background: #52a9ff;
+  background: #5c5b57;
 }
 .rootcolor_green:active {
   background: #4cc38a;
@@ -315,6 +316,9 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
+}
+.root:hover .slotTargetChildren {
+  color: var(--token-gGQoVGJZg);
 }
 .rootcolor_softBlue:hover .slotTargetChildrencolor_softBlue {
   color: #ffffff;

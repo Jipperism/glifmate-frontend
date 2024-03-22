@@ -179,635 +179,410 @@ function PlasmicHomepage__RenderFunc(props: {
               className={classNames("__wab_instance", sty.header)}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__nj5YB)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rmFif)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__rxHud)}>
+              <div className={classNames(projectcss.all, sty.freeBox__nj5YB)}>
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__kTsO5)}
+                  className={classNames(projectcss.all, sty.freeBox__rmFif)}
                 >
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__bnSvx)}
+                    className={classNames(projectcss.all, sty.freeBox__kTsO5)}
                   >
-                    <h1
-                      data-plasmic-name={"h1"}
-                      data-plasmic-override={overrides.h1}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h1,
-                        projectcss.__wab_text,
-                        sty.h1
-                      )}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__bnSvx)}
                     >
-                      {"Stake Towards Digital Public Goods"}
-                    </h1>
-                    <h3
-                      data-plasmic-name={"h3"}
-                      data-plasmic-override={overrides.h3}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h3,
-                        projectcss.__wab_text,
-                        sty.h3
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobileOnly") ? (
-                        <React.Fragment>
-                          <React.Fragment>{"Trusted by\n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__b8FRs
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9"
-                                : "\u25c9"}
-                            </span>
-                          }
-                          <React.Fragment>{" Glif\n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__s8Mp8
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9"
-                                : "\u25c9"}
-                            </span>
-                          }
-                          <React.Fragment>{" Protocol Labs\n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__h6Btv
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9 "
-                                : "\u25c9 "}
-                            </span>
-                          }
-                          <React.Fragment>
-                            {"Arcological Association"}
-                          </React.Fragment>
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          <React.Fragment>{"Trusted by\n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__b8FRs
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9"
-                                : "\u25c9"}
-                            </span>
-                          }
-                          <React.Fragment>{" GLIF\n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__s8Mp8
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9"
-                                : "\u25c9"}
-                            </span>
-                          }
-                          <React.Fragment>{" Protocol Labs \n"}</React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__h6Btv
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobileOnly"
-                              )
-                                ? "\u25c9 "
-                                : "\u25c9 "}
-                            </span>
-                          }
-                          <React.Fragment>
-                            {"Open Impact Foundation  \n"}
-                          </React.Fragment>
-                          {
-                            <span
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.span,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.span__tJjZw
-                              )}
-                            >
-                              {"\u25c9 "}
-                            </span>
-                          }
-                          <React.Fragment>
-                            {"& thousands of others"}
-                          </React.Fragment>
-                        </React.Fragment>
-                      )}
-                    </h3>
-                  </Stack__>
-                  <OnClickOpenDepositModal
-                    data-plasmic-name={"onClickOpenDepositModal"}
-                    data-plasmic-override={overrides.onClickOpenDepositModal}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.onClickOpenDepositModal
-                    )}
-                  >
-                    <Button
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__nW77K
-                      )}
-                    >
-                      <div
+                      <h1
+                        data-plasmic-name={"h1"}
+                        data-plasmic-override={overrides.h1}
                         className={classNames(
                           projectcss.all,
+                          projectcss.h1,
                           projectcss.__wab_text,
-                          sty.text__qp8G
+                          sty.h1
+                        )}
+                      >
+                        {"Stake Towards Digital Public Goods"}
+                      </h1>
+                      <h3
+                        data-plasmic-name={"h3"}
+                        data-plasmic-override={overrides.h3}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h3,
+                          projectcss.__wab_text,
+                          sty.h3
                         )}
                       >
                         {hasVariant(globalVariants, "screen", "mobileOnly") ? (
                           <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {"Deposit"}
-                            </span>
-                            <React.Fragment>{"  \ud83d\ude80"}</React.Fragment>
+                            <React.Fragment>{"Trusted by\n"}</React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__b8FRs
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9"
+                                  : "\u25c9"}
+                              </span>
+                            }
+                            <React.Fragment>{" Glif\n"}</React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__s8Mp8
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9"
+                                  : "\u25c9"}
+                              </span>
+                            }
+                            <React.Fragment>
+                              {" Protocol Labs\n"}
+                            </React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__h6Btv
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9 "
+                                  : "\u25c9 "}
+                              </span>
+                            }
+                            <React.Fragment>
+                              {"Arcological Association"}
+                            </React.Fragment>
                           </React.Fragment>
                         ) : (
                           <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {"Deposit"}
-                            </span>
+                            <React.Fragment>{"Trusted by\n"}</React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__b8FRs
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9"
+                                  : "\u25c9"}
+                              </span>
+                            }
+                            <React.Fragment>{" GLIF\n"}</React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__s8Mp8
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9"
+                                  : "\u25c9"}
+                              </span>
+                            }
                             <React.Fragment>
-                              {" to public goods \ud83d\ude80"}
+                              {" Protocol Labs \n"}
+                            </React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__h6Btv
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "\u25c9 "
+                                  : "\u25c9 "}
+                              </span>
+                            }
+                            <React.Fragment>
+                              {"Open Impact Foundation  \n"}
+                            </React.Fragment>
+                            {
+                              <span
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.span,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.span__tJjZw
+                                )}
+                              >
+                                {"\u25c9 "}
+                              </span>
+                            }
+                            <React.Fragment>
+                              {"& thousands of others"}
                             </React.Fragment>
                           </React.Fragment>
                         )}
-                      </div>
-                    </Button>
-                  </OnClickOpenDepositModal>
+                      </h3>
+                    </Stack__>
+                    <OnClickOpenDepositModal
+                      data-plasmic-name={"onClickOpenDepositModal"}
+                      data-plasmic-override={overrides.onClickOpenDepositModal}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.onClickOpenDepositModal
+                      )}
+                    >
+                      <Button
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button__nW77K
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qp8G
+                          )}
+                        >
+                          {hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          ) ? (
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Deposit"}
+                              </span>
+                              <React.Fragment>
+                                {"  \ud83d\ude80"}
+                              </React.Fragment>
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Deposit"}
+                              </span>
+                              <React.Fragment>
+                                {" to public goods \ud83d\ude80"}
+                              </React.Fragment>
+                            </React.Fragment>
+                          )}
+                        </div>
+                      </Button>
+                    </OnClickOpenDepositModal>
+                  </Stack__>
                 </Stack__>
-              </Stack__>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__vAi6C)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__czd0)}
-              >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__vAi6C)}>
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.columns___6Og7R)}
+                  className={classNames(projectcss.all, sty.freeBox__czd0)}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.column__tAcp6)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__nVxFe)}
-                    >
-                      <h2
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2___1QzwO
-                        )}
-                      >
-                        {"Eager to make a positive impact on society?"}
-                      </h2>
-                      <h4
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h4,
-                          projectcss.__wab_text,
-                          sty.h4__tZAs
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>
-                            {
-                              "Play your part by directing your FIL donations  towards the advancement and enhancement of digital public goods. Allocate your FIL through GLIF, choosing the amount you wish to donate to the "
-                            }
-                          </React.Fragment>
-                          {
-                            <PlasmicLink__
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.a,
-                                projectcss.__wab_text,
-                                projectcss.plasmic_default__inline,
-                                sty.link__xownu
-                              )}
-                              component={Link}
-                              href={"https://openimpact.foundation"}
-                              platform={"nextjs"}
-                            >
-                              {"Open Impact Foundation"}
-                            </PlasmicLink__>
-                          }
-                          <React.Fragment>
-                            {
-                              ". Your contributions will empower the Open Impact Foundation to foster the ecosystem's growth by funding essential core projects. This support enables developers to rapidly innovate and develop new ideas and applications including projects like IPFS, libp2p and others, supporting a  cycle of innovation."
-                            }
-                          </React.Fragment>
-                        </React.Fragment>
-                      </h4>
-                    </Stack__>
-                  </div>
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.column__qSgU)}
+                    className={classNames(projectcss.all, sty.columns___6Og7R)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__gPz63)}
+                    <div
+                      className={classNames(projectcss.all, sty.column__tAcp6)}
                     >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img___9V8Pq)}
-                        displayHeight={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? "734px"
-                            : "700px"
-                        }
-                        displayMaxHeight={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? "1511px"
-                            : "none"
-                        }
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"8px"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/pg_staking/images/line3Svg.svg",
-                          fullWidth: 1,
-                          fullHeight: 150,
-                          aspectRatio: 0.006289
-                        }}
-                      />
-
                       <Stack__
                         as={"div"}
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__jIdGo
+                          sty.freeBox__nVxFe
                         )}
                       >
+                        <h2
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h2,
+                            projectcss.__wab_text,
+                            sty.h2___1QzwO
+                          )}
+                        >
+                          {"Eager to make a positive impact on society?"}
+                        </h2>
+                        <h4
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h4,
+                            projectcss.__wab_text,
+                            sty.h4__tZAs
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>
+                              {
+                                "Play your part by directing your FIL donations  towards the advancement and enhancement of digital public goods. Allocate your FIL through GLIF, choosing the amount you wish to donate to the "
+                              }
+                            </React.Fragment>
+                            {
+                              <PlasmicLink__
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.a,
+                                  projectcss.__wab_text,
+                                  projectcss.plasmic_default__inline,
+                                  sty.link__xownu
+                                )}
+                                component={Link}
+                                href={"https://openimpact.foundation"}
+                                platform={"nextjs"}
+                              >
+                                {"Open Impact Foundation"}
+                              </PlasmicLink__>
+                            }
+                            <React.Fragment>
+                              {
+                                ". Your contributions will empower the Open Impact Foundation to foster the ecosystem's growth by funding essential core projects. This support enables developers to rapidly innovate and develop new ideas and applications including projects like IPFS, libp2p and others, supporting a  cycle of innovation."
+                              }
+                            </React.Fragment>
+                          </React.Fragment>
+                        </h4>
+                      </Stack__>
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.column__qSgU)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gPz63
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img___9V8Pq)}
+                          displayHeight={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? "734px"
+                              : "700px"
+                          }
+                          displayMaxHeight={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? "1511px"
+                              : "none"
+                          }
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"8px"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/pg_staking/images/line3Svg.svg",
+                            fullWidth: 1,
+                            fullHeight: 150,
+                            aspectRatio: 0.006289
+                          }}
+                        />
+
                         <Stack__
                           as={"div"}
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__sPaS
+                            sty.freeBox__jIdGo
                           )}
                         >
-                          <h2
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.h2,
-                              projectcss.__wab_text,
-                              sty.h2___1HlnD
-                            )}
-                          >
-                            {
-                              "4 easy steps to support projects you're passionate about"
-                            }
-                          </h2>
-                          <h4
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.h4,
-                              projectcss.__wab_text,
-                              sty.h4__v4M0M
-                            )}
-                          >
-                            <React.Fragment>
-                              <React.Fragment>
-                                {
-                                  "This is your opportunity to make a significant impact on the development of digital public goods that facilitate substantial societal progress. The best part? You can do it effortlessly. Simply stake your FIL and donate to the "
-                                }
-                              </React.Fragment>
-                              {
-                                <PlasmicLink__
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.a,
-                                    projectcss.__wab_text,
-                                    projectcss.plasmic_default__inline,
-                                    sty.link__gpCb9
-                                  )}
-                                  component={Link}
-                                  href={"https://openimpact.foundation"}
-                                  platform={"nextjs"}
-                                >
-                                  {"Open Impact Foundation"}
-                                </PlasmicLink__>
-                              }
-                              <React.Fragment>
-                                {
-                                  " to enable  digital public goods benefiting everyone."
-                                }
-                              </React.Fragment>
-                            </React.Fragment>
-                          </h4>
                           <Stack__
                             as={"div"}
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__cTvBw
+                              sty.freeBox__sPaS
                             )}
                           >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__dXwfA)}
-                              displayHeight={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "45px"
-                              }
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "80px"
-                              }
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/pg_staking/images/frame1Png.png",
-                                fullWidth: 41,
-                                fullHeight: 89,
-                                aspectRatio: undefined
-                              }}
-                            />
-
-                            <h4
+                            <h2
                               className={classNames(
                                 projectcss.all,
-                                projectcss.h4,
+                                projectcss.h2,
                                 projectcss.__wab_text,
-                                sty.h4__iJyM
+                                sty.h2___1HlnD
                               )}
                             >
                               {
-                                "Decide how much FIL you want to stake and how much of it you would like to donate to PG's."
+                                "4 easy steps to support projects you're passionate about"
                               }
-                            </h4>
-                          </Stack__>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ioIvD
-                            )}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__uriZ)}
-                              displayHeight={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "45px"
-                              }
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "80px"
-                              }
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/pg_staking/images/frame2Png.png",
-                                fullWidth: 58,
-                                fullHeight: 89,
-                                aspectRatio: undefined
-                              }}
-                            />
-
+                            </h2>
                             <h4
                               className={classNames(
                                 projectcss.all,
                                 projectcss.h4,
                                 projectcss.__wab_text,
-                                sty.h4__cbnj3
-                              )}
-                            >
-                              {
-                                "Deposit FIL, and receive an equivalent amount of iFIL tokens in return."
-                              }
-                            </h4>
-                          </Stack__>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__oyYr9
-                            )}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__lnBz4)}
-                              displayHeight={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "45px"
-                              }
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "80px"
-                              }
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/pg_staking/images/frame3Png.png",
-                                fullWidth: 58,
-                                fullHeight: 89,
-                                aspectRatio: undefined
-                              }}
-                            />
-
-                            <h4
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h4,
-                                projectcss.__wab_text,
-                                sty.h4__tQhr
-                              )}
-                            >
-                              {"Earn rewards, and see the ecosystem grow!"}
-                            </h4>
-                          </Stack__>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__lwJt8
-                            )}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__kBbft)}
-                              displayHeight={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "45px"
-                              }
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={
-                                hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "50px"
-                                  : "80px"
-                              }
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/pg_staking/images/frame4Png.png",
-                                fullWidth: 64,
-                                fullHeight: 89,
-                                aspectRatio: undefined
-                              }}
-                            />
-
-                            <h4
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h4,
-                                projectcss.__wab_text,
-                                sty.h4___86FzW
+                                sty.h4__v4M0M
                               )}
                             >
                               <React.Fragment>
                                 <React.Fragment>
                                   {
-                                    "Stay up to date about the work in digital public goods of "
+                                    "This is your opportunity to make a significant impact on the development of digital public goods that facilitate substantial societal progress. The best part? You can do it effortlessly. Simply stake your FIL and donate to the "
                                   }
                                 </React.Fragment>
                                 {
@@ -817,7 +592,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       projectcss.a,
                                       projectcss.__wab_text,
                                       projectcss.plasmic_default__inline,
-                                      sty.link__fQmt8
+                                      sty.link__gpCb9
                                     )}
                                     component={Link}
                                     href={"https://openimpact.foundation"}
@@ -826,76 +601,323 @@ function PlasmicHomepage__RenderFunc(props: {
                                     {"Open Impact Foundation"}
                                   </PlasmicLink__>
                                 }
-                                <React.Fragment>{"."}</React.Fragment>
+                                <React.Fragment>
+                                  {
+                                    " to enable  digital public goods benefiting everyone."
+                                  }
+                                </React.Fragment>
                               </React.Fragment>
                             </h4>
-                          </Stack__>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__omxr0
-                          )}
-                        >
-                          <Button
-                            className={classNames(
-                              "__wab_instance",
-                              sty.button__qYlue
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["goToTermsOfUsePrivacyPolicy"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      destination: `/terms-and-conditions`
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["goToTermsOfUsePrivacyPolicy"] != null &&
-                                typeof $steps["goToTermsOfUsePrivacyPolicy"] ===
-                                  "object" &&
-                                typeof $steps["goToTermsOfUsePrivacyPolicy"]
-                                  .then === "function"
-                              ) {
-                                $steps["goToTermsOfUsePrivacyPolicy"] =
-                                  await $steps["goToTermsOfUsePrivacyPolicy"];
-                              }
-                            }}
-                          >
-                            <div
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text___3Kthh
+                                sty.freeBox__cTvBw
                               )}
                             >
-                              {"Terms & Conditions"}
-                            </div>
-                          </Button>
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__dXwfA)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "45px"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "80px"
+                                }
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/pg_staking/images/frame1Png.png",
+                                  fullWidth: 41,
+                                  fullHeight: 89,
+                                  aspectRatio: undefined
+                                }}
+                              />
+
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4__iJyM
+                                )}
+                              >
+                                {
+                                  "Decide how much FIL you want to stake and how much of it you would like to donate to PG's."
+                                }
+                              </h4>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ioIvD
+                              )}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__uriZ)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "45px"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "80px"
+                                }
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/pg_staking/images/frame2Png.png",
+                                  fullWidth: 58,
+                                  fullHeight: 89,
+                                  aspectRatio: undefined
+                                }}
+                              />
+
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4__cbnj3
+                                )}
+                              >
+                                {
+                                  "Deposit FIL, and receive an equivalent amount of iFIL tokens in return."
+                                }
+                              </h4>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__oyYr9
+                              )}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__lnBz4)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "45px"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "80px"
+                                }
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/pg_staking/images/frame3Png.png",
+                                  fullWidth: 58,
+                                  fullHeight: 89,
+                                  aspectRatio: undefined
+                                }}
+                              />
+
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4__tQhr
+                                )}
+                              >
+                                {"Earn rewards, and see the ecosystem grow!"}
+                              </h4>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__lwJt8
+                              )}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__kBbft)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "45px"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "50px"
+                                    : "80px"
+                                }
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/pg_staking/images/frame4Png.png",
+                                  fullWidth: 64,
+                                  fullHeight: 89,
+                                  aspectRatio: undefined
+                                }}
+                              />
+
+                              <h4
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h4,
+                                  projectcss.__wab_text,
+                                  sty.h4___86FzW
+                                )}
+                              >
+                                <React.Fragment>
+                                  <React.Fragment>
+                                    {
+                                      "Stay up to date about the work in digital public goods of "
+                                    }
+                                  </React.Fragment>
+                                  {
+                                    <PlasmicLink__
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.a,
+                                        projectcss.__wab_text,
+                                        projectcss.plasmic_default__inline,
+                                        sty.link__fQmt8
+                                      )}
+                                      component={Link}
+                                      href={"https://openimpact.foundation"}
+                                      platform={"nextjs"}
+                                    >
+                                      {"Open Impact Foundation"}
+                                    </PlasmicLink__>
+                                  }
+                                  <React.Fragment>{"."}</React.Fragment>
+                                </React.Fragment>
+                              </h4>
+                            </Stack__>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__omxr0
+                            )}
+                          >
+                            <Button
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__qYlue
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["goToTermsOfUsePrivacyPolicy"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: `/terms-and-conditions`
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["goToTermsOfUsePrivacyPolicy"] !=
+                                    null &&
+                                  typeof $steps[
+                                    "goToTermsOfUsePrivacyPolicy"
+                                  ] === "object" &&
+                                  typeof $steps["goToTermsOfUsePrivacyPolicy"]
+                                    .then === "function"
+                                ) {
+                                  $steps["goToTermsOfUsePrivacyPolicy"] =
+                                    await $steps["goToTermsOfUsePrivacyPolicy"];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___3Kthh
+                                )}
+                              >
+                                {"Terms & Conditions"}
+                              </div>
+                            </Button>
+                          </Stack__>
                         </Stack__>
                       </Stack__>
                     </Stack__>
                   </Stack__>
                 </Stack__>
-              </Stack__>
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__inrEu)}>
               <Stack__
