@@ -36,7 +36,7 @@ export const NavigationResponsive = ({
 
   const headerRef = React.useRef<HTMLDivElement>(null);
 
-  const backgroundBlue = "#56B9FF";
+  const backgroundColor = "#edf1f4";
 
   const { isOpen, onToggle, onClose } = useDisclosure();
   const offset = headerRef.current?.clientHeight || 0;
@@ -47,7 +47,7 @@ export const NavigationResponsive = ({
       as="nav"
       className={className}
       zIndex={isDesktop ? undefined : 10000}
-      backgroundColor={!isDesktop && isOpen ? backgroundBlue : undefined}
+      backgroundColor={!isDesktop && isOpen ? backgroundColor : undefined}
       ref={headerRef}
     >
       <Box mr={10}>{logo}</Box>
@@ -56,7 +56,7 @@ export const NavigationResponsive = ({
       </Show>
       <Flex alignItems={"center"} ml={"auto"}>
         <Hide breakpoint={isDesktopBreakpoint}>
-          <Hamburger onToggle={onToggle} toggled={isOpen} />
+          <Hamburger color="black" onToggle={onToggle} toggled={isOpen} />
         </Hide>
         <Show breakpoint={isDesktopBreakpoint}>
           <ConnectWalletButton breakpoint={breakpoint} />
@@ -70,7 +70,7 @@ export const NavigationResponsive = ({
       >
         <DrawerOverlay sx={{ marginTop: offset }} />
         <DrawerContent
-          backgroundColor={backgroundBlue}
+          backgroundColor={backgroundColor}
           sx={{ marginTop: offset }}
         >
           <DrawerBody paddingBottom={"28px"}>

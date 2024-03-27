@@ -345,6 +345,16 @@
           "id": "Gxa6vv2VNt-I",
           "name": "Line 3.svg",
           "filePath": "../public/plasmic/pg_staking/images/line3Svg.svg"
+        },
+        {
+          "id": "SWhziLIB6s50",
+          "name": "built on glif.png",
+          "filePath": "../public/plasmic/pg_staking/images/builtOnGlifpng.png"
+        },
+        {
+          "id": "K9BhgO2PBwIZ",
+          "name": "built on glif.png 2",
+          "filePath": "../public/plasmic/pg_staking/images/builtOnGlifpng2.png"
         }
       ],
       "indirect": false,
