@@ -212,10 +212,10 @@ function PlasmicNav__RenderFunc(props: {
                       aspectRatio: 0.732394
                     }
                   : {
-                      src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
-                      fullWidth: 110,
-                      fullHeight: 150,
-                      aspectRatio: 0.732394
+                      src: "/plasmic/pg_staking/images/builtOnGlifpng2.png",
+                      fullWidth: 600,
+                      fullHeight: 952,
+                      aspectRatio: undefined
                     }
               }
             />

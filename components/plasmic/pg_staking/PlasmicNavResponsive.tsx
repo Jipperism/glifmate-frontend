@@ -165,10 +165,10 @@ function PlasmicNavResponsive__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={"auto"}
               src={{
-                src: "/plasmic/pg_staking/images/glifLogoBlack85Svg.svg",
-                fullWidth: 110,
-                fullHeight: 150,
-                aspectRatio: 0.732394
+                src: "/plasmic/pg_staking/images/builtOnGlifpng2.png",
+                fullWidth: 600,
+                fullHeight: 952,
+                aspectRatio: undefined
               }}
             />
           </PlasmicLink__>

@@ -5,11 +5,13 @@
   position: relative;
   height: auto;
   color: #edf1f4;
+  background: none;
   min-width: 0;
   padding: 20px 40px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .root:global(.__wab_instance) {
+    width: 731px;
     padding: 8px 20px;
   }
 }
