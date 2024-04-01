@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  useAccount,
-  useContractWrite,
-  usePrepareContractWrite,
-  useWaitForTransaction,
-} from "wagmi";
-import { ethers, toBigInt } from "ethers";
+import { useAccount } from "wagmi";
 
 import Button from "@/components/Button";
-import { useContractAddresses } from "@/hooks/getAddresses";
+
 import {
   Alert,
   AlertDescription,
@@ -25,19 +19,22 @@ import {
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,
+  Spinner,
   Tooltip,
   VStack,
 } from "@chakra-ui/react";
 import { Formik } from "formik";
 import ConnectWalletButton from "@/components/connect-wallet-button";
+import { parseEther } from "viem";
+import { useDeposit } from "@/hooks/useDeposit";
 
 export interface DepositFormProps {
   className?: string;
 }
 
 export const DepositForm = ({ className }: DepositFormProps) => {
-  const { PUBLIC_GOODS } = useContractAddresses();
   const { address, isConnecting } = useAccount();
+  const { mutateAsync: depositAsync, isPending, isError, error } = useDeposit();
 
   const [showConnectWallet, setShowConnectWallet] = useState(false);
 
@@ -49,90 +46,63 @@ export const DepositForm = ({ className }: DepositFormProps) => {
     | {
         depositAmountInWei?: bigint;
         donationPercentageWei?: bigint;
+        donationAmountWei?: bigint;
+        stakeAmountWei?: bigint;
       }
     | undefined
   >(undefined);
 
-  const {
-    config,
-    isError: isPrepareError,
-    error: prepareError,
-  } = usePrepareContractWrite({
-    address: PUBLIC_GOODS as `0x${string}`,
-    abi: [
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "recipient",
-            type: "address",
-          },
-          {
-            internalType: "uint256",
-            name: "donationPercent",
-            type: "uint256",
-          },
-        ],
-        name: "deposit",
-        outputs: [],
-        stateMutability: "payable",
-        type: "function",
-      },
-    ],
-    // abi: PublicGoodsABI,
-    functionName: "deposit",
-    enabled:
-      formValues !== undefined &&
-      formValues.depositAmountInWei !== undefined &&
-      formValues.donationPercentageWei !== undefined,
-    value: formValues?.depositAmountInWei!,
-    args: [address!, formValues?.donationPercentageWei!],
-  });
-
-  const {
-    data,
-    write: deposit,
-    isError: isWriteError,
-    error: writeError,
-  } = useContractWrite(config);
-
-  const { isLoading, isSuccess } = useWaitForTransaction({
-    hash: data?.hash,
-  });
-
   const [showTooltip, setShowTooltip] = React.useState(false);
 
   async function onDeposit() {
-    if (!address) {
-      return;
-    }
-
-    deposit?.();
+    await depositAsync({
+      stakeAmountWei: formValues?.stakeAmountWei!,
+      donationAmountWei: formValues?.donationAmountWei!,
+    });
+    console.log("deposited succesfully");
   }
 
   return (
     <Formik
-      initialValues={{ depositAmount: "0", receiveAmount: 0, sliderValue: 10 }}
+      initialValues={{
+        depositAmount: "0.0000000000000001",
+        receiveAmount: 0,
+        sliderValue: 10,
+      }}
       validateOnMount
       validate={(values) => {
+        const depositAmount =
+          typeof values.depositAmount === "string"
+            ? values.depositAmount
+            : (values.depositAmount as number).toFixed(18);
         const depositAmountInWei =
           values.depositAmount !== ""
-            ? toBigInt(values.depositAmount) * ethers.WeiPerEther
+            ? parseEther(depositAmount as `${number}`)
             : undefined;
 
-        // Percentage should be (0 <= x <= 1) * ethers.WeiPerEther
-        const donationPercentageWei =
-          (toBigInt(values.sliderValue) * ethers.WeiPerEther) / toBigInt(100);
+        if (depositAmountInWei === undefined) {
+          return;
+        }
+
+        const donationAmountWei =
+          (BigInt(values.sliderValue) * depositAmountInWei) / BigInt(100);
+
+        const stakeAmountWei = depositAmountInWei - donationAmountWei;
+
         console.log(
           "validating",
           values,
           depositAmountInWei,
-          donationPercentageWei
+          donationAmountWei,
+          stakeAmountWei
         );
+
         setFormValues({
           depositAmountInWei,
-          donationPercentageWei,
+          donationAmountWei,
+          stakeAmountWei,
         });
+
         const errors = {};
         return errors;
       }}
@@ -145,22 +115,19 @@ export const DepositForm = ({ className }: DepositFormProps) => {
     >
       {({
         values,
-        errors,
-        touched,
         setFieldValue,
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
-        resetForm,
-        validateForm,
 
         /* and other goodies */
       }) => {
-        const isErrored = isPrepareError || isWriteError;
-        const error = prepareError || writeError;
-        const disabled = showConnectWallet || isLoading || isConnecting;
-        const submitDisabled = disabled || isErrored;
+        // const isErrored = isPrepareError || isWriteError;
+        // const error = prepareError || writeError;
+        const disabled = showConnectWallet || isPending || isConnecting;
+        const submitDisabled = disabled || isError;
+        const isSuccess = false;
+
         return (
           <form
             className={className}
@@ -189,6 +156,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                   Donate {values.sliderValue}%
                 </FormLabel>
                 <Slider
+                  isDisabled={disabled}
                   px={1}
                   width={"100%"}
                   onChange={(v) => {
@@ -248,7 +216,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                   </Box>
                 </Alert>
               )}
-              {isErrored && (
+              {isError && (
                 <Alert status="error">
                   <AlertIcon />
                   <Box>
@@ -258,6 +226,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                       {error?.cause?.details ||
                         // @ts-ignore
                         error?.shortMessage ||
+                        // @ts-ignore
                         error?.message}
                     </AlertDescription>
                   </Box>
@@ -284,7 +253,7 @@ export const DepositForm = ({ className }: DepositFormProps) => {
                 size="small"
                 style={{ width: "100%" }}
               >
-                Send
+                {isPending ? <Spinner color="black" /> : "Deposit"}
               </Button>
             </HStack>
           </form>

@@ -1,51 +1,26 @@
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { filecoin, filecoinCalibration } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
 import React from "react";
-import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
-import { RPC_FILECOIN_CALIBRATION, RPC_MAINNET } from "@/constants";
+import { WagmiProvider } from "wagmi";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
-const { chains, publicClient } = configureChains(
-  [filecoin, filecoinCalibration],
-  [
-    jsonRpcProvider({
-      rpc: (chain) => {
-        if (chain.id === filecoin.id) {
-          return {
-            http: RPC_MAINNET,
-            webSocket: "wss://wss.node.glif.io/apigw/lotus/rpc/v1",
-          };
-        }
-        if (chain.id === filecoinCalibration.id) {
-          return {
-            http: RPC_FILECOIN_CALIBRATION,
-            webSocket: "wss://filecoin-calibration.chainup.net/rpc/v1",
-          };
-        }
-        throw new Error("Unsupported chain!");
-      },
-    }),
-    publicProvider(),
-  ]
-);
+import "@rainbow-me/rainbowkit/styles.css";
 
-const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
+const config = getDefaultConfig({
+  appName: "PG Staking",
   projectId: "YOUR_PROJECT_ID",
-  chains,
+  chains: [filecoin, filecoinCalibration],
+  ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-});
+const queryClient = new QueryClient();
 
 export const WalletProvider = (props: React.PropsWithChildren) => {
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>{props.children}</RainbowKitProvider>
-    </WagmiConfig>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>{props.children}</RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 };

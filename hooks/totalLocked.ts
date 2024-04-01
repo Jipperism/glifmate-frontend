@@ -5,8 +5,8 @@ import {
   useContractAddresses,
 } from "@/hooks/getAddresses";
 import preStakeABI from "@/abi/PreStakeABI";
-import { getContract } from "@wagmi/core";
 import { useEffect, useState } from "react";
+import { getContract } from "viem";
 
 export const useTotalValueLocked = () => {
   const { PRESTAKE } = useContractAddresses();
@@ -20,7 +20,7 @@ export const useTotalValueLocked = () => {
   const contract = getContract({
     address: PRESTAKE as `0x${string}`,
     abi: preStakeABI,
-    walletClient: publicClient,
+    client: publicClient!,
   });
 
   useEffect(() => {

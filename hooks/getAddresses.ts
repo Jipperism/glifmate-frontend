@@ -56,3 +56,31 @@ export const useContractAddresses = () => {
   const chainIdOrDefault = chainId ?? DEFAULT_CHAIN_ID;
   return getAddresses(chainIdOrDefault);
 };
+
+// export const DONATION_MULTISIG_ADDRESS = "f03037055";
+
+export const DONATION_MULTISIG_ADDRESS =
+  "f2s5egxelf45ibvhyhfporarupiiurgeyuniffboy";
+
+export const STAKING_MULTISIG_ADDRESS =
+  "f2o66lvdx3vmpv4ikgojestbuistg4no42ckujvwi";
+
+export const FIL_FORWARDER_ADDRESS =
+  "0x2b3ef6906429b580b7b2080de5ca893bc282c225";
+
+export const FIL_FORWARDER_ABI = [
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "destination",
+        type: "bytes",
+      },
+    ],
+    name: "forward",
+    outputs: [],
+    payable: true,
+    stateMutability: "payable",
+    type: "function",
+  },
+];
