@@ -200,7 +200,7 @@ function PlasmicDepositModalContent__RenderFunc(props: {
               }
             )}
           >
-            {"Stake early"}
+            {"DONATE"}
           </h3>
           <h6
             className={classNames(

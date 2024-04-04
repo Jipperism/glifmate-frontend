@@ -85,6 +85,7 @@
   font-weight: 400;
   font-size: 20px;
   background: #5c5b57bf;
+  display: none;
   border-radius: 10px;
   padding: 10px;
 }
